@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "49754693620868B56F27F8D55D24638EF9A1CE21",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "49754693620868B56F27F8D55D24638EF9A1CE21" : 0,
+    "F28483DD2CB3D83B04B3AE143AC37D3005227413" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A72F3A6D-0F90-488C-A601-1865E3122DC6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "49754693620868B56F27F8D55D24638EF9A1CE21" : "follow\/",
+    "F28483DD2CB3D83B04B3AE143AC37D3005227413" : "follow\/server\/capnproto\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Follow",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/Follow.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xygroup\/follow.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49754693620868B56F27F8D55D24638EF9A1CE21"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:xygroup\/capnproto.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F28483DD2CB3D83B04B3AE143AC37D3005227413"
+    }
+  ]
+}

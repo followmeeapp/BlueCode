@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "49754693620868B56F27F8D55D24638EF9A1CE21+++20040C2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++CF73593" : 0,
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++AD5457C" : 0,
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++20040C2" : 0,
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++83E7B8B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "248EEC4C-7162-4F6C-9CFF-95D75819B1CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++CF73593" : "..\/..\/..\/..\/Volumes\/XyDev\/code\/nike\/snkrspopup\/server",
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++AD5457C" : "..\/..\/..\/..\/Volumes\/XyDev\/code\/nike\/snkrspopup\/server",
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++20040C2" : "follow\/",
+    "49754693620868B56F27F8D55D24638EF9A1CE21+++83E7B8B" : "followmee\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Follow",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/Follow.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xygroup\/followmee.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49754693620868B56F27F8D55D24638EF9A1CE21+++20040C2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xygroup\/followmee.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49754693620868B56F27F8D55D24638EF9A1CE21+++83E7B8B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xygroup\/snkrspopup.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49754693620868B56F27F8D55D24638EF9A1CE21+++AD5457C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/xygroup\/followmee.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "49754693620868B56F27F8D55D24638EF9A1CE21+++CF73593"
+    }
+  ]
+}

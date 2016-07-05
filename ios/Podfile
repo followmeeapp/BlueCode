@@ -1,0 +1,15 @@
+platform :ios, '9.0'
+
+# LayerKit v0.17 or higher requires the use_frameworks tag
+use_frameworks!
+
+target 'Follow' do
+  pod 'Realm'
+  pod 'LayerKit'
+  pod 'SDWebImage', '~>3.8'
+  pod 'KSReachability'
+  pod 'ABFRealmMapView'
+  pod 'Atlas'
+  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+  pod 'SVProgressHUD'
+end

@@ -1,0 +1,82 @@
+//
+//  Prefix.pch
+//  Follow
+//
+//  Copyright © 2016 Follow-Mee, Incorporated. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreGraphics/CoreGraphics.h>
+    #import <CoreLocation/CoreLocation.h>
+//    #import <MessageUI/MessageUI.h>
+    #import <CoreText/CoreText.h>
+
+    /*!
+     * @function Singleton GCD Macro
+     */
+    #ifndef SINGLETON_GCD
+    #define SINGLETON_GCD(classname)                     \
+                                                         \
+    + (classname *)sharedInstance {                      \
+        static dispatch_once_t pred;                     \
+        static classname *sharedInstance = nil;          \
+                                                         \
+        dispatch_once(&pred, ^{                          \
+            sharedInstance = [[self alloc] init];        \
+        });                                              \
+                                                         \
+        return sharedInstance;                           \
+    }
+
+    #endif
+
+    #ifdef __IPHONE_6_0 // iOS6 and later
+    #   define UITextAlignmentCenter    NSTextAlignmentCenter
+    #   define UITextAlignmentLeft      NSTextAlignmentLeft
+    #   define UITextAlignmentRight     NSTextAlignmentRight
+
+    #   define UILineBreakModeTailTruncation     NSLineBreakByTruncatingTail
+    #   define UILineBreakModeMiddleTruncation   NSLineBreakByTruncatingMiddle
+    #   define UILineBreakModeWordWrap           NSLineBreakByWordWrapping
+    #endif
+
+    #ifdef DEBUG
+    #   define LOG_CURRENT_METHOD                                                \
+        do {                                                                     \
+            if ( [self class] == (Class)self ) {                                 \
+                NSLog( @"+[%@ %@]", [self class], NSStringFromSelector( _cmd )); \
+            } else {                                                             \
+                NSLog( @"-[%@ %@]", [self class], NSStringFromSelector( _cmd )); \
+            }                                                                    \
+        } while ( 0 )
+    #   define LOG(...) NSLog(__VA_ARGS__);
+    #else
+    #   define LOG_CURRENT_METHOD ;
+    #   define LOG(...);
+    #endif
+
+    // CoreGraphics helpers
+    #define UNION_CAST(x, destType) (((union {__typeof__(x) a; destType b;})x).b)
+    #define UCAST(x, destType) UNION_CAST(x, destType)
+    #define NSRectToCGRect(r) UNION_CAST( r, CGRect )
+    #define NSSizeToCGSize(s) UNION_CAST( s, CGSize )
+    #define NSPointToCGPoint(p) UNION_CAST( p, CGPoint )
+
+    #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+    #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+    #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+    #define XCODE_IS_TESTING [[[[NSProcessInfo processInfo] environment][@"XCInjectBundle"] pathExtension] isEqualToString:@"xctest"]
+
+#endif
