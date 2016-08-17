@@ -1,0 +1,860 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		461AE316442142FAAFA6D6F5 /* FORMAT */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 470D9434D3164442B2B65143 /* Build configuration list for PBXAggregateTarget "FORMAT" */;
+			buildPhases = (
+				C01D34B818C34C6094CC1570 /* CMake Rules */,
+			);
+			dependencies = (
+				972ABC8FB14A4D47ADC2AFDC /* PBXTargetDependency */,
+			);
+			name = FORMAT;
+			productName = FORMAT;
+		};
+		4B9E7C83AAD04B9BAF1F25BE /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 366C69B09AF84D4E8D25CA0F /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				38C5EBB4176D4D29BEB52AAA /* CMake Rules */,
+			);
+			dependencies = (
+				D63345148448449195D87D7B /* PBXTargetDependency */,
+				BF7568823BF440A9889BC8B1 /* PBXTargetDependency */,
+				00D645ED1197434E81182023 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		C15B4796BB5A45898F1C89CC /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 82BF28EAB38C4045AD14937F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				FB0FB305CA494CF49BD9742B /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		0F6CA2FA15174E1BB2988FD5 /* /Users/erich/Desktop/Follow/follow/server/proxy/BUILD */ = {isa = PBXBuildFile; fileRef = FFB36825C66A4B22AADAC6A8 /* /Users/erich/Desktop/Follow/follow/server/proxy/BUILD */; settings = {COMPILER_FLAGS = ""; }; };
+		706BF319962B4575AB7B24F7 /* /Users/erich/Desktop/Follow/follow/server/proxy/blinky.cpp */ = {isa = PBXBuildFile; fileRef = 2A9870BED1B547BD8D4398DC /* /Users/erich/Desktop/Follow/follow/server/proxy/blinky.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		74C37EB0DE504524875FE12E /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = F9EB56E4001D4D569EE97A4B /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		0EAB69B9FE7644B7B6C03B6E /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		1AABAB9AF47C4AF7B4F07ADF = {
+			isa = PBXBuildStyle;
+		};
+		5140754B9D834F81988853AF /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		BF3B3307B707490083FB2817 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		FBB77222F47C42B2B3D79DA5 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		1861D6B2E71E4E02A28A328C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094E368ED44844D49D1B6198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 461AE316442142FAAFA6D6F5;
+			remoteInfo = FORMAT;
+		};
+		7CD871E193B34268BEEFA122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094E368ED44844D49D1B6198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C15B4796BB5A45898F1C89CC;
+			remoteInfo = ZERO_CHECK;
+		};
+		9DAFFD9F1C144CA688EBB142 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094E368ED44844D49D1B6198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C15B4796BB5A45898F1C89CC;
+			remoteInfo = ZERO_CHECK;
+		};
+		B0F457CAE02045A5ABA37152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094E368ED44844D49D1B6198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C15B4796BB5A45898F1C89CC;
+			remoteInfo = ZERO_CHECK;
+		};
+		E9C41610C746435483DF38F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 094E368ED44844D49D1B6198 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CA7D56E87F24053B75132A0;
+			remoteInfo = proxy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A9870BED1B547BD8D4398DC /* /Users/erich/Desktop/Follow/follow/server/proxy/blinky.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = blinky.cpp; path = blinky.cpp; sourceTree = SOURCE_ROOT; };
+		565AE672731B48DDB7F883A4 /* proxy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = proxy; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		59D93D303EC746598B8160AE /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		72449FB3EBF7430C9BF005F5 /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		E2B4653C4EAB4B1E9910798C /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		F9EB56E4001D4D569EE97A4B /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		FFB36825C66A4B22AADAC6A8 /* /Users/erich/Desktop/Follow/follow/server/proxy/BUILD */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = BUILD; path = BUILD; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		04579362F2E34C56805F7E91 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				9B38AC76C2F14E3392CDD5EA /* CMake Rules */,
+				E2B4653C4EAB4B1E9910798C /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		0919D674D8914CA0BFD49B2C /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		5727B678845D47339DCD12CB /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		5F1DA1D1E64F42D9983D733E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		73960D8BBC6547D586FC7778 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				565AE672731B48DDB7F883A4 /* proxy */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E92D0794244437F9ABCE8A6 /* FORMAT */ = {
+			isa = PBXGroup;
+			children = (
+				0919D674D8914CA0BFD49B2C /* CMake Rules */,
+				72449FB3EBF7430C9BF005F5 /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */,
+			);
+			name = FORMAT;
+			sourceTree = "<group>";
+		};
+		9B38AC76C2F14E3392CDD5EA /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A62D7CC007AF4415ACEE1F1F /* proxy */ = {
+			isa = PBXGroup;
+			children = (
+				CA9BABD5A9F142CA834C139A /* Source Files */,
+				FFB36825C66A4B22AADAC6A8 /* /Users/erich/Desktop/Follow/follow/server/proxy/BUILD */,
+				F9EB56E4001D4D569EE97A4B /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */,
+			);
+			name = proxy;
+			sourceTree = "<group>";
+		};
+		B7B5337F25AE4C349436670F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7E92D0794244437F9ABCE8A6 /* FORMAT */,
+				A62D7CC007AF4415ACEE1F1F /* proxy */,
+				E6DB3D1C87144203B1713099 /* ALL_BUILD */,
+				04579362F2E34C56805F7E91 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		CA9BABD5A9F142CA834C139A /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A9870BED1B547BD8D4398DC /* /Users/erich/Desktop/Follow/follow/server/proxy/blinky.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D09685A577354CB9948E1968 = {
+			isa = PBXGroup;
+			children = (
+				B7B5337F25AE4C349436670F /* Sources */,
+				5F1DA1D1E64F42D9983D733E /* Resources */,
+				73960D8BBC6547D586FC7778 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E6DB3D1C87144203B1713099 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				5727B678845D47339DCD12CB /* CMake Rules */,
+				59D93D303EC746598B8160AE /* /Users/erich/Desktop/Follow/follow/server/proxy/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CA7D56E87F24053B75132A0 /* proxy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CFB6B4D36F34FB78218EBA1 /* Build configuration list for PBXNativeTarget "proxy" */;
+			buildPhases = (
+				5F427A66E4574AEAAB2ED94F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECD816F8F03F45A0A4950574 /* PBXTargetDependency */,
+			);
+			name = proxy;
+			productName = proxy;
+			productReference = 565AE672731B48DDB7F883A4 /* proxy */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		094E368ED44844D49D1B6198 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0730;
+			};
+			buildConfigurationList = 584326C7BAD24B9386BD50F5 /* Build configuration list for PBXProject "proxy" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				FBB77222F47C42B2B3D79DA5 /* Debug */,
+				0EAB69B9FE7644B7B6C03B6E /* Release */,
+				BF3B3307B707490083FB2817 /* MinSizeRel */,
+				5140754B9D834F81988853AF /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = D09685A577354CB9948E1968;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				4B9E7C83AAD04B9BAF1F25BE /* ALL_BUILD */,
+				461AE316442142FAAFA6D6F5 /* FORMAT */,
+				C15B4796BB5A45898F1C89CC /* ZERO_CHECK */,
+				1CA7D56E87F24053B75132A0 /* proxy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38C5EBB4176D4D29BEB52AAA /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/proxy/_xcode -f /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		8547FCE16D2D4395A01753D0 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		AE137A98285D44268D6AFEF1 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		BF413BCAE1AC485D9FF258BD = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		C01D34B818C34C6094CC1570 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/proxy/_xcode -f /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/CMakeScripts/FORMAT_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		FB0FB305CA494CF49BD9742B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/proxy/_xcode -f /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F427A66E4574AEAAB2ED94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				706BF319962B4575AB7B24F7 /* /Users/erich/Desktop/Follow/follow/server/proxy/blinky.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00D645ED1197434E81182023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C15B4796BB5A45898F1C89CC /* ZERO_CHECK */;
+			targetProxy = 9DAFFD9F1C144CA688EBB142 /* PBXContainerItemProxy */;
+		};
+		972ABC8FB14A4D47ADC2AFDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C15B4796BB5A45898F1C89CC /* ZERO_CHECK */;
+			targetProxy = B0F457CAE02045A5ABA37152 /* PBXContainerItemProxy */;
+		};
+		BF7568823BF440A9889BC8B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CA7D56E87F24053B75132A0 /* proxy */;
+			targetProxy = E9C41610C746435483DF38F8 /* PBXContainerItemProxy */;
+		};
+		D63345148448449195D87D7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 461AE316442142FAAFA6D6F5 /* FORMAT */;
+			targetProxy = 1861D6B2E71E4E02A28A328C /* PBXContainerItemProxy */;
+		};
+		ECD816F8F03F45A0A4950574 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C15B4796BB5A45898F1C89CC /* ZERO_CHECK */;
+			targetProxy = 7CD871E193B34268BEEFA122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B119D0FDAD34B4692681DFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		1157D203956D464BA562269F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-stdlib=libc++' '-std=c++14' -pthread  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-bin/qpc/libqpc.a /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/rpc/librpc.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/kj/libkj.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = proxy;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		17153E40858E4BC6B38913C4 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/build;
+			};
+			name = RelWithDebInfo;
+		};
+		2A0F103FC5644B0582B17D55 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-stdlib=libc++' '-std=c++14' -pthread  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-bin/qpc/libqpc.a /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/rpc/librpc.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/kj/libkj.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = proxy;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		39782827955F4131B872486F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		50D64281B16A40DDB1118DC2 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		5CA0E721A4FE4790A799C7B8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/build;
+			};
+			name = MinSizeRel;
+		};
+		67B04CC7D9164741AC047AA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-stdlib=libc++' '-std=c++14' -pthread  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-bin/qpc/libqpc.a /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/rpc/librpc.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/kj/libkj.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = proxy;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		770F8B3B7DFF4B98AF6F4FF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		A4AE9EE76E914434A4099AD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/build;
+			};
+			name = Debug;
+		};
+		AB10C62CDD134BFC9E2F2775 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		B40C75AEACE7489CB65F6BF8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		BC30BC322D9949129A9DCDC8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		BE9D735B7E3D4688A5E2401E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		D494A4699FC445C78CDBC19A /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		D999BC2188D8487CB45B54D9 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		F13ECE78A0DD4BA78B1A6F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode/build;
+			};
+			name = Release;
+		};
+		F1FBC0EB6AE940A4A0C1F9BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		F2DF2EFED82C448DB1994CDF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-stdlib=libc++' '-std=c++14' -pthread  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-bin/qpc/libqpc.a /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/rpc/librpc.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-bin/capnproto/kj/libkj.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = proxy;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		FC050B4D16F149DCA882CC7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/websocketpp/_/websocketpp", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/proxy/., "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/qpc/_/qpc", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-fastbuild/include/rpc/_/rpc", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/proxy/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		366C69B09AF84D4E8D25CA0F /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1FBC0EB6AE940A4A0C1F9BE /* Debug */,
+				0B119D0FDAD34B4692681DFA /* Release */,
+				B40C75AEACE7489CB65F6BF8 /* MinSizeRel */,
+				BC30BC322D9949129A9DCDC8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		470D9434D3164442B2B65143 /* Build configuration list for PBXAggregateTarget "FORMAT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				770F8B3B7DFF4B98AF6F4FF0 /* Debug */,
+				39782827955F4131B872486F /* Release */,
+				AB10C62CDD134BFC9E2F2775 /* MinSizeRel */,
+				D999BC2188D8487CB45B54D9 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		584326C7BAD24B9386BD50F5 /* Build configuration list for PBXProject "proxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4AE9EE76E914434A4099AD9 /* Debug */,
+				F13ECE78A0DD4BA78B1A6F87 /* Release */,
+				5CA0E721A4FE4790A799C7B8 /* MinSizeRel */,
+				17153E40858E4BC6B38913C4 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7CFB6B4D36F34FB78218EBA1 /* Build configuration list for PBXNativeTarget "proxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67B04CC7D9164741AC047AA8 /* Debug */,
+				1157D203956D464BA562269F /* Release */,
+				2A0F103FC5644B0582B17D55 /* MinSizeRel */,
+				F2DF2EFED82C448DB1994CDF /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		82BF28EAB38C4045AD14937F /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC050B4D16F149DCA882CC7D /* Debug */,
+				BE9D735B7E3D4688A5E2401E /* Release */,
+				50D64281B16A40DDB1118DC2 /* MinSizeRel */,
+				D494A4699FC445C78CDBC19A /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 094E368ED44844D49D1B6198 /* Project object */;
+}

@@ -1,0 +1,3 @@
+cp ../../bazel-bin/discovery_engine/discoveryd .
+docker build --tag=discoveryd .
+rm discoveryd

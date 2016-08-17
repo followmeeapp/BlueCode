@@ -7,16 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		77078D6A1D24558E00050CBA /* LayerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D691D24558E00050CBA /* LayerClient.m */; };
-		77078D6D1D2458AA00050CBA /* ConversationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D6C1D2458AA00050CBA /* ConversationListViewController.m */; };
 		77078D701D245F9200050CBA /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D6F1D245F9200050CBA /* NavigationController.m */; };
-		77078D731D2464F800050CBA /* ConversationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D721D2464F800050CBA /* ConversationDetailViewController.m */; };
 		77078D791D24671B00050CBA /* CenterTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D781D24671B00050CBA /* CenterTextTableViewCell.m */; };
 		77078D7C1D24676200050CBA /* InputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D7B1D24676200050CBA /* InputTableViewCell.m */; };
-		77078D7F1D2474A700050CBA /* ParticipantTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D7E1D2474A700050CBA /* ParticipantTableViewController.m */; };
-		77078D821D248BA700050CBA /* MediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D811D248BA700050CBA /* MediaViewController.m */; };
 		77078D841D24A91700050CBA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77078D831D24A91700050CBA /* Bolts.framework */; };
-		77078D871D24ABBE00050CBA /* ServerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D861D24ABBE00050CBA /* ServerClient.m */; };
 		77078D8A1D24AE7000050CBA /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 77078D891D24AE7000050CBA /* Utilities.m */; };
 		770FEDF41C98F508007B8463 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FEDE91C98F507007B8463 /* Fabric.framework */; };
 		770FEDF51C98F508007B8463 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FEDEA1C98F507007B8463 /* TwitterKit.framework */; };
@@ -34,22 +28,15 @@
 		771252D81D14FBB000A6FA3A /* serialize-packed.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 771252CC1D14FBB000A6FA3A /* serialize-packed.c++ */; };
 		771252D91D14FBB000A6FA3A /* serialize.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 771252CE1D14FBB000A6FA3A /* serialize.c++ */; };
 		771252E71D172A8300A6FA3A /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252DE1D172A8300A6FA3A /* NotificationCell.m */; };
-		771252E81D172A8300A6FA3A /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252E01D172A8300A6FA3A /* NotificationController.m */; };
-		771252E91D172A8300A6FA3A /* Follow.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252E21D172A8300A6FA3A /* Follow.m */; };
 		771252EA1D172A8300A6FA3A /* ChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252E41D172A8300A6FA3A /* ChatMessageCell.m */; };
-		771252EB1D172A8300A6FA3A /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252E61D172A8300A6FA3A /* ConversationViewController.m */; };
 		771252EF1D174A5D00A6FA3A /* tweetnacl.c in Sources */ = {isa = PBXBuildFile; fileRef = 771252ED1D174A5D00A6FA3A /* tweetnacl.c */; };
 		771252F21D174D0400A6FA3A /* randombytes.c in Sources */ = {isa = PBXBuildFile; fileRef = 771252F01D174D0400A6FA3A /* randombytes.c */; };
-		771252F71D1791E100A6FA3A /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252F61D1791E100A6FA3A /* Card.m */; };
-		771252FA1D1791F900A6FA3A /* CardDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252F91D1791F900A6FA3A /* CardDrop.m */; };
-		771252FE1D17924300A6FA3A /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252FD1D17924300A6FA3A /* Network.m */; };
-		771253011D1793AC00A6FA3A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253001D1793AC00A6FA3A /* User.m */; };
-		771253041D17A25B00A6FA3A /* CardFollow.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253031D17A25B00A6FA3A /* CardFollow.m */; };
-		771253071D1888E500A6FA3A /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253061D1888E500A6FA3A /* Conversation.m */; };
+		771252F71D1791E100A6FA3A /* CardObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252F61D1791E100A6FA3A /* CardObject.m */; };
+		771252FE1D17924300A6FA3A /* NetworkObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 771252FD1D17924300A6FA3A /* NetworkObject.m */; };
+		771253011D1793AC00A6FA3A /* UserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253001D1793AC00A6FA3A /* UserObject.m */; };
 		7712530A1D18A7D000A6FA3A /* IntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253091D18A7D000A6FA3A /* IntroController.m */; };
 		7712530D1D18EFFB00A6FA3A /* CreateCardCallToActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7712530C1D18EFFB00A6FA3A /* CreateCardCallToActionController.m */; };
 		771253101D18F61600A6FA3A /* CreateCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7712530F1D18F61600A6FA3A /* CreateCardController.m */; };
-		771253121D21C00600A6FA3A /* Follow+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 771253111D21C00600A6FA3A /* Follow+Colors.m */; };
 		77170E801CBDBA1000F1CBDC /* warning-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77170E7F1CBDBA1000F1CBDC /* warning-icon.png */; };
 		771C8EC41CBC1C7A00017554 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771C8EC31CBC1C7A00017554 /* CoreTelephony.framework */; };
 		771C8EC61CBC1CAB00017554 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771C8EC51CBC1CAB00017554 /* ImageIO.framework */; };
@@ -57,6 +44,30 @@
 		771C8ECA1CBC1CF900017554 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771C8EC91CBC1CF900017554 /* Accelerate.framework */; };
 		771C8ECC1CBC1D2800017554 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771C8ECB1CBC1D2800017554 /* MediaPlayer.framework */; };
 		773B7F231C5D5F4700ED24E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 773B7EC01C5D5F4700ED24E8 /* main.m */; };
+		773E05F91D612098007A07DB /* block.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05D71D612098007A07DB /* block.capnp.c++ */; };
+		773E05FA1D612098007A07DB /* card_info.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05D91D612098007A07DB /* card_info.capnp.c++ */; };
+		773E05FB1D612098007A07DB /* card_list.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05DB1D612098007A07DB /* card_list.capnp.c++ */; };
+		773E05FC1D612098007A07DB /* card.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05DD1D612098007A07DB /* card.capnp.c++ */; };
+		773E05FD1D612098007A07DB /* client_sync.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05DF1D612098007A07DB /* client_sync.capnp.c++ */; };
+		773E05FE1D612098007A07DB /* discovery.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05E11D612098007A07DB /* discovery.capnp.c++ */; };
+		773E05FF1D612098007A07DB /* error.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05E31D612098007A07DB /* error.capnp.c++ */; };
+		773E06001D612098007A07DB /* hello.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05E51D612098007A07DB /* hello.capnp.c++ */; };
+		773E06011D612098007A07DB /* join.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05E71D612098007A07DB /* join.capnp.c++ */; };
+		773E06021D612098007A07DB /* remove.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05E91D612098007A07DB /* remove.capnp.c++ */; };
+		773E06031D612098007A07DB /* request.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05EB1D612098007A07DB /* request.capnp.c++ */; };
+		773E06041D612098007A07DB /* response.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05ED1D612098007A07DB /* response.capnp.c++ */; };
+		773E06051D612098007A07DB /* section_info.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05EF1D612098007A07DB /* section_info.capnp.c++ */; };
+		773E06061D612098007A07DB /* section.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05F11D612098007A07DB /* section.capnp.c++ */; };
+		773E06071D612098007A07DB /* set_device.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05F31D612098007A07DB /* set_device.capnp.c++ */; };
+		773E06081D612098007A07DB /* sync_info.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05F51D612098007A07DB /* sync_info.capnp.c++ */; };
+		773E06091D612098007A07DB /* user.capnp.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 773E05F71D612098007A07DB /* user.capnp.c++ */; };
+		773E060C1D618DF4007A07DB /* BlueCardPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E060B1D618DF4007A07DB /* BlueCardPageViewController.m */; };
+		773E060F1D62DE1A007A07DB /* BluePokemonGoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E060E1D62DE1A007A07DB /* BluePokemonGoController.m */; };
+		773E06121D636E6F007A07DB /* BlueCardEditNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E06111D636E6F007A07DB /* BlueCardEditNavigationController.m */; };
+		773E06151D6392BE007A07DB /* BlueBluetoothPermissionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E06141D6392BE007A07DB /* BlueBluetoothPermissionController.m */; };
+		773F69AC1D36CBFE0032E92D /* ServerRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 773F69AB1D36CBFE0032E92D /* ServerRequest.mm */; };
+		773F69C21D371AA60032E92D /* ServerResponse.mm in Sources */ = {isa = PBXBuildFile; fileRef = 773F69C11D371AA60032E92D /* ServerResponse.mm */; };
+		773F69C81D3835A30032E92D /* EditCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 773F69C71D3835A30032E92D /* EditCardController.m */; };
 		7746A99C1CFE2D13008DF867 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7746A99B1CFE2D12008DF867 /* Main.storyboard */; };
 		7746A9A61CFE33B1008DF867 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746A99D1CFE33B1008DF867 /* CoreGraphics.framework */; };
 		7746A9A71CFE33B1008DF867 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7746A99E1CFE33B1008DF867 /* AVFoundation.framework */; };
@@ -111,7 +122,43 @@
 		77E5252B1CA7218D0003BF17 /* instagram-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E525281CA7218D0003BF17 /* instagram-icon.png */; };
 		77E5252C1CA7218D0003BF17 /* twitter-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E525291CA7218D0003BF17 /* twitter-icon.png */; };
 		77E525331CA740B20003BF17 /* Follow-MeeText.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E525321CA740B20003BF17 /* Follow-MeeText.png */; };
-		895BBF9B82F0C781648FC54D /* Pods_Follow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9429CCF194A4034AC12C586F /* Pods_Follow.framework */; };
+		77E687B41D4C64B80058D295 /* BlueCardLinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687B31D4C64B80058D295 /* BlueCardLinkController.m */; };
+		77E687B71D4C64CC0058D295 /* BlueMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687B61D4C64CC0058D295 /* BlueMainController.m */; };
+		77E687BA1D4C64E60058D295 /* BlueRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687B91D4C64E60058D295 /* BlueRegisterController.m */; };
+		77E687BD1D4C651A0058D295 /* BlueCardEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687BC1D4C651A0058D295 /* BlueCardEditController.m */; };
+		77E687C01D4C65330058D295 /* BlueNetworkEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687BF1D4C65330058D295 /* BlueNetworkEditController.m */; };
+		77E687C31D4C673A0058D295 /* BlueCardCreateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687C21D4C673A0058D295 /* BlueCardCreateController.m */; };
+		77E687C61D4C67460058D295 /* BlueCardUpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687C51D4C67460058D295 /* BlueCardUpdateController.m */; };
+		77E687C91D4C67550058D295 /* BlueCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687C81D4C67550058D295 /* BlueCardController.m */; };
+		77E687CC1D4C67660058D295 /* BlueMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687CB1D4C67660058D295 /* BlueMonitor.m */; };
+		77E687CF1D4C67760058D295 /* BlueAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687CE1D4C67760058D295 /* BlueAboutController.m */; };
+		77E687D21D4C67860058D295 /* BlueAvatarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687D11D4C67860058D295 /* BlueAvatarController.m */; };
+		77E687D51D4C67900058D295 /* BlueCoverPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687D41D4C67900058D295 /* BlueCoverPhotoController.m */; };
+		77E687D91D4C67CD0058D295 /* BlueApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687D81D4C67CD0058D295 /* BlueApp.m */; };
+		77E687DC1D4C67EC0058D295 /* BlueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687DB1D4C67EC0058D295 /* BlueModel.m */; };
+		77E687DF1D4C67FB0058D295 /* BlueClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687DE1D4C67FB0058D295 /* BlueClient.m */; };
+		77E687E21D4C68060058D295 /* BlueShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687E11D4C68060058D295 /* BlueShare.m */; };
+		77E687E51D4C68110058D295 /* BlueDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687E41D4C68110058D295 /* BlueDiscover.m */; };
+		77E687E81D4C681E0058D295 /* BlueDiscoverSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687E71D4C681E0058D295 /* BlueDiscoverSession.m */; };
+		77E687EB1D4C68390058D295 /* BlueCardDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687EA1D4C68390058D295 /* BlueCardDownloader.m */; };
+		77E687EE1D4C68490058D295 /* BluePhotoUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687ED1D4C68490058D295 /* BluePhotoUploader.m */; };
+		77E687F11D4C68570058D295 /* BlueUndoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687F01D4C68570058D295 /* BlueUndoManager.m */; };
+		77E687F41D4C68CD0058D295 /* DeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687F31D4C68CD0058D295 /* DeviceObject.m */; };
+		77E687FA1D4C69720058D295 /* SectionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E687F91D4C69720058D295 /* SectionObject.m */; };
+		77E688051D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688011D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.m */; };
+		77E688061D4C70350058D295 /* UINavigationController+M13ProgressViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688031D4C70350058D295 /* UINavigationController+M13ProgressViewBar.m */; };
+		77E688081D4CABC50058D295 /* BlueApp+Colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688071D4CABC50058D295 /* BlueApp+Colors.m */; };
+		77E6880B1D4CBF410058D295 /* BlueJoinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E6880A1D4CBF410058D295 /* BlueJoinCell.m */; };
+		77E6880F1D4CC4620058D295 /* BlueCreateCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E6880E1D4CC4620058D295 /* BlueCreateCardCell.m */; };
+		77E688121D4CC46F0058D295 /* BlueYourCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688111D4CC46F0058D295 /* BlueYourCardCell.m */; };
+		77E688151D4CC47D0058D295 /* BlueCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688141D4CC47D0058D295 /* BlueCardCell.m */; };
+		77E688181D4CC48B0058D295 /* BlueBluetoothCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688171D4CC48B0058D295 /* BlueBluetoothCardCell.m */; };
+		77E6881B1D4D21950058D295 /* CardListBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77E6881A1D4D21950058D295 /* CardListBuilder.mm */; };
+		77E688231D4DA8120058D295 /* EasedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688221D4DA8120058D295 /* EasedValue.m */; };
+		77E688261D4DFAA50058D295 /* BlueBioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688251D4DFAA50058D295 /* BlueBioController.m */; };
+		77E688291D4DFFBE0058D295 /* BlueSocialNetworksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E688281D4DFFBE0058D295 /* BlueSocialNetworksController.m */; };
+		77E6882B1D4E10970058D295 /* BlueDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6882A1D4E10970058D295 /* BlueDeepLink.swift */; };
+		A4FAFDFC7743B266E2B7D917 /* Pods_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4A8A1A711B5E8A2D108326 /* Pods_Blue.framework */; };
 		CCADE6C61A3C5C7D00044B14 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CCADE6C41A3C5C7D00044B14 /* SRWebSocket.m */; };
 		CCADE6CF1A3C5CE700044B14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCADE6CD1A3C5CD800044B14 /* Security.framework */; };
 		CCADE6D01A3C5CEC00044B14 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCADE6CB1A3C5CD000044B14 /* CFNetwork.framework */; };
@@ -120,25 +167,14 @@
 
 /* Begin PBXFileReference section */
 		2E609EE61D132DE316A690CA /* Pods-Follow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Follow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Follow/Pods-Follow.debug.xcconfig"; sourceTree = "<group>"; };
-		77078D681D24558E00050CBA /* LayerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerClient.h; sourceTree = "<group>"; };
-		77078D691D24558E00050CBA /* LayerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerClient.m; sourceTree = "<group>"; };
-		77078D6B1D2458AA00050CBA /* ConversationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationListViewController.h; sourceTree = "<group>"; };
-		77078D6C1D2458AA00050CBA /* ConversationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationListViewController.m; sourceTree = "<group>"; };
+		6ABA80BED69400E3884642E4 /* Pods-Blue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blue/Pods-Blue.release.xcconfig"; sourceTree = "<group>"; };
 		77078D6E1D245F9200050CBA /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		77078D6F1D245F9200050CBA /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		77078D711D2464F800050CBA /* ConversationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationDetailViewController.h; sourceTree = "<group>"; };
-		77078D721D2464F800050CBA /* ConversationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationDetailViewController.m; sourceTree = "<group>"; };
 		77078D771D24671B00050CBA /* CenterTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTextTableViewCell.h; sourceTree = "<group>"; };
 		77078D781D24671B00050CBA /* CenterTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterTextTableViewCell.m; sourceTree = "<group>"; };
 		77078D7A1D24676200050CBA /* InputTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTableViewCell.h; sourceTree = "<group>"; };
 		77078D7B1D24676200050CBA /* InputTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTableViewCell.m; sourceTree = "<group>"; };
-		77078D7D1D2474A700050CBA /* ParticipantTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantTableViewController.h; sourceTree = "<group>"; };
-		77078D7E1D2474A700050CBA /* ParticipantTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantTableViewController.m; sourceTree = "<group>"; };
-		77078D801D248BA700050CBA /* MediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaViewController.h; sourceTree = "<group>"; };
-		77078D811D248BA700050CBA /* MediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaViewController.m; sourceTree = "<group>"; };
 		77078D831D24A91700050CBA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDKs/Bolts.framework; sourceTree = "<group>"; };
-		77078D851D24ABBE00050CBA /* ServerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerClient.h; sourceTree = "<group>"; };
-		77078D861D24ABBE00050CBA /* ServerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerClient.m; sourceTree = "<group>"; };
 		77078D881D24AE7000050CBA /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		77078D891D24AE7000050CBA /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		770FEDE91C98F507007B8463 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -174,37 +210,24 @@
 		771252DA1D14FD0D00A6FA3A /* Follow-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Follow-Bridging-Header.h"; sourceTree = "<group>"; };
 		771252DD1D172A8300A6FA3A /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		771252DE1D172A8300A6FA3A /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
-		771252DF1D172A8300A6FA3A /* NotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		771252E01D172A8300A6FA3A /* NotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		771252E11D172A8300A6FA3A /* Follow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Follow.h; sourceTree = "<group>"; };
-		771252E21D172A8300A6FA3A /* Follow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Follow.m; sourceTree = "<group>"; };
 		771252E31D172A8300A6FA3A /* ChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageCell.h; sourceTree = "<group>"; };
 		771252E41D172A8300A6FA3A /* ChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageCell.m; sourceTree = "<group>"; };
-		771252E51D172A8300A6FA3A /* ConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
-		771252E61D172A8300A6FA3A /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
 		771252ED1D174A5D00A6FA3A /* tweetnacl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tweetnacl.c; sourceTree = "<group>"; };
 		771252EE1D174A5D00A6FA3A /* tweetnacl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tweetnacl.h; sourceTree = "<group>"; };
 		771252F01D174D0400A6FA3A /* randombytes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = randombytes.c; sourceTree = "<group>"; };
 		771252F11D174D0400A6FA3A /* randombytes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = randombytes.h; sourceTree = "<group>"; };
-		771252F51D1791E100A6FA3A /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		771252F61D1791E100A6FA3A /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
-		771252F81D1791F900A6FA3A /* CardDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDrop.h; sourceTree = "<group>"; };
-		771252F91D1791F900A6FA3A /* CardDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDrop.m; sourceTree = "<group>"; };
-		771252FC1D17924300A6FA3A /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		771252FD1D17924300A6FA3A /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
-		771252FF1D1793AC00A6FA3A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		771253001D1793AC00A6FA3A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		771253021D17A25B00A6FA3A /* CardFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardFollow.h; sourceTree = "<group>"; };
-		771253031D17A25B00A6FA3A /* CardFollow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardFollow.m; sourceTree = "<group>"; };
-		771253051D1888E500A6FA3A /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
-		771253061D1888E500A6FA3A /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		771252F51D1791E100A6FA3A /* CardObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardObject.h; sourceTree = "<group>"; };
+		771252F61D1791E100A6FA3A /* CardObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardObject.m; sourceTree = "<group>"; };
+		771252FC1D17924300A6FA3A /* NetworkObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkObject.h; sourceTree = "<group>"; };
+		771252FD1D17924300A6FA3A /* NetworkObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkObject.m; sourceTree = "<group>"; };
+		771252FF1D1793AC00A6FA3A /* UserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserObject.h; sourceTree = "<group>"; };
+		771253001D1793AC00A6FA3A /* UserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserObject.m; sourceTree = "<group>"; };
 		771253081D18A7D000A6FA3A /* IntroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroController.h; sourceTree = "<group>"; };
 		771253091D18A7D000A6FA3A /* IntroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroController.m; sourceTree = "<group>"; };
 		7712530B1D18EFFB00A6FA3A /* CreateCardCallToActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCardCallToActionController.h; sourceTree = "<group>"; };
 		7712530C1D18EFFB00A6FA3A /* CreateCardCallToActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCardCallToActionController.m; sourceTree = "<group>"; };
 		7712530E1D18F61600A6FA3A /* CreateCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateCardController.h; sourceTree = "<group>"; };
 		7712530F1D18F61600A6FA3A /* CreateCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateCardController.m; sourceTree = "<group>"; };
-		771253111D21C00600A6FA3A /* Follow+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Follow+Colors.m"; sourceTree = "<group>"; };
 		77170E7F1CBDBA1000F1CBDC /* warning-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-icon.png"; sourceTree = "<group>"; };
 		771C8EC31CBC1C7A00017554 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		771C8EC51CBC1CAB00017554 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
@@ -213,6 +236,54 @@
 		771C8ECB1CBC1D2800017554 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		773B7EC01C5D5F4700ED24E8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		773B7EC11C5D5F4700ED24E8 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		773E05D71D612098007A07DB /* block.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "block.capnp.c++"; path = "../../server/schema/block.capnp.c++"; sourceTree = "<group>"; };
+		773E05D81D612098007A07DB /* block.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = block.capnp.h; path = ../../server/schema/block.capnp.h; sourceTree = "<group>"; };
+		773E05D91D612098007A07DB /* card_info.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "card_info.capnp.c++"; path = "../../server/schema/card_info.capnp.c++"; sourceTree = "<group>"; };
+		773E05DA1D612098007A07DB /* card_info.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card_info.capnp.h; path = ../../server/schema/card_info.capnp.h; sourceTree = "<group>"; };
+		773E05DB1D612098007A07DB /* card_list.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "card_list.capnp.c++"; path = "../../server/schema/card_list.capnp.c++"; sourceTree = "<group>"; };
+		773E05DC1D612098007A07DB /* card_list.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card_list.capnp.h; path = ../../server/schema/card_list.capnp.h; sourceTree = "<group>"; };
+		773E05DD1D612098007A07DB /* card.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "card.capnp.c++"; path = "../../server/schema/card.capnp.c++"; sourceTree = "<group>"; };
+		773E05DE1D612098007A07DB /* card.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card.capnp.h; path = ../../server/schema/card.capnp.h; sourceTree = "<group>"; };
+		773E05DF1D612098007A07DB /* client_sync.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "client_sync.capnp.c++"; path = "../../server/schema/client_sync.capnp.c++"; sourceTree = "<group>"; };
+		773E05E01D612098007A07DB /* client_sync.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = client_sync.capnp.h; path = ../../server/schema/client_sync.capnp.h; sourceTree = "<group>"; };
+		773E05E11D612098007A07DB /* discovery.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "discovery.capnp.c++"; path = "../../server/schema/discovery.capnp.c++"; sourceTree = "<group>"; };
+		773E05E21D612098007A07DB /* discovery.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = discovery.capnp.h; path = ../../server/schema/discovery.capnp.h; sourceTree = "<group>"; };
+		773E05E31D612098007A07DB /* error.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "error.capnp.c++"; path = "../../server/schema/error.capnp.c++"; sourceTree = "<group>"; };
+		773E05E41D612098007A07DB /* error.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.capnp.h; path = ../../server/schema/error.capnp.h; sourceTree = "<group>"; };
+		773E05E51D612098007A07DB /* hello.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "hello.capnp.c++"; path = "../../server/schema/hello.capnp.c++"; sourceTree = "<group>"; };
+		773E05E61D612098007A07DB /* hello.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hello.capnp.h; path = ../../server/schema/hello.capnp.h; sourceTree = "<group>"; };
+		773E05E71D612098007A07DB /* join.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "join.capnp.c++"; path = "../../server/schema/join.capnp.c++"; sourceTree = "<group>"; };
+		773E05E81D612098007A07DB /* join.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = join.capnp.h; path = ../../server/schema/join.capnp.h; sourceTree = "<group>"; };
+		773E05E91D612098007A07DB /* remove.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "remove.capnp.c++"; path = "../../server/schema/remove.capnp.c++"; sourceTree = "<group>"; };
+		773E05EA1D612098007A07DB /* remove.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = remove.capnp.h; path = ../../server/schema/remove.capnp.h; sourceTree = "<group>"; };
+		773E05EB1D612098007A07DB /* request.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "request.capnp.c++"; path = "../../server/schema/request.capnp.c++"; sourceTree = "<group>"; };
+		773E05EC1D612098007A07DB /* request.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = request.capnp.h; path = ../../server/schema/request.capnp.h; sourceTree = "<group>"; };
+		773E05ED1D612098007A07DB /* response.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "response.capnp.c++"; path = "../../server/schema/response.capnp.c++"; sourceTree = "<group>"; };
+		773E05EE1D612098007A07DB /* response.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = response.capnp.h; path = ../../server/schema/response.capnp.h; sourceTree = "<group>"; };
+		773E05EF1D612098007A07DB /* section_info.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "section_info.capnp.c++"; path = "../../server/schema/section_info.capnp.c++"; sourceTree = "<group>"; };
+		773E05F01D612098007A07DB /* section_info.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = section_info.capnp.h; path = ../../server/schema/section_info.capnp.h; sourceTree = "<group>"; };
+		773E05F11D612098007A07DB /* section.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "section.capnp.c++"; path = "../../server/schema/section.capnp.c++"; sourceTree = "<group>"; };
+		773E05F21D612098007A07DB /* section.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = section.capnp.h; path = ../../server/schema/section.capnp.h; sourceTree = "<group>"; };
+		773E05F31D612098007A07DB /* set_device.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "set_device.capnp.c++"; path = "../../server/schema/set_device.capnp.c++"; sourceTree = "<group>"; };
+		773E05F41D612098007A07DB /* set_device.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = set_device.capnp.h; path = ../../server/schema/set_device.capnp.h; sourceTree = "<group>"; };
+		773E05F51D612098007A07DB /* sync_info.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "sync_info.capnp.c++"; path = "../../server/schema/sync_info.capnp.c++"; sourceTree = "<group>"; };
+		773E05F61D612098007A07DB /* sync_info.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sync_info.capnp.h; path = ../../server/schema/sync_info.capnp.h; sourceTree = "<group>"; };
+		773E05F71D612098007A07DB /* user.capnp.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "user.capnp.c++"; path = "../../server/schema/user.capnp.c++"; sourceTree = "<group>"; };
+		773E05F81D612098007A07DB /* user.capnp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = user.capnp.h; path = ../../server/schema/user.capnp.h; sourceTree = "<group>"; };
+		773E060A1D618DF4007A07DB /* BlueCardPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardPageViewController.h; sourceTree = "<group>"; };
+		773E060B1D618DF4007A07DB /* BlueCardPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardPageViewController.m; sourceTree = "<group>"; };
+		773E060D1D62DE1A007A07DB /* BluePokemonGoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluePokemonGoController.h; sourceTree = "<group>"; };
+		773E060E1D62DE1A007A07DB /* BluePokemonGoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluePokemonGoController.m; sourceTree = "<group>"; };
+		773E06101D636E6F007A07DB /* BlueCardEditNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardEditNavigationController.h; sourceTree = "<group>"; };
+		773E06111D636E6F007A07DB /* BlueCardEditNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardEditNavigationController.m; sourceTree = "<group>"; };
+		773E06131D6392BE007A07DB /* BlueBluetoothPermissionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBluetoothPermissionController.h; sourceTree = "<group>"; };
+		773E06141D6392BE007A07DB /* BlueBluetoothPermissionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueBluetoothPermissionController.m; sourceTree = "<group>"; };
+		773F69AA1D36CBFE0032E92D /* ServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerRequest.h; sourceTree = "<group>"; };
+		773F69AB1D36CBFE0032E92D /* ServerRequest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ServerRequest.mm; sourceTree = "<group>"; };
+		773F69C01D371AA60032E92D /* ServerResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerResponse.h; sourceTree = "<group>"; };
+		773F69C11D371AA60032E92D /* ServerResponse.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ServerResponse.mm; sourceTree = "<group>"; };
+		773F69C61D3835A30032E92D /* EditCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCardController.h; sourceTree = "<group>"; };
+		773F69C71D3835A30032E92D /* EditCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCardController.m; sourceTree = "<group>"; };
 		7746A99B1CFE2D12008DF867 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7746A99D1CFE33B1008DF867 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		7746A99E1CFE33B1008DF867 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -300,8 +371,80 @@
 		77E525281CA7218D0003BF17 /* instagram-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instagram-icon.png"; sourceTree = "<group>"; };
 		77E525291CA7218D0003BF17 /* twitter-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-icon.png"; sourceTree = "<group>"; };
 		77E525321CA740B20003BF17 /* Follow-MeeText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Follow-MeeText.png"; sourceTree = "<group>"; };
+		77E687B21D4C64B80058D295 /* BlueCardLinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardLinkController.h; sourceTree = "<group>"; };
+		77E687B31D4C64B80058D295 /* BlueCardLinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardLinkController.m; sourceTree = "<group>"; };
+		77E687B51D4C64CC0058D295 /* BlueMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueMainController.h; sourceTree = "<group>"; };
+		77E687B61D4C64CC0058D295 /* BlueMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueMainController.m; sourceTree = "<group>"; };
+		77E687B81D4C64E60058D295 /* BlueRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueRegisterController.h; sourceTree = "<group>"; };
+		77E687B91D4C64E60058D295 /* BlueRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueRegisterController.m; sourceTree = "<group>"; };
+		77E687BB1D4C651A0058D295 /* BlueCardEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardEditController.h; sourceTree = "<group>"; };
+		77E687BC1D4C651A0058D295 /* BlueCardEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardEditController.m; sourceTree = "<group>"; };
+		77E687BE1D4C65330058D295 /* BlueNetworkEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueNetworkEditController.h; sourceTree = "<group>"; };
+		77E687BF1D4C65330058D295 /* BlueNetworkEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueNetworkEditController.m; sourceTree = "<group>"; };
+		77E687C11D4C673A0058D295 /* BlueCardCreateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardCreateController.h; sourceTree = "<group>"; };
+		77E687C21D4C673A0058D295 /* BlueCardCreateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardCreateController.m; sourceTree = "<group>"; };
+		77E687C41D4C67460058D295 /* BlueCardUpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardUpdateController.h; sourceTree = "<group>"; };
+		77E687C51D4C67460058D295 /* BlueCardUpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardUpdateController.m; sourceTree = "<group>"; };
+		77E687C71D4C67550058D295 /* BlueCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardController.h; sourceTree = "<group>"; };
+		77E687C81D4C67550058D295 /* BlueCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardController.m; sourceTree = "<group>"; };
+		77E687CA1D4C67660058D295 /* BlueMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueMonitor.h; sourceTree = "<group>"; };
+		77E687CB1D4C67660058D295 /* BlueMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueMonitor.m; sourceTree = "<group>"; };
+		77E687CD1D4C67760058D295 /* BlueAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueAboutController.h; sourceTree = "<group>"; };
+		77E687CE1D4C67760058D295 /* BlueAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueAboutController.m; sourceTree = "<group>"; };
+		77E687D01D4C67860058D295 /* BlueAvatarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueAvatarController.h; sourceTree = "<group>"; };
+		77E687D11D4C67860058D295 /* BlueAvatarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueAvatarController.m; sourceTree = "<group>"; };
+		77E687D31D4C67900058D295 /* BlueCoverPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCoverPhotoController.h; sourceTree = "<group>"; };
+		77E687D41D4C67900058D295 /* BlueCoverPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCoverPhotoController.m; sourceTree = "<group>"; };
+		77E687D71D4C67CD0058D295 /* BlueApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueApp.h; sourceTree = "<group>"; };
+		77E687D81D4C67CD0058D295 /* BlueApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueApp.m; sourceTree = "<group>"; };
+		77E687DA1D4C67EC0058D295 /* BlueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueModel.h; sourceTree = "<group>"; };
+		77E687DB1D4C67EC0058D295 /* BlueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueModel.m; sourceTree = "<group>"; };
+		77E687DD1D4C67FB0058D295 /* BlueClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueClient.h; sourceTree = "<group>"; };
+		77E687DE1D4C67FB0058D295 /* BlueClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueClient.m; sourceTree = "<group>"; };
+		77E687E01D4C68060058D295 /* BlueShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueShare.h; sourceTree = "<group>"; };
+		77E687E11D4C68060058D295 /* BlueShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueShare.m; sourceTree = "<group>"; };
+		77E687E31D4C68110058D295 /* BlueDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueDiscover.h; sourceTree = "<group>"; };
+		77E687E41D4C68110058D295 /* BlueDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueDiscover.m; sourceTree = "<group>"; };
+		77E687E61D4C681E0058D295 /* BlueDiscoverSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueDiscoverSession.h; sourceTree = "<group>"; };
+		77E687E71D4C681E0058D295 /* BlueDiscoverSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueDiscoverSession.m; sourceTree = "<group>"; };
+		77E687E91D4C68390058D295 /* BlueCardDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardDownloader.h; sourceTree = "<group>"; };
+		77E687EA1D4C68390058D295 /* BlueCardDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardDownloader.m; sourceTree = "<group>"; };
+		77E687EC1D4C68490058D295 /* BluePhotoUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluePhotoUploader.h; sourceTree = "<group>"; };
+		77E687ED1D4C68490058D295 /* BluePhotoUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluePhotoUploader.m; sourceTree = "<group>"; };
+		77E687EF1D4C68570058D295 /* BlueUndoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueUndoManager.h; sourceTree = "<group>"; };
+		77E687F01D4C68570058D295 /* BlueUndoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueUndoManager.m; sourceTree = "<group>"; };
+		77E687F21D4C68CD0058D295 /* DeviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceObject.h; sourceTree = "<group>"; };
+		77E687F31D4C68CD0058D295 /* DeviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceObject.m; sourceTree = "<group>"; };
+		77E687F81D4C69720058D295 /* SectionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionObject.h; sourceTree = "<group>"; };
+		77E687F91D4C69720058D295 /* SectionObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionObject.m; sourceTree = "<group>"; };
+		77E688001D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewBarNavigationControllerViewController.h; sourceTree = "<group>"; };
+		77E688011D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M13ProgressViewBarNavigationControllerViewController.m; sourceTree = "<group>"; };
+		77E688021D4C70350058D295 /* UINavigationController+M13ProgressViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+M13ProgressViewBar.h"; sourceTree = "<group>"; };
+		77E688031D4C70350058D295 /* UINavigationController+M13ProgressViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+M13ProgressViewBar.m"; sourceTree = "<group>"; };
+		77E688071D4CABC50058D295 /* BlueApp+Colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BlueApp+Colors.m"; sourceTree = "<group>"; };
+		77E688091D4CBF410058D295 /* BlueJoinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueJoinCell.h; sourceTree = "<group>"; };
+		77E6880A1D4CBF410058D295 /* BlueJoinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueJoinCell.m; sourceTree = "<group>"; };
+		77E6880D1D4CC4610058D295 /* BlueCreateCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCreateCardCell.h; sourceTree = "<group>"; };
+		77E6880E1D4CC4620058D295 /* BlueCreateCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCreateCardCell.m; sourceTree = "<group>"; };
+		77E688101D4CC46F0058D295 /* BlueYourCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueYourCardCell.h; sourceTree = "<group>"; };
+		77E688111D4CC46F0058D295 /* BlueYourCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueYourCardCell.m; sourceTree = "<group>"; };
+		77E688131D4CC47D0058D295 /* BlueCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCardCell.h; sourceTree = "<group>"; };
+		77E688141D4CC47D0058D295 /* BlueCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCardCell.m; sourceTree = "<group>"; };
+		77E688161D4CC48B0058D295 /* BlueBluetoothCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBluetoothCardCell.h; sourceTree = "<group>"; };
+		77E688171D4CC48B0058D295 /* BlueBluetoothCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueBluetoothCardCell.m; sourceTree = "<group>"; };
+		77E688191D4D21950058D295 /* CardListBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardListBuilder.h; sourceTree = "<group>"; };
+		77E6881A1D4D21950058D295 /* CardListBuilder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CardListBuilder.mm; sourceTree = "<group>"; };
+		77E688211D4DA8120058D295 /* EasedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasedValue.h; sourceTree = "<group>"; };
+		77E688221D4DA8120058D295 /* EasedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasedValue.m; sourceTree = "<group>"; };
+		77E688241D4DFAA50058D295 /* BlueBioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueBioController.h; sourceTree = "<group>"; };
+		77E688251D4DFAA50058D295 /* BlueBioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueBioController.m; sourceTree = "<group>"; };
+		77E688271D4DFFBE0058D295 /* BlueSocialNetworksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueSocialNetworksController.h; sourceTree = "<group>"; };
+		77E688281D4DFFBE0058D295 /* BlueSocialNetworksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueSocialNetworksController.m; sourceTree = "<group>"; };
+		77E6882A1D4E10970058D295 /* BlueDeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueDeepLink.swift; sourceTree = "<group>"; };
+		883BE4C003A88A80547550E9 /* Pods-Blue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blue/Pods-Blue.debug.xcconfig"; sourceTree = "<group>"; };
+		8B4A8A1A711B5E8A2D108326 /* Pods_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9429CCF194A4034AC12C586F /* Pods_Follow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Follow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC7726BC1A3853450007AEB2 /* Follow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Follow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7726BC1A3853450007AEB2 /* Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCADE6C31A3C5C7D00044B14 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		CCADE6C41A3C5C7D00044B14 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		CCADE6CB1A3C5CD000044B14 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -354,7 +497,7 @@
 				7746A9A91CFE33B1008DF867 /* Accounts.framework in Frameworks */,
 				CCADE6CF1A3C5CE700044B14 /* Security.framework in Frameworks */,
 				7746A9AC1CFE33B1008DF867 /* CoreData.framework in Frameworks */,
-				895BBF9B82F0C781648FC54D /* Pods_Follow.framework in Frameworks */,
+				A4FAFDFC7743B266E2B7D917 /* Pods_Blue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,18 +533,8 @@
 		771252F41D17752100A6FA3A /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				77078D6B1D2458AA00050CBA /* ConversationListViewController.h */,
-				77078D6C1D2458AA00050CBA /* ConversationListViewController.m */,
-				771252E51D172A8300A6FA3A /* ConversationViewController.h */,
-				771252E61D172A8300A6FA3A /* ConversationViewController.m */,
-				77078D711D2464F800050CBA /* ConversationDetailViewController.h */,
-				77078D721D2464F800050CBA /* ConversationDetailViewController.m */,
-				77078D7D1D2474A700050CBA /* ParticipantTableViewController.h */,
-				77078D7E1D2474A700050CBA /* ParticipantTableViewController.m */,
-				77078D801D248BA700050CBA /* MediaViewController.h */,
-				77078D811D248BA700050CBA /* MediaViewController.m */,
-				771252DF1D172A8300A6FA3A /* NotificationController.h */,
-				771252E01D172A8300A6FA3A /* NotificationController.m */,
+				773F69C61D3835A30032E92D /* EditCardController.h */,
+				773F69C71D3835A30032E92D /* EditCardController.m */,
 				771253081D18A7D000A6FA3A /* IntroController.h */,
 				771253091D18A7D000A6FA3A /* IntroController.m */,
 				7712530B1D18EFFB00A6FA3A /* CreateCardCallToActionController.h */,
@@ -417,18 +550,18 @@
 		771252FB1D1791FD00A6FA3A /* models */ = {
 			isa = PBXGroup;
 			children = (
-				771252FF1D1793AC00A6FA3A /* User.h */,
-				771253001D1793AC00A6FA3A /* User.m */,
-				771252F51D1791E100A6FA3A /* Card.h */,
-				771252F61D1791E100A6FA3A /* Card.m */,
-				771252FC1D17924300A6FA3A /* Network.h */,
-				771252FD1D17924300A6FA3A /* Network.m */,
-				771252F81D1791F900A6FA3A /* CardDrop.h */,
-				771252F91D1791F900A6FA3A /* CardDrop.m */,
-				771253021D17A25B00A6FA3A /* CardFollow.h */,
-				771253031D17A25B00A6FA3A /* CardFollow.m */,
-				771253051D1888E500A6FA3A /* Conversation.h */,
-				771253061D1888E500A6FA3A /* Conversation.m */,
+				771252FF1D1793AC00A6FA3A /* UserObject.h */,
+				771253001D1793AC00A6FA3A /* UserObject.m */,
+				77E687F21D4C68CD0058D295 /* DeviceObject.h */,
+				77E687F31D4C68CD0058D295 /* DeviceObject.m */,
+				771252F51D1791E100A6FA3A /* CardObject.h */,
+				771252F61D1791E100A6FA3A /* CardObject.m */,
+				771252FC1D17924300A6FA3A /* NetworkObject.h */,
+				771252FD1D17924300A6FA3A /* NetworkObject.m */,
+				77E687F81D4C69720058D295 /* SectionObject.h */,
+				77E687F91D4C69720058D295 /* SectionObject.m */,
+				77E688191D4D21950058D295 /* CardListBuilder.h */,
+				77E6881A1D4D21950058D295 /* CardListBuilder.mm */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -436,15 +569,11 @@
 		773B7E4F1C5D5F4700ED24E8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				771252E11D172A8300A6FA3A /* Follow.h */,
-				771252E21D172A8300A6FA3A /* Follow.m */,
-				771253111D21C00600A6FA3A /* Follow+Colors.m */,
-				77078D681D24558E00050CBA /* LayerClient.h */,
-				77078D691D24558E00050CBA /* LayerClient.m */,
-				77078D851D24ABBE00050CBA /* ServerClient.h */,
-				77078D861D24ABBE00050CBA /* ServerClient.m */,
+				77E687B11D4C642D0058D295 /* new */,
 				77078D881D24AE7000050CBA /* Utilities.h */,
 				77078D891D24AE7000050CBA /* Utilities.m */,
+				773F69BF1D3717720032E92D /* server */,
+				773F699D1D36B19E0032E92D /* capnproto */,
 				771252F41D17752100A6FA3A /* controllers */,
 				771252F31D17751800A6FA3A /* cells */,
 				771252FB1D1791FD00A6FA3A /* models */,
@@ -454,6 +583,58 @@
 				773B7EC01C5D5F4700ED24E8 /* main.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		773F699D1D36B19E0032E92D /* capnproto */ = {
+			isa = PBXGroup;
+			children = (
+				773E05D71D612098007A07DB /* block.capnp.c++ */,
+				773E05D81D612098007A07DB /* block.capnp.h */,
+				773E05D91D612098007A07DB /* card_info.capnp.c++ */,
+				773E05DA1D612098007A07DB /* card_info.capnp.h */,
+				773E05DB1D612098007A07DB /* card_list.capnp.c++ */,
+				773E05DC1D612098007A07DB /* card_list.capnp.h */,
+				773E05DD1D612098007A07DB /* card.capnp.c++ */,
+				773E05DE1D612098007A07DB /* card.capnp.h */,
+				773E05DF1D612098007A07DB /* client_sync.capnp.c++ */,
+				773E05E01D612098007A07DB /* client_sync.capnp.h */,
+				773E05E11D612098007A07DB /* discovery.capnp.c++ */,
+				773E05E21D612098007A07DB /* discovery.capnp.h */,
+				773E05E31D612098007A07DB /* error.capnp.c++ */,
+				773E05E41D612098007A07DB /* error.capnp.h */,
+				773E05E51D612098007A07DB /* hello.capnp.c++ */,
+				773E05E61D612098007A07DB /* hello.capnp.h */,
+				773E05E71D612098007A07DB /* join.capnp.c++ */,
+				773E05E81D612098007A07DB /* join.capnp.h */,
+				773E05E91D612098007A07DB /* remove.capnp.c++ */,
+				773E05EA1D612098007A07DB /* remove.capnp.h */,
+				773E05EB1D612098007A07DB /* request.capnp.c++ */,
+				773E05EC1D612098007A07DB /* request.capnp.h */,
+				773E05ED1D612098007A07DB /* response.capnp.c++ */,
+				773E05EE1D612098007A07DB /* response.capnp.h */,
+				773E05EF1D612098007A07DB /* section_info.capnp.c++ */,
+				773E05F01D612098007A07DB /* section_info.capnp.h */,
+				773E05F11D612098007A07DB /* section.capnp.c++ */,
+				773E05F21D612098007A07DB /* section.capnp.h */,
+				773E05F31D612098007A07DB /* set_device.capnp.c++ */,
+				773E05F41D612098007A07DB /* set_device.capnp.h */,
+				773E05F51D612098007A07DB /* sync_info.capnp.c++ */,
+				773E05F61D612098007A07DB /* sync_info.capnp.h */,
+				773E05F71D612098007A07DB /* user.capnp.c++ */,
+				773E05F81D612098007A07DB /* user.capnp.h */,
+			);
+			name = capnproto;
+			sourceTree = "<group>";
+		};
+		773F69BF1D3717720032E92D /* server */ = {
+			isa = PBXGroup;
+			children = (
+				773F69AA1D36CBFE0032E92D /* ServerRequest.h */,
+				773F69AB1D36CBFE0032E92D /* ServerRequest.mm */,
+				773F69C01D371AA60032E92D /* ServerResponse.h */,
+				773F69C11D371AA60032E92D /* ServerResponse.mm */,
+			);
+			name = server;
 			sourceTree = "<group>";
 		};
 		77AA8F291D14B8B60039263C /* capnproto */ = {
@@ -568,11 +749,122 @@
 			name = std;
 			sourceTree = "<group>";
 		};
+		77E687B11D4C642D0058D295 /* new */ = {
+			isa = PBXGroup;
+			children = (
+				77E687D71D4C67CD0058D295 /* BlueApp.h */,
+				77E687D81D4C67CD0058D295 /* BlueApp.m */,
+				77E688071D4CABC50058D295 /* BlueApp+Colors.m */,
+				77E687DA1D4C67EC0058D295 /* BlueModel.h */,
+				77E687DB1D4C67EC0058D295 /* BlueModel.m */,
+				77E6882A1D4E10970058D295 /* BlueDeepLink.swift */,
+				77E687DD1D4C67FB0058D295 /* BlueClient.h */,
+				77E687DE1D4C67FB0058D295 /* BlueClient.m */,
+				77E687E01D4C68060058D295 /* BlueShare.h */,
+				77E687E11D4C68060058D295 /* BlueShare.m */,
+				77E687E31D4C68110058D295 /* BlueDiscover.h */,
+				77E687E41D4C68110058D295 /* BlueDiscover.m */,
+				77E687E61D4C681E0058D295 /* BlueDiscoverSession.h */,
+				77E687E71D4C681E0058D295 /* BlueDiscoverSession.m */,
+				77E687E91D4C68390058D295 /* BlueCardDownloader.h */,
+				77E687EA1D4C68390058D295 /* BlueCardDownloader.m */,
+				77E687EC1D4C68490058D295 /* BluePhotoUploader.h */,
+				77E687ED1D4C68490058D295 /* BluePhotoUploader.m */,
+				77E687EF1D4C68570058D295 /* BlueUndoManager.h */,
+				77E687F01D4C68570058D295 /* BlueUndoManager.m */,
+				77E6880C1D4CBF450058D295 /* cells */,
+				77E687D61D4C67A80058D295 /* view controllers */,
+			);
+			name = new;
+			sourceTree = "<group>";
+		};
+		77E687D61D4C67A80058D295 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77E687B21D4C64B80058D295 /* BlueCardLinkController.h */,
+				77E687B31D4C64B80058D295 /* BlueCardLinkController.m */,
+				77E687B51D4C64CC0058D295 /* BlueMainController.h */,
+				77E687B61D4C64CC0058D295 /* BlueMainController.m */,
+				77E687B81D4C64E60058D295 /* BlueRegisterController.h */,
+				77E687B91D4C64E60058D295 /* BlueRegisterController.m */,
+				77E687BB1D4C651A0058D295 /* BlueCardEditController.h */,
+				77E687BC1D4C651A0058D295 /* BlueCardEditController.m */,
+				773E06101D636E6F007A07DB /* BlueCardEditNavigationController.h */,
+				773E06111D636E6F007A07DB /* BlueCardEditNavigationController.m */,
+				77E688241D4DFAA50058D295 /* BlueBioController.h */,
+				77E688251D4DFAA50058D295 /* BlueBioController.m */,
+				77E688271D4DFFBE0058D295 /* BlueSocialNetworksController.h */,
+				77E688281D4DFFBE0058D295 /* BlueSocialNetworksController.m */,
+				773E06131D6392BE007A07DB /* BlueBluetoothPermissionController.h */,
+				773E06141D6392BE007A07DB /* BlueBluetoothPermissionController.m */,
+				773E060D1D62DE1A007A07DB /* BluePokemonGoController.h */,
+				773E060E1D62DE1A007A07DB /* BluePokemonGoController.m */,
+				77E687BE1D4C65330058D295 /* BlueNetworkEditController.h */,
+				77E687BF1D4C65330058D295 /* BlueNetworkEditController.m */,
+				77E687C11D4C673A0058D295 /* BlueCardCreateController.h */,
+				77E687C21D4C673A0058D295 /* BlueCardCreateController.m */,
+				77E687C41D4C67460058D295 /* BlueCardUpdateController.h */,
+				77E687C51D4C67460058D295 /* BlueCardUpdateController.m */,
+				77E687C71D4C67550058D295 /* BlueCardController.h */,
+				77E687C81D4C67550058D295 /* BlueCardController.m */,
+				773E060A1D618DF4007A07DB /* BlueCardPageViewController.h */,
+				773E060B1D618DF4007A07DB /* BlueCardPageViewController.m */,
+				77E687CA1D4C67660058D295 /* BlueMonitor.h */,
+				77E687CB1D4C67660058D295 /* BlueMonitor.m */,
+				77E687CD1D4C67760058D295 /* BlueAboutController.h */,
+				77E687CE1D4C67760058D295 /* BlueAboutController.m */,
+				77E687D01D4C67860058D295 /* BlueAvatarController.h */,
+				77E687D11D4C67860058D295 /* BlueAvatarController.m */,
+				77E687D31D4C67900058D295 /* BlueCoverPhotoController.h */,
+				77E687D41D4C67900058D295 /* BlueCoverPhotoController.m */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		77E687FE1D4C70350058D295 /* M13ProgressSuite */ = {
+			isa = PBXGroup;
+			children = (
+				77E688001D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.h */,
+				77E688011D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.m */,
+				77E688021D4C70350058D295 /* UINavigationController+M13ProgressViewBar.h */,
+				77E688031D4C70350058D295 /* UINavigationController+M13ProgressViewBar.m */,
+			);
+			path = M13ProgressSuite;
+			sourceTree = "<group>";
+		};
+		77E6880C1D4CBF450058D295 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				77E688091D4CBF410058D295 /* BlueJoinCell.h */,
+				77E6880A1D4CBF410058D295 /* BlueJoinCell.m */,
+				77E6880D1D4CC4610058D295 /* BlueCreateCardCell.h */,
+				77E6880E1D4CC4620058D295 /* BlueCreateCardCell.m */,
+				77E688101D4CC46F0058D295 /* BlueYourCardCell.h */,
+				77E688111D4CC46F0058D295 /* BlueYourCardCell.m */,
+				77E688131D4CC47D0058D295 /* BlueCardCell.h */,
+				77E688141D4CC47D0058D295 /* BlueCardCell.m */,
+				77E688161D4CC48B0058D295 /* BlueBluetoothCardCell.h */,
+				77E688171D4CC48B0058D295 /* BlueBluetoothCardCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		77E688201D4DA8120058D295 /* EasedValue */ = {
+			isa = PBXGroup;
+			children = (
+				77E688211D4DA8120058D295 /* EasedValue.h */,
+				77E688221D4DA8120058D295 /* EasedValue.m */,
+			);
+			path = EasedValue;
+			sourceTree = "<group>";
+		};
 		9EB11E8B57EA1018A7EF9FB8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				2E609EE61D132DE316A690CA /* Pods-Follow.debug.xcconfig */,
 				DA3BB7C0B6CD25D25D961029 /* Pods-Follow.release.xcconfig */,
+				883BE4C003A88A80547550E9 /* Pods-Blue.debug.xcconfig */,
+				6ABA80BED69400E3884642E4 /* Pods-Blue.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -585,6 +877,8 @@
 				7746A99B1CFE2D12008DF867 /* Main.storyboard */,
 				773B7E4F1C5D5F4700ED24E8 /* Source */,
 				77AA8F291D14B8B60039263C /* capnproto */,
+				77E688201D4DA8120058D295 /* EasedValue */,
+				77E687FE1D4C70350058D295 /* M13ProgressSuite */,
 				CCADE6C21A3C5C7D00044B14 /* SocketRocket */,
 				771252EC1D174A5D00A6FA3A /* TweetNaCl */,
 				CCADE6991A3C5A6400044B14 /* Resources */,
@@ -598,7 +892,7 @@
 		CC7726651A3844C50007AEB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC7726BC1A3853450007AEB2 /* Follow.app */,
+				CC7726BC1A3853450007AEB2 /* Blue.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -680,6 +974,7 @@
 				771252B31D14D76A00A6FA3A /* libz.tbd */,
 				77AA8F761D14CE800039263C /* libRealm.a */,
 				9429CCF194A4034AC12C586F /* Pods_Follow.framework */,
+				8B4A8A1A711B5E8A2D108326 /* Pods_Blue.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -687,9 +982,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC7726AE1A3853450007AEB2 /* Follow */ = {
+		CC7726AE1A3853450007AEB2 /* Blue */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC7726B91A3853450007AEB2 /* Build configuration list for PBXNativeTarget "Follow" */;
+			buildConfigurationList = CC7726B91A3853450007AEB2 /* Build configuration list for PBXNativeTarget "Blue" */;
 			buildPhases = (
 				FC94BF2A323ABA38E48E697C /* [CP] Check Pods Manifest.lock */,
 				CC7726AF1A3853450007AEB2 /* Sources */,
@@ -703,9 +998,9 @@
 			);
 			dependencies = (
 			);
-			name = Follow;
+			name = Blue;
 			productName = Kyrie1;
-			productReference = CC7726BC1A3853450007AEB2 /* Follow.app */;
+			productReference = CC7726BC1A3853450007AEB2 /* Blue.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -746,7 +1041,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC7726AE1A3853450007AEB2 /* Follow */,
+				CC7726AE1A3853450007AEB2 /* Blue */,
 			);
 		};
 /* End PBXProject section */
@@ -786,7 +1081,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Follow/Pods-Follow-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Blue/Pods-Blue-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		770FEDE11C98F4E5007B8463 /* ShellScript */ = {
@@ -814,7 +1109,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Follow/Pods-Follow-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Blue/Pods-Blue-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FC94BF2A323ABA38E48E697C /* [CP] Check Pods Manifest.lock */ = {
@@ -840,62 +1135,109 @@
 			buildActionMask = 2147483647;
 			files = (
 				77AA8F6C1D14B9190039263C /* time.c++ in Sources */,
+				77E687BD1D4C651A0058D295 /* BlueCardEditController.m in Sources */,
 				771252E71D172A8300A6FA3A /* NotificationCell.m in Sources */,
 				77AA8F5F1D14B9190039263C /* async.c++ in Sources */,
+				773E06121D636E6F007A07DB /* BlueCardEditNavigationController.m in Sources */,
 				771252EA1D172A8300A6FA3A /* ChatMessageCell.m in Sources */,
+				77E687D51D4C67900058D295 /* BlueCoverPhotoController.m in Sources */,
 				771252F21D174D0400A6FA3A /* randombytes.c in Sources */,
 				CCADE6C61A3C5C7D00044B14 /* SRWebSocket.m in Sources */,
-				771252FE1D17924300A6FA3A /* Network.m in Sources */,
+				771252FE1D17924300A6FA3A /* NetworkObject.m in Sources */,
+				77E6880F1D4CC4620058D295 /* BlueCreateCardCell.m in Sources */,
 				77078D701D245F9200050CBA /* NavigationController.m in Sources */,
+				77E687CF1D4C67760058D295 /* BlueAboutController.m in Sources */,
+				77E688231D4DA8120058D295 /* EasedValue.m in Sources */,
 				771252D01D14FBB000A6FA3A /* any.c++ in Sources */,
-				771253041D17A25B00A6FA3A /* CardFollow.m in Sources */,
-				771253011D1793AC00A6FA3A /* User.m in Sources */,
+				771253011D1793AC00A6FA3A /* UserObject.m in Sources */,
+				773E060F1D62DE1A007A07DB /* BluePokemonGoController.m in Sources */,
+				77E687B71D4C64CC0058D295 /* BlueMainController.m in Sources */,
+				77E687C61D4C67460058D295 /* BlueCardUpdateController.m in Sources */,
 				77AA8F601D14B9190039263C /* common.c++ in Sources */,
 				771252D91D14FBB000A6FA3A /* serialize.c++ in Sources */,
+				77E687D91D4C67CD0058D295 /* BlueApp.m in Sources */,
 				77AA8F641D14B9190039263C /* main.c++ in Sources */,
 				77AA8F661D14B9190039263C /* mutex.c++ in Sources */,
+				77E687D21D4C67860058D295 /* BlueAvatarController.m in Sources */,
 				77AA8F5B1D14B9190039263C /* arena.c++ in Sources */,
-				771252EB1D172A8300A6FA3A /* ConversationViewController.m in Sources */,
+				773E060C1D618DF4007A07DB /* BlueCardPageViewController.m in Sources */,
+				77E687EB1D4C68390058D295 /* BlueCardDownloader.m in Sources */,
+				77E687CC1D4C67660058D295 /* BlueMonitor.m in Sources */,
+				773E05FF1D612098007A07DB /* error.capnp.c++ in Sources */,
 				77AA8F5E1D14B9190039263C /* async-unix.c++ in Sources */,
-				77078D7F1D2474A700050CBA /* ParticipantTableViewController.m in Sources */,
+				77E688081D4CABC50058D295 /* BlueApp+Colors.m in Sources */,
+				773F69C81D3835A30032E92D /* EditCardController.m in Sources */,
+				77E688051D4C70350058D295 /* M13ProgressViewBarNavigationControllerViewController.m in Sources */,
+				773E06081D612098007A07DB /* sync_info.capnp.c++ in Sources */,
 				771252D51D14FBB000A6FA3A /* message.c++ in Sources */,
-				771252F71D1791E100A6FA3A /* Card.m in Sources */,
+				773E06061D612098007A07DB /* section.capnp.c++ in Sources */,
+				77E687DC1D4C67EC0058D295 /* BlueModel.m in Sources */,
+				77E687C91D4C67550058D295 /* BlueCardController.m in Sources */,
+				771252F71D1791E100A6FA3A /* CardObject.m in Sources */,
+				77E688181D4CC48B0058D295 /* BlueBluetoothCardCell.m in Sources */,
+				77E688121D4CC46F0058D295 /* BlueYourCardCell.m in Sources */,
 				771252D81D14FBB000A6FA3A /* serialize-packed.c++ in Sources */,
 				77078D791D24671B00050CBA /* CenterTextTableViewCell.m in Sources */,
-				77078D871D24ABBE00050CBA /* ServerClient.m in Sources */,
-				771253071D1888E500A6FA3A /* Conversation.m in Sources */,
+				773E06021D612098007A07DB /* remove.capnp.c++ in Sources */,
+				773E06031D612098007A07DB /* request.capnp.c++ in Sources */,
+				77E688291D4DFFBE0058D295 /* BlueSocialNetworksController.m in Sources */,
 				77AA8F6B1D14B9190039263C /* thread.c++ in Sources */,
 				77AA8F5C1D14B9190039263C /* array.c++ in Sources */,
+				773E05FB1D612098007A07DB /* card_list.capnp.c++ in Sources */,
+				77E687BA1D4C64E60058D295 /* BlueRegisterController.m in Sources */,
 				77AA8F6D1D14B9190039263C /* units.c++ in Sources */,
+				773E05FE1D612098007A07DB /* discovery.capnp.c++ in Sources */,
 				7712530D1D18EFFB00A6FA3A /* CreateCardCallToActionController.m in Sources */,
+				77E6880B1D4CBF410058D295 /* BlueJoinCell.m in Sources */,
 				77078D7C1D24676200050CBA /* InputTableViewCell.m in Sources */,
-				77078D821D248BA700050CBA /* MediaViewController.m in Sources */,
+				77E687E81D4C681E0058D295 /* BlueDiscoverSession.m in Sources */,
 				771253101D18F61600A6FA3A /* CreateCardController.m in Sources */,
-				771252FA1D1791F900A6FA3A /* CardDrop.m in Sources */,
+				77E688151D4CC47D0058D295 /* BlueCardCell.m in Sources */,
+				773E05F91D612098007A07DB /* block.capnp.c++ in Sources */,
 				77AA8F631D14B9190039263C /* io.c++ in Sources */,
+				77E6881B1D4D21950058D295 /* CardListBuilder.mm in Sources */,
 				771252D31D14FBB000A6FA3A /* c++.capnp.c++ in Sources */,
 				771252D11D14FBB000A6FA3A /* arena.c++ in Sources */,
 				773B7F231C5D5F4700ED24E8 /* main.m in Sources */,
+				773F69C21D371AA60032E92D /* ServerResponse.mm in Sources */,
+				773E06091D612098007A07DB /* user.capnp.c++ in Sources */,
 				771252D21D14FBB000A6FA3A /* blob.c++ in Sources */,
-				771252E91D172A8300A6FA3A /* Follow.m in Sources */,
+				77E687E51D4C68110058D295 /* BlueDiscover.m in Sources */,
 				77AA8F651D14B9190039263C /* memory.c++ in Sources */,
 				77AA8F751D14B94F0039263C /* char.c++ in Sources */,
 				77AA8F671D14B9190039263C /* refcount.c++ in Sources */,
+				77E687F41D4C68CD0058D295 /* DeviceObject.m in Sources */,
+				773E06151D6392BE007A07DB /* BlueBluetoothPermissionController.m in Sources */,
 				77078D8A1D24AE7000050CBA /* Utilities.m in Sources */,
-				77078D6A1D24558E00050CBA /* LayerClient.m in Sources */,
+				77E687F11D4C68570058D295 /* BlueUndoManager.m in Sources */,
+				773E06071D612098007A07DB /* set_device.capnp.c++ in Sources */,
+				77E688061D4C70350058D295 /* UINavigationController+M13ProgressViewBar.m in Sources */,
+				773F69AC1D36CBFE0032E92D /* ServerRequest.mm in Sources */,
+				77E687DF1D4C67FB0058D295 /* BlueClient.m in Sources */,
 				77AA8F691D14B9190039263C /* string.c++ in Sources */,
-				77078D6D1D2458AA00050CBA /* ConversationListViewController.m in Sources */,
+				77E688261D4DFAA50058D295 /* BlueBioController.m in Sources */,
+				773E06041D612098007A07DB /* response.capnp.c++ in Sources */,
+				77E687E21D4C68060058D295 /* BlueShare.m in Sources */,
+				773E06011D612098007A07DB /* join.capnp.c++ in Sources */,
 				77AA8F681D14B9190039263C /* string-tree.c++ in Sources */,
 				7712530A1D18A7D000A6FA3A /* IntroController.m in Sources */,
+				77E687C01D4C65330058D295 /* BlueNetworkEditController.m in Sources */,
+				77E687EE1D4C68490058D295 /* BluePhotoUploader.m in Sources */,
+				773E05FD1D612098007A07DB /* client_sync.capnp.c++ in Sources */,
+				773E05FA1D612098007A07DB /* card_info.capnp.c++ in Sources */,
 				771252D41D14FBB000A6FA3A /* layout.c++ in Sources */,
 				771252D71D14FBB000A6FA3A /* serialize-async.c++ in Sources */,
 				771252EF1D174A5D00A6FA3A /* tweetnacl.c in Sources */,
-				771252E81D172A8300A6FA3A /* NotificationController.m in Sources */,
-				77078D731D2464F800050CBA /* ConversationDetailViewController.m in Sources */,
-				771253121D21C00600A6FA3A /* Follow+Colors.m in Sources */,
+				773E06001D612098007A07DB /* hello.capnp.c++ in Sources */,
+				773E06051D612098007A07DB /* section_info.capnp.c++ in Sources */,
+				773E05FC1D612098007A07DB /* card.capnp.c++ in Sources */,
+				77E6882B1D4E10970058D295 /* BlueDeepLink.swift in Sources */,
+				77E687B41D4C64B80058D295 /* BlueCardLinkController.m in Sources */,
 				77AA8F621D14B9190039263C /* exception.c++ in Sources */,
 				77AA8F611D14B9190039263C /* debug.c++ in Sources */,
 				77AA8F5D1D14B9190039263C /* async-io.c++ in Sources */,
+				77E687C31D4C673A0058D295 /* BlueCardCreateController.m in Sources */,
+				77E687FA1D4C69720058D295 /* SectionObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,7 +1255,7 @@
 		};
 		7779710A1D13645F00E386C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E609EE61D132DE316A690CA /* Pods-Follow.debug.xcconfig */;
+			baseConfigurationReference = 883BE4C003A88A80547550E9 /* Pods-Blue.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -945,8 +1287,8 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = cards.follow.app;
-				PRODUCT_NAME = Follow;
+				PRODUCT_BUNDLE_IDENTIFIER = social.blue.app;
+				PRODUCT_NAME = Blue;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Follow-Bridging-Header.h";
@@ -964,7 +1306,7 @@
 		};
 		7779710C1D13646300E386C5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA3BB7C0B6CD25D25D961029 /* Pods-Follow.release.xcconfig */;
+			baseConfigurationReference = 6ABA80BED69400E3884642E4 /* Pods-Blue.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -994,8 +1336,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = cards.follow.app;
-				PRODUCT_NAME = Follow;
+				PRODUCT_BUNDLE_IDENTIFIER = social.blue.app;
+				PRODUCT_NAME = Blue;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Follow-Bridging-Header.h";
@@ -1016,7 +1358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		CC7726B91A3853450007AEB2 /* Build configuration list for PBXNativeTarget "Follow" */ = {
+		CC7726B91A3853450007AEB2 /* Build configuration list for PBXNativeTarget "Blue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7779710A1D13645F00E386C5 /* Debug */,

@@ -2,13 +2,29 @@ cc_binary(
     name = "main",
     srcs = [
         "main.cpp",
-        "addressbook.capnp.h",
-        "addressbook.capnp.c++",
+    ],
+    copts = [
+        "-DBAZEL",
+        "-DNO_OPENSSL",
     ],
     deps = [
         "//uWebSockets",
-        "//lmdb/lmdb",
+        "@lmdb//:lmdb",
         "//capnproto/capnp",
-        "//s2",
+        "//schema",
+        "//aeron",
+        "//libuv",
+    ],
+)
+
+cc_binary(
+    name = "nop",
+    srcs = [
+        "nop.cpp",
+    ],
+    deps = [
+        "//uWebSockets",
+        "//capnproto/capnp",
+        "//rpc",
     ],
 )

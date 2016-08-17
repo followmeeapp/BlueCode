@@ -7,7 +7,7 @@
 
 #import "IntroController.h"
 
-#import "Follow.h"
+#import "BlueApp.h"
 
 #import <DigitsKit/DigitsKit.h>
 
@@ -53,7 +53,7 @@
 - (IBAction) login: sender
 {
     DGTAppearance *appearance = [[DGTAppearance alloc] init];
-    appearance.backgroundColor = APP_DELEGATE.blue5;
+    appearance.backgroundColor = APP_DELEGATE.bluetoothBlue;
     appearance.accentColor = [UIColor whiteColor];
 
     DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields: DGTAccountFieldsDefaultOptionMask];

@@ -1,0 +1,1054 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		32F3D6E8494744E79D3219ED /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 77047C02B50F459693EE3E48 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				AD461DFD83CC4AE39AA09A72 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		4F1310EC42A548EDA623B6B9 /* FORMAT */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E5130DAF22824E79AD4730A1 /* Build configuration list for PBXAggregateTarget "FORMAT" */;
+			buildPhases = (
+				C475DD44784C45D1804BFB56 /* CMake Rules */,
+			);
+			dependencies = (
+				DD2EBDED2F184F2DBF14204E /* PBXTargetDependency */,
+			);
+			name = FORMAT;
+			productName = FORMAT;
+		};
+		F44B28B3AA1B419496085992 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9E5EBB4368574C6AA544B6B0 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				0D8B19475AE845AF9509DA9A /* CMake Rules */,
+			);
+			dependencies = (
+				8DA3F0CD017340B380EE230A /* PBXTargetDependency */,
+				0A79BB591D15499796CA50E4 /* PBXTargetDependency */,
+				4FCB4A6BA2854825B8CCF127 /* PBXTargetDependency */,
+				B44BE5867B074D48AE152E20 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		20B117267B52408695F2FB4F /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */ = {isa = PBXBuildFile; fileRef = 3117A49CFC0D4F87B0F255B0 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */; settings = {COMPILER_FLAGS = ""; }; };
+		6BDCDE995D2E46FEA4BF6B91 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */ = {isa = PBXBuildFile; fileRef = F5106903B28D4CD2B006D741 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */; settings = {COMPILER_FLAGS = ""; }; };
+		9601ABB2134A42CE850C20F3 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/main.cpp */ = {isa = PBXBuildFile; fileRef = FD0BBB0EDCE44485ACFA2909 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		AFCD4D03DE6C463099414721 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */ = {isa = PBXBuildFile; fileRef = BE4C46630F5F4142B8130D52 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */; settings = {COMPILER_FLAGS = ""; }; };
+		BEB6CC6A785541A6A555EB2F /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = EBB4C6153D3041D092D2B526 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+		CBF93C2FBF1E4A47BD52800E /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */ = {isa = PBXBuildFile; fileRef = A0847BA655234CC285836105 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */; settings = {COMPILER_FLAGS = ""; }; };
+		CED800279A4146DD95127BE4 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/test/test.cpp */ = {isa = PBXBuildFile; fileRef = EDA2A54BF8C142D1B5B3F1DE /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/test/test.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		DA25141B1B804FEAB83DEA4E /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 39A821861A154905BE356232 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		23DB88BB4319469AB59A1980 = {
+			isa = PBXBuildStyle;
+		};
+		8125CCE87E8F4C5EAEC06F59 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+		84D90A76909443F1A7B9A064 /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		9091231C7131498F926E319E /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		F65B600256434C1D85DEFD52 /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		0486367714E7468CB8EF2892 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32F3D6E8494744E79D3219ED;
+			remoteInfo = ZERO_CHECK;
+		};
+		071A9BCE733F4BF1ACA50F66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F1310EC42A548EDA623B6B9;
+			remoteInfo = FORMAT;
+		};
+		18AF37BDE94444F1A62B9E62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3895D1C2721E4BA1B47F3DC6;
+			remoteInfo = discoveryd;
+		};
+		299D78DA9D1D45A0A2DF33B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32F3D6E8494744E79D3219ED;
+			remoteInfo = ZERO_CHECK;
+		};
+		34EDDEB3BC7048088E7DC29F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32F3D6E8494744E79D3219ED;
+			remoteInfo = ZERO_CHECK;
+		};
+		D76CC3D4F41C42CD8C92F52B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C936C281A8E44D6BB46C2DD;
+			remoteInfo = test;
+		};
+		DF2A6D356F5E49F499B3A89E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85531E0054124B1380D99E54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32F3D6E8494744E79D3219ED;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		270CC95772514A58A486369B /* test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = test; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		3117A49CFC0D4F87B0F255B0 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = BUILD; path = BUILD; sourceTree = SOURCE_ROOT; };
+		39A821861A154905BE356232 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		5D9180C95A7241F1841CC250 /* discoveryd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = discoveryd; refType = 0; sourceTree = BUILT_PRODUCTS_DIR; };
+		8342662697BE4D1C82725E56 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		992CCD98FBF748E88421CC36 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A0847BA655234CC285836105 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = PACKAGE.cmake; path = PACKAGE.cmake; sourceTree = SOURCE_ROOT; };
+		BE4C46630F5F4142B8130D52 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = BUILD; path = BUILD; sourceTree = SOURCE_ROOT; };
+		E0C8F9DA431B43DCA3296AAF /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		EBB4C6153D3041D092D2B526 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		EDA2A54BF8C142D1B5B3F1DE /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/test/test.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = test.cpp; path = src/test/test.cpp; sourceTree = SOURCE_ROOT; };
+		F5106903B28D4CD2B006D741 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */ = {isa = PBXFileReference; explicitFileType = sourcecode; fileEncoding = 4; name = PACKAGE.cmake; path = PACKAGE.cmake; sourceTree = SOURCE_ROOT; };
+		FD0BBB0EDCE44485ACFA2909 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2CD196F34B2F41AEA677942D /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		39AB0675248049CC8F432A40 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				CA614CBEE0794F99ACF82E6E /* Source Files */,
+				3117A49CFC0D4F87B0F255B0 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */,
+				EBB4C6153D3041D092D2B526 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */,
+				A0847BA655234CC285836105 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		5CDC58370BAF4D87AF08D213 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				6F4B4B1764E74D8BAC2B9C2E /* CMake Rules */,
+				8342662697BE4D1C82725E56 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		6F4B4B1764E74D8BAC2B9C2E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		71E683667E1E4A438CDD91CD /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD0BBB0EDCE44485ACFA2909 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		75B2D04603A0440587D09D33 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		7F00AB53909946DEA4B08666 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				2CD196F34B2F41AEA677942D /* CMake Rules */,
+				E0C8F9DA431B43DCA3296AAF /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		8434313BE78C49479783DB12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		867417FD0DA846FB83D8D53D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D9180C95A7241F1841CC250 /* discoveryd */,
+				270CC95772514A58A486369B /* test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95FF059D06914398B8E5AD5B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D10F3F466139442B89BF18A4 /* FORMAT */,
+				39AB0675248049CC8F432A40 /* test */,
+				A19DC64E5B8B4273B357D692 /* discoveryd */,
+				5CDC58370BAF4D87AF08D213 /* ALL_BUILD */,
+				7F00AB53909946DEA4B08666 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		A19DC64E5B8B4273B357D692 /* discoveryd */ = {
+			isa = PBXGroup;
+			children = (
+				71E683667E1E4A438CDD91CD /* Source Files */,
+				BE4C46630F5F4142B8130D52 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/BUILD */,
+				39A821861A154905BE356232 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */,
+				F5106903B28D4CD2B006D741 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/PACKAGE.cmake */,
+			);
+			name = discoveryd;
+			sourceTree = "<group>";
+		};
+		B457396A7096498EB754348C = {
+			isa = PBXGroup;
+			children = (
+				95FF059D06914398B8E5AD5B /* Sources */,
+				8434313BE78C49479783DB12 /* Resources */,
+				867417FD0DA846FB83D8D53D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA614CBEE0794F99ACF82E6E /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDA2A54BF8C142D1B5B3F1DE /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/test/test.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		D10F3F466139442B89BF18A4 /* FORMAT */ = {
+			isa = PBXGroup;
+			children = (
+				75B2D04603A0440587D09D33 /* CMake Rules */,
+				992CCD98FBF748E88421CC36 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/CMakeLists.txt */,
+			);
+			name = FORMAT;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3895D1C2721E4BA1B47F3DC6 /* discoveryd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB529BF07B664F5DAC9D5349 /* Build configuration list for PBXNativeTarget "discoveryd" */;
+			buildPhases = (
+				B9ABA68221164FD593499456 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A7A0EC355AF4E68B5701BF2 /* PBXTargetDependency */,
+			);
+			name = discoveryd;
+			productName = discoveryd;
+			productReference = 5D9180C95A7241F1841CC250 /* discoveryd */;
+			productType = "com.apple.product-type.tool";
+		};
+		9C936C281A8E44D6BB46C2DD /* test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25450329422E4401BEF45F65 /* Build configuration list for PBXNativeTarget "test" */;
+			buildPhases = (
+				1C14B56480A748BC90837C51 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC395919C4824A0A9483132A /* PBXTargetDependency */,
+			);
+			name = test;
+			productName = test;
+			productReference = 270CC95772514A58A486369B /* test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85531E0054124B1380D99E54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0730;
+			};
+			buildConfigurationList = 9D9E8EC6C8ED4DFF92DF9E99 /* Build configuration list for PBXProject "discovery_engine" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				F65B600256434C1D85DEFD52 /* Debug */,
+				9091231C7131498F926E319E /* Release */,
+				84D90A76909443F1A7B9A064 /* MinSizeRel */,
+				8125CCE87E8F4C5EAEC06F59 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = B457396A7096498EB754348C;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				F44B28B3AA1B419496085992 /* ALL_BUILD */,
+				4F1310EC42A548EDA623B6B9 /* FORMAT */,
+				32F3D6E8494744E79D3219ED /* ZERO_CHECK */,
+				3895D1C2721E4BA1B47F3DC6 /* discoveryd */,
+				9C936C281A8E44D6BB46C2DD /* test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D8B19475AE845AF9509DA9A /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode -f /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		291B43705F4D40B78C200A95 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		2D62AB26AB3D44BB8F5EBAE4 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		99F3E8FF03BC4051AC2BF023 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		AD461DFD83CC4AE39AA09A72 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode -f /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		C475DD44784C45D1804BFB56 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode -f /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/CMakeScripts/FORMAT_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C14B56480A748BC90837C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED800279A4146DD95127BE4 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/test/test.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9ABA68221164FD593499456 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9601ABB2134A42CE850C20F3 /* /Users/erich/Desktop/Follow/follow/server/discovery_engine/src/main.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0A79BB591D15499796CA50E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C936C281A8E44D6BB46C2DD /* test */;
+			targetProxy = D76CC3D4F41C42CD8C92F52B /* PBXContainerItemProxy */;
+		};
+		4FCB4A6BA2854825B8CCF127 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3895D1C2721E4BA1B47F3DC6 /* discoveryd */;
+			targetProxy = 18AF37BDE94444F1A62B9E62 /* PBXContainerItemProxy */;
+		};
+		5A7A0EC355AF4E68B5701BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32F3D6E8494744E79D3219ED /* ZERO_CHECK */;
+			targetProxy = DF2A6D356F5E49F499B3A89E /* PBXContainerItemProxy */;
+		};
+		8DA3F0CD017340B380EE230A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F1310EC42A548EDA623B6B9 /* FORMAT */;
+			targetProxy = 071A9BCE733F4BF1ACA50F66 /* PBXContainerItemProxy */;
+		};
+		B44BE5867B074D48AE152E20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32F3D6E8494744E79D3219ED /* ZERO_CHECK */;
+			targetProxy = 299D78DA9D1D45A0A2DF33B5 /* PBXContainerItemProxy */;
+		};
+		DC395919C4824A0A9483132A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32F3D6E8494744E79D3219ED /* ZERO_CHECK */;
+			targetProxy = 0486367714E7468CB8EF2892 /* PBXContainerItemProxy */;
+		};
+		DD2EBDED2F184F2DBF14204E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32F3D6E8494744E79D3219ED /* ZERO_CHECK */;
+			targetProxy = 34EDDEB3BC7048088E7DC29F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0303B1A0102F417695C2ADF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		19FDBA4AE23546A0AFC7D8C4 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		1F6371189A89410E9A0B9F31 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/discovery_engine/engine/libengine_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin//discovery_engine/cpp_lmdb/libcpp_lmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/lmdb/liblmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = discoveryd;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		21827F80F2FC424EBF54A0BB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/discovery_engine/engine/libengine_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin//discovery_engine/cpp_lmdb/libcpp_lmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/lmdb/liblmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = discoveryd;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		2CBCD780582C4F27915C02E3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/build;
+			};
+			name = MinSizeRel;
+		};
+		380C8776B8C9407DA2D152EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/build;
+			};
+			name = Release;
+		};
+		4A6F0BFE8A824E74A5C04E23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		53F9A9DB7E7B4009AAE195D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		59F55706A3E44EE4A0C4FE44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/discovery_engine/engine/libengine_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin//discovery_engine/cpp_lmdb/libcpp_lmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/lmdb/liblmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = discoveryd;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		70CE5869039A43698FCE7A51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/gtest/libmain.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		838982080C284919ADCC15C9 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		83CA722CF1C5448F997D6062 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		95A22F65C2714038B0C0BE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "   '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/gtest/libmain.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		9618C87F0E5543D69D7F9DAB /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "       -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/gtest/libmain.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		99085BF7939A466C9EC1BA69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		9CF318251FC44FE3A28A0E29 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		A80EB47423684F759EBB9337 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Debug;
+		};
+		AE996C911CE24A9A88C1B646 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/build;
+			};
+			name = RelWithDebInfo;
+		};
+		B3DFF69F075B489D872116F3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /usr/local/lib/libboost_system-mt.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/gtest/libmain.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = test;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		CCEF6200808D4AB38B18BD11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "    -DNDEBUG '-std=c++14'  ";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/discovery_engine/engine/libengine_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin//discovery_engine/cpp_lmdb/libcpp_lmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/external/lmdb/liblmdb_impl.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/schema/libschema.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/capnp/libcapnp.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/capnproto/kj/libkj.a /Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/bin/aeron/libaeron_impl.a";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = discoveryd;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		DBFBCE6DF8F440EB95708E2B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = MinSizeRel;
+		};
+		DFA41BB02E5B4F9DB7DB90F6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = RelWithDebInfo;
+		};
+		F225716F9FFF40C099EEEB8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'", );
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = ("/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/external/lmdb/_/lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external", "/Users/erich/Desktop/Follow/follow/server/bazel-server/external/gtest/include", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/uWebSockets/_/uWebSockets", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/libuv/_/libuv", "/Users/erich/Desktop/Follow/follow/server/bazel-server", /Users/erich/Desktop/Follow/follow/server/discovery_engine/., /Users/erich/Desktop/Follow/follow/server/discovery_engine/./src, "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/xy_lmdb_graph/_/xy_lmdb_graph", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/cpp_lmdb/_/cpp_lmdb", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/discovery_engine/engine/_/engine", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/aeron/_/aeron", "/Users/erich/Desktop/Follow/follow/server/bazel-out/local-dbg/include/schema/_/schema", );
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = FORMAT;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost", "-Wno-four-char-constants", "-Wno-unknown-pragmas", "$(inherited)", );
+			};
+			name = Release;
+		};
+		FCF790E294CF489B946F55D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/erich/Desktop/Follow/follow/server/discovery_engine/_xcode/build;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25450329422E4401BEF45F65 /* Build configuration list for PBXNativeTarget "test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95A22F65C2714038B0C0BE8F /* Debug */,
+				70CE5869039A43698FCE7A51 /* Release */,
+				B3DFF69F075B489D872116F3 /* MinSizeRel */,
+				9618C87F0E5543D69D7F9DAB /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		77047C02B50F459693EE3E48 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99085BF7939A466C9EC1BA69 /* Debug */,
+				4A6F0BFE8A824E74A5C04E23 /* Release */,
+				DBFBCE6DF8F440EB95708E2B /* MinSizeRel */,
+				DFA41BB02E5B4F9DB7DB90F6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9D9E8EC6C8ED4DFF92DF9E99 /* Build configuration list for PBXProject "discovery_engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCF790E294CF489B946F55D9 /* Debug */,
+				380C8776B8C9407DA2D152EC /* Release */,
+				2CBCD780582C4F27915C02E3 /* MinSizeRel */,
+				AE996C911CE24A9A88C1B646 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9E5EBB4368574C6AA544B6B0 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0303B1A0102F417695C2ADF5 /* Debug */,
+				53F9A9DB7E7B4009AAE195D8 /* Release */,
+				838982080C284919ADCC15C9 /* MinSizeRel */,
+				9CF318251FC44FE3A28A0E29 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AB529BF07B664F5DAC9D5349 /* Build configuration list for PBXNativeTarget "discoveryd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59F55706A3E44EE4A0C4FE44 /* Debug */,
+				CCEF6200808D4AB38B18BD11 /* Release */,
+				1F6371189A89410E9A0B9F31 /* MinSizeRel */,
+				21827F80F2FC424EBF54A0BB /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E5130DAF22824E79AD4730A1 /* Build configuration list for PBXAggregateTarget "FORMAT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A80EB47423684F759EBB9337 /* Debug */,
+				F225716F9FFF40C099EEEB8D /* Release */,
+				19FDBA4AE23546A0AFC7D8C4 /* MinSizeRel */,
+				83CA722CF1C5448F997D6062 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85531E0054124B1380D99E54 /* Project object */;
+}

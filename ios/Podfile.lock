@@ -2,10 +2,13 @@ PODS:
   - ABFRealmMapView (1.8):
     - RBQFetchedResultsController (>= 2.0)
     - Realm (>= 0.98)
+  - Appz (1.6.0)
   - Atlas (1.0.23):
     - LayerKit (>= 0.21.0)
+  - CCMPopup (1.1.0)
   - KSReachability (1.4.1)
   - LayerKit (0.21.1)
+  - NSHash (1.1.0)
   - RBQFetchedResultsController (4.0.4):
     - Realm (>= 1.0.0)
   - Realm (1.0.1):
@@ -16,28 +19,37 @@ PODS:
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
   - SVProgressHUD (2.0.3)
+  - TOCropViewController (2.0.4)
 
 DEPENDENCIES:
   - ABFRealmMapView
+  - Appz
   - Atlas
+  - CCMPopup
   - KSReachability
   - LayerKit
+  - NSHash (~> 1.1.0)
   - Realm
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.8)
   - SVProgressHUD
+  - TOCropViewController
 
 SPEC CHECKSUMS:
   ABFRealmMapView: b440d11a5666a4575847a8e02313e57c370a4d38
+  Appz: 8310129e6fe178e844f20894ef397291bcedd87e
   Atlas: acf154ee2a10c6257a47e872366154653932302f
+  CCMPopup: e41fad5b8a0823c9cddea8eab6d431670c9dabe5
   KSReachability: ddf4af6e6488c45c5c41c59e72d72d078062ee28
   LayerKit: 7d77cfa591a3b82e76dfa1c7b477d90ccd87feb0
+  NSHash: 61d598c6d48957c5557f1eef0aeafd6ef5ec5fb7
   RBQFetchedResultsController: 56494d69fef1e47f9f70c3adcf1317d7b2e3d71c
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TOCropViewController: 5e3b8b380e6ec21536c645492d2aa64336d060b9
 
-PODFILE CHECKSUM: 11c93abc1da11b9f19321da9a7aacfa4d3e243dd
+PODFILE CHECKSUM: 4ce34b1421dacfdc6b5ef030183bf04f4441e9f8
 
 COCOAPODS: 1.0.1

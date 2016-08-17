@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FollowCardCell">
+            <connections>
+                <outlet property="button" destination="1Iy-8U-leI" id="lhT-W2-dIK"/>
+                <outlet property="cellView" destination="DMr-GV-c2h" id="zT5-aX-raM"/>
+                <outlet property="divider" destination="8wq-nd-zU2" id="FFB-CJ-QNP"/>
+                <outlet property="followeeLabel" destination="XPG-aN-us6" id="Anw-5d-XZR"/>
+                <outlet property="imageView" destination="zIh-Mk-58h" id="vqj-ZA-civ"/>
+                <outlet property="networkLabel" destination="Z0M-vZ-1yh" id="Jz7-Bu-z45"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1LR-9J-awW" customClass="FollowCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMr-GV-c2h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zIh-Mk-58h">
+                                <rect key="frame" x="8" y="8" width="64" height="64"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0M-vZ-1yh">
+                                <rect key="frame" x="80" y="16" width="230" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Followee Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPG-aN-us6">
+                                <rect key="frame" x="80" y="40" width="230" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wq-nd-zU2">
+                                <rect key="frame" x="0.0" y="79" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.62745098040000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="9Jv-VQ-fAr"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right.png" translatesAutoresizingMaskIntoConstraints="NO" id="YSs-4D-EXm">
+                                <rect key="frame" x="318" y="16" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="1XJ-h6-j0e"/>
+                                    <constraint firstAttribute="width" constant="48" id="NDB-ti-xdd"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Iy-8U-leI">
+                                <rect key="frame" x="232" y="0.0" width="143" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="143" id="5qM-R7-Ete"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="tappedButton:" destination="-2" eventType="touchUpInside" id="R1G-SP-VbP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8wq-nd-zU2" firstAttribute="leading" secondItem="DMr-GV-c2h" secondAttribute="leading" id="1Sr-Ki-dyq"/>
+                            <constraint firstAttribute="bottom" secondItem="8wq-nd-zU2" secondAttribute="bottom" id="5Rg-9B-iq4"/>
+                            <constraint firstAttribute="trailing" secondItem="8wq-nd-zU2" secondAttribute="trailing" id="5tm-Vs-Rf2"/>
+                            <constraint firstItem="1Iy-8U-leI" firstAttribute="top" secondItem="DMr-GV-c2h" secondAttribute="top" id="FUx-BC-PdW"/>
+                            <constraint firstAttribute="trailing" secondItem="YSs-4D-EXm" secondAttribute="trailing" constant="9" id="TM6-0T-h7t"/>
+                            <constraint firstAttribute="trailing" secondItem="1Iy-8U-leI" secondAttribute="trailing" id="WUL-J2-snd"/>
+                            <constraint firstItem="YSs-4D-EXm" firstAttribute="centerY" secondItem="DMr-GV-c2h" secondAttribute="centerY" id="fYl-qO-DCl"/>
+                            <constraint firstAttribute="bottom" secondItem="1Iy-8U-leI" secondAttribute="bottom" id="yW6-7T-9K1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DMr-GV-c2h" firstAttribute="leading" secondItem="1LR-9J-awW" secondAttribute="leading" id="hXc-sK-Xum"/>
+                <constraint firstAttribute="bottom" secondItem="DMr-GV-c2h" secondAttribute="bottom" id="me1-cH-qEy"/>
+                <constraint firstItem="DMr-GV-c2h" firstAttribute="top" secondItem="1LR-9J-awW" secondAttribute="top" id="z9Y-Lr-0YA"/>
+                <constraint firstAttribute="trailing" secondItem="DMr-GV-c2h" secondAttribute="trailing" id="zMb-CQ-nSY"/>
+            </constraints>
+            <size key="customSize" width="366" height="70"/>
+            <connections>
+                <outlet property="cellView" destination="DMr-GV-c2h" id="YxB-pc-RYB"/>
+                <outlet property="followeeLabel" destination="XPG-aN-us6" id="IxS-3f-FSs"/>
+                <outlet property="imageView" destination="zIh-Mk-58h" id="ror-9t-X9i"/>
+                <outlet property="networkLabel" destination="Z0M-vZ-1yh" id="pnd-E6-WQy"/>
+            </connections>
+            <point key="canvasLocation" x="465.5" y="327"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="arrow-right.png" width="256" height="256"/>
+    </resources>
+</document>

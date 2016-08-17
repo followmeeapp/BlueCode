@@ -1,0 +1,5 @@
+/Users/erich/Desktop/Follow/follow/server/main/_xcode/CMakeFiles/FORMAT.dir
+/Users/erich/Desktop/Follow/follow/server/main/_xcode/CMakeFiles/nop.dir
+/Users/erich/Desktop/Follow/follow/server/main/_xcode/CMakeFiles/main.dir
+/Users/erich/Desktop/Follow/follow/server/main/_xcode/CMakeFiles/ALL_BUILD.dir
+/Users/erich/Desktop/Follow/follow/server/main/_xcode/CMakeFiles/ZERO_CHECK.dir

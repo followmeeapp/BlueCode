@@ -5,3 +5,26 @@ new_http_archive(
     build_file = "gtest.BUILD",
     strip_prefix = "gtest-1.7.0",
 )
+
+new_http_archive(
+  name = "boost",
+  url = "https://sourceforge.net/projects/boost/files/boost/1.61.0/boost_1_61_0.tar.gz",
+  sha256 = "a77c7cc660ec02704c6884fbb20c552d52d60a18f26573c9cee0788bf00ed7e6",
+  strip_prefix = "boost_1_61_0/boost",
+  build_file = "boost.BUILD"
+)
+
+new_git_repository(
+  name = "lmdb",
+  tag = "LMDB_0.9.18",
+  remote = "https://github.com/LMDB/lmdb.git",
+  build_file = "lmdb.BUILD"
+)
+
+new_git_repository(
+  name = "zlib",
+  tag = "v1.2.8",
+  remote = "https://github.com/madler/zlib",
+  build_file = "zlib.BUILD"
+)
+

@@ -5,10 +5,10 @@
 //  Copyright © 2016 Follow-Mee, Incorporated. All rights reserved.
 //
 
-#import "Follow.h"
+#import "BlueApp.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([Follow class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([BlueApp class]));
     }
 }

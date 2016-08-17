@@ -3,7 +3,7 @@ platform :ios, '9.0'
 # LayerKit v0.17 or higher requires the use_frameworks tag
 use_frameworks!
 
-target 'Follow' do
+target 'Blue' do
   pod 'Realm'
   pod 'LayerKit'
   pod 'SDWebImage', '~>3.8'
@@ -12,4 +12,8 @@ target 'Follow' do
   pod 'Atlas'
   pod 'Reveal-iOS-SDK', :configurations => ['Debug']
   pod 'SVProgressHUD'
+  pod 'TOCropViewController'
+  pod 'Appz'
+  pod 'NSHash', '~> 1.1.0'
+  pod 'CCMPopup'
 end
