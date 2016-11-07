@@ -1,19 +1,28 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '9.0'
 
 # LayerKit v0.17 or higher requires the use_frameworks tag
 use_frameworks!
 
 target 'Blue' do
+#  pod 'KSReachability'
+#  pod 'JazzHands'
   pod 'Realm'
-  pod 'LayerKit'
+#  pod 'ABFRealmMapView'
+#  pod 'LayerKit'
+#  pod 'Atlas'
   pod 'SDWebImage', '~>3.8'
-  pod 'KSReachability'
-  pod 'ABFRealmMapView'
-  pod 'Atlas'
   pod 'Reveal-iOS-SDK', :configurations => ['Debug']
   pod 'SVProgressHUD'
   pod 'TOCropViewController'
   pod 'Appz'
   pod 'NSHash', '~> 1.1.0'
   pod 'CCMPopup'
+  pod 'REMenu', '~> 1.10'
+  pod 'AttributedMarkdown', :git => 'https://github.com/dreamwieber/AttributedMarkdown.git'
+  pod 'BZipCompression', '~> 1.0.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
+  pod 'IQKeyboardManager'
 end

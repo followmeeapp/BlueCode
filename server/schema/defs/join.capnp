@@ -10,7 +10,10 @@
 using import "section.capnp".Section;
 
 struct JoinRequest {
-  telephone @0 :Text;
+  telephone     @0 :Text;
+  digitsId      @1 :Text;
+  email         @2 :Text;
+  emailVerified @3 :Bool;
 }
 
 struct JoinResponse {

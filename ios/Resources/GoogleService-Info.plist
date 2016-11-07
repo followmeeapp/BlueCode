@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>44549869482-1ahqbtsg79t5g0bego69fdl049ktc08u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.44549869482-1ahqbtsg79t5g0bego69fdl049ktc08u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBe-msXaSRosNTFvFHWvNHndq49HPQVZOI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>44549869482</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>social.blue.app</string>
+	<key>PROJECT_ID</key>
+	<string>blue-2e29c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>blue-2e29c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:44549869482:ios:cb22d1b656e6d854</string>
+	<key>DATABASE_URL</key>
+	<string>https://blue-2e29c.firebaseio.com</string>
+</dict>
+</plist>

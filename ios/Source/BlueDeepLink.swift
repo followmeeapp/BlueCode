@@ -9,26 +9,26 @@
 import UIKit
 import Appz
 
-@objc public class BlueDeepLink : NSObject {
+@objc open class BlueDeepLink : NSObject {
 
-    @objc public func openTwitter(userHandle: String) {
-        let app = UIApplication.sharedApplication()
-        app.open(Applications.Twitter(), action: .UserHandle(userHandle))
+    @objc open func openTwitter(_ userHandle: String) {
+        let app = UIApplication.shared
+        app.open(Applications.Twitter(), action: .userHandle(userHandle))
     }
 
-    @objc public func openInstagram(username: String) {
-        let app = UIApplication.sharedApplication()
-        app.open(Applications.Instagram(), action: .Username(username: username))
+    @objc open func openInstagram(_ username: String) {
+        let app = UIApplication.shared
+        app.open(Applications.Instagram(), action: .username(username: username))
     }
 
-    @objc public func openSnapchat(username: String) {
-        let app = UIApplication.sharedApplication()
-        app.open(Applications.Snapchat(), action: .Add(username: username))
+    @objc open func openSnapchat(_ username: String) {
+        let app = UIApplication.shared
+        app.open(Applications.Snapchat(), action: .add(username: username))
     }
 
-    @objc public func openPinterest(name: String) {
-        let app = UIApplication.sharedApplication()
-        app.open(Applications.Pinterest(), action: .User(name: name))
+    @objc open func openPinterest(_ name: String) {
+        let app = UIApplication.shared
+        app.open(Applications.Pinterest(), action: .user(name: name))
     }
 
 }

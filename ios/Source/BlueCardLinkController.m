@@ -8,14 +8,19 @@
 
 #import "BlueCardLinkController.h"
 
+#import <Crashlytics/Crashlytics.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
 #import "BlueCardController.h"
 
 #import "BlueApp.h"
 #import "BlueClient.h"
+#import "BlueModel.h"
 
 #import "ServerRequest.h"
 
 #import "CardObject.h"
+#import "DeviceObject.h"
 
 typedef NS_ENUM(NSInteger, LinkStatus) {
     Unknown = 0,
@@ -38,10 +43,8 @@ typedef NS_ENUM(NSInteger, LinkStatus) {
 
 @implementation BlueCardLinkController
 
-- (void) viewDidLoad
+- (void) configure
 {
-    [super viewDidLoad];
-
     self.card = [CardObject objectForPrimaryKey: @(self.cardId)];
 
     if (self.card) {
@@ -51,17 +54,29 @@ typedef NS_ENUM(NSInteger, LinkStatus) {
         RLMRealm *realm = [RLMRealm defaultRealm];
         [realm beginWriteTransaction];
 
+        [APP_DELEGATE.blueAnalytics discoverCardViaLink: self.cardId];
+
         CardObject *newCard = [[CardObject alloc] init];
 
         newCard.id = self.cardId;
         newCard.version = 0;
+        newCard.fullName = self.fullName;
+        newCard.location = self.location;
 
         [realm addOrUpdateObject: newCard];
 
-        NSData *cardRequestPacket = [ServerRequest newCardRequestWithId: [APP_DELEGATE.blueClient nextRequestId] cardId: self.cardId version: 0];
-        [APP_DELEGATE.blueClient sendRequest: cardRequestPacket];
+        DeviceObject *device = [APP_DELEGATE.blueModel activeDevice];
+
+        NSMutableArray *visibleCards = [[[device.visibleCards reverseObjectEnumerator] allObjects] mutableCopy];
+        [visibleCards addObject: @(self.cardId)];
+        [device updateVisibleCards: visibleCards hiddenCards: @[]];
+
+        [realm addOrUpdateObject: device];
 
         [realm commitWriteTransaction];
+
+        NSData *cardRequestPacket = [ServerRequest newCardRequestWithId: [APP_DELEGATE.blueClient nextRequestId] cardId: self.cardId version: 0];
+        [APP_DELEGATE.blueClient sendRequest: cardRequestPacket];
 
         self.card = newCard;
 
@@ -71,7 +86,7 @@ typedef NS_ENUM(NSInteger, LinkStatus) {
 
         [self showLoadingCardController];
 
-        self.timer = [NSTimer timerWithTimeInterval: 30.0
+        self.timer = [NSTimer timerWithTimeInterval: 7.0
                               target:                self
                               selector:              @selector(timerDidFire:)
                               userInfo:              nil
@@ -81,10 +96,27 @@ typedef NS_ENUM(NSInteger, LinkStatus) {
     }
 }
 
+- (void) dealloc
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 - (void) timerDidFire: (NSTimer *) timer
 {
     if (self.linkStatus == LoadingCard) {
-        [self showLoadingFailedController];
+        [SVProgressHUD setDefaultStyle: SVProgressHUDStyleCustom];
+        [SVProgressHUD setDefaultMaskType: SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD setForegroundColor: [UIColor blackColor]];
+        [SVProgressHUD setBackgroundColor: [UIColor whiteColor]];
+
+        [SVProgressHUD showSuccessWithStatus: @"Loading failed."];
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+
+        [self dismissViewControllerAnimated: YES completion: nil];
     }
 
     [self.timer invalidate];
@@ -96,17 +128,9 @@ typedef NS_ENUM(NSInteger, LinkStatus) {
     UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
     BlueCardController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueLoadingCardController"];
 
+    vc.card = self.card;
+
     self.linkStatus = LoadingCard;
-
-    self.viewControllers = @[vc];
-}
-
-- (void) showLoadingFailedController
-{
-    UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
-    BlueCardController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueLoadingFailedController"];
-
-    self.linkStatus = LoadingFailed;
 
     self.viewControllers = @[vc];
 }

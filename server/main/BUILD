@@ -8,23 +8,46 @@ cc_binary(
         "-DNO_OPENSSL",
     ],
     deps = [
+        ":server",
         "//uWebSockets",
-        "@lmdb//:lmdb",
-        "//capnproto/capnp",
-        "//schema",
         "//aeron",
         "//libuv",
+        "//tweetnacl",
     ],
 )
 
-cc_binary(
-    name = "nop",
-    srcs = [
-        "nop.cpp",
+cc_library(
+    name = "server",
+    srcs =  [
+        "server.cpp",
+        "stacktrace.cpp",
+    ],
+    hdrs = [
+        "server.h",
+        "stacktrace.h",
     ],
     deps = [
-        "//uWebSockets",
+        "@lmdb//:lmdb",
         "//capnproto/capnp",
-        "//rpc",
+        "//schema",
     ],
+    linkstatic = 1,
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "test_main",
+    srcs = [
+        "test_main.cpp",
+    ],
+    copts = [
+        "-stdlib=libc++",
+        "-std=c++14",
+        "-Iexternal/gtest/include",
+    ],
+    deps = [
+        ":server",
+        "@gtest//:main",
+    ],
+    size = "small",
 )

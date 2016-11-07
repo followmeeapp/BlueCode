@@ -56,9 +56,9 @@ public:
 
   inline  ::int64_t getCardsVersion() const;
 
-  inline  ::int64_t getLastCard() const;
+  inline  ::int64_t getLastCardTimestamp() const;
 
-  inline  ::int64_t getLastDeviceUpdate() const;
+  inline  ::int64_t getLastDeviceUpdateTimestamp() const;
 
 private:
   ::capnp::_::StructReader _reader;
@@ -91,11 +91,11 @@ public:
   inline  ::int64_t getCardsVersion();
   inline void setCardsVersion( ::int64_t value);
 
-  inline  ::int64_t getLastCard();
-  inline void setLastCard( ::int64_t value);
+  inline  ::int64_t getLastCardTimestamp();
+  inline void setLastCardTimestamp( ::int64_t value);
 
-  inline  ::int64_t getLastDeviceUpdate();
-  inline void setLastDeviceUpdate( ::int64_t value);
+  inline  ::int64_t getLastDeviceUpdateTimestamp();
+  inline void setLastDeviceUpdateTimestamp( ::int64_t value);
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -139,30 +139,30 @@ inline void SyncInfo::Builder::setCardsVersion( ::int64_t value) {
       0 * ::capnp::ELEMENTS, value);
 }
 
-inline  ::int64_t SyncInfo::Reader::getLastCard() const {
+inline  ::int64_t SyncInfo::Reader::getLastCardTimestamp() const {
   return _reader.getDataField< ::int64_t>(
       1 * ::capnp::ELEMENTS);
 }
 
-inline  ::int64_t SyncInfo::Builder::getLastCard() {
+inline  ::int64_t SyncInfo::Builder::getLastCardTimestamp() {
   return _builder.getDataField< ::int64_t>(
       1 * ::capnp::ELEMENTS);
 }
-inline void SyncInfo::Builder::setLastCard( ::int64_t value) {
+inline void SyncInfo::Builder::setLastCardTimestamp( ::int64_t value) {
   _builder.setDataField< ::int64_t>(
       1 * ::capnp::ELEMENTS, value);
 }
 
-inline  ::int64_t SyncInfo::Reader::getLastDeviceUpdate() const {
+inline  ::int64_t SyncInfo::Reader::getLastDeviceUpdateTimestamp() const {
   return _reader.getDataField< ::int64_t>(
       2 * ::capnp::ELEMENTS);
 }
 
-inline  ::int64_t SyncInfo::Builder::getLastDeviceUpdate() {
+inline  ::int64_t SyncInfo::Builder::getLastDeviceUpdateTimestamp() {
   return _builder.getDataField< ::int64_t>(
       2 * ::capnp::ELEMENTS);
 }
-inline void SyncInfo::Builder::setLastDeviceUpdate( ::int64_t value) {
+inline void SyncInfo::Builder::setLastDeviceUpdateTimestamp( ::int64_t value) {
   _builder.setDataField< ::int64_t>(
       2 * ::capnp::ELEMENTS, value);
 }

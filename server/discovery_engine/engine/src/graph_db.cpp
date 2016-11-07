@@ -53,7 +53,7 @@ void GraphDB::update(ErrorPtr &e, int64_t deviceID, int64_t time,
 auto GraphDB::discoverDevices(ErrorPtr &e, int64_t deviceID, Transaction &txn)
     -> std::vector<int64_t> {
   ASSERT_ERROR_RESET(e);
-
+  LOG("BEGIN discoverDevices")
   std::map<int64_t, int> DeviceDepth;
   std::vector<int64_t> FoundDevices;
   auto RootDevice = graphDB_.getVertex(e, deviceID, txn);
@@ -63,7 +63,6 @@ auto GraphDB::discoverDevices(ErrorPtr &e, int64_t deviceID, Transaction &txn)
 
   int depth = 0;
   int position = 0;
-  LOG("\nDiscovery Devices in Graph!")
   // We put our 'RootDevice' in the FoundDevices
   FoundDevices.push_back(*RootDevice);
   DeviceDepth[*RootDevice] = depth;

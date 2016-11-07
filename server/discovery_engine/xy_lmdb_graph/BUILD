@@ -4,7 +4,7 @@ cc_inc_library(
     "src/xy_lmdb_graph.h"
   ],
   deps=[
-    "//discovery_engine/cpp_lmdb",
+    "//cpp_lmdb",
     "@boost//:boost"
   ],
   prefix="src",
@@ -18,7 +18,7 @@ cc_test(
   ],
   deps=[
   ":xy_lmdb_graph",
-  "//discovery_engine/cpp_lmdb",
+  "//cpp_lmdb",
   "@gtest//:main",
   "@boost//:boost"
   ],
@@ -35,7 +35,7 @@ cc_binary(
   ],
   deps=[
     ":xy_lmdb_graph",
-    "//discovery_engine/cpp_lmdb",
+    "//cpp_lmdb",
     "@boost//:boost"
   ],
   linkstatic=1,

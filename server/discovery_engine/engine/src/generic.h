@@ -13,9 +13,9 @@
 #include "boost/optional.hpp"
 #include "capnproto/capnp/message.h"
 #include "capnproto/capnp/serialize-packed.h"
-#include "discovery_engine/cpp_lmdb/lmdb_database.h"
-#include "discovery_engine/cpp_lmdb/lmdb_env.h"
-#include "discovery_engine/cpp_lmdb/lmdb_cursor.h"
+#include "cpp_lmdb/lmdb_database.h"
+#include "cpp_lmdb/lmdb_env.h"
+#include "cpp_lmdb/lmdb_cursor.h"
 
 using boost::optional;
 using boost::none;

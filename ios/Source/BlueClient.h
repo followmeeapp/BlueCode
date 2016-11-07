@@ -12,10 +12,11 @@
 
 @property (nonatomic, assign) BOOL hasWebSocket;
 
+@property (nonatomic, copy) NSData *publicKey;
+@property (nonatomic, copy) NSData *serverKey;
+
 - (instancetype)
-initWithSecretKey: (NSData *)   secretKey
-publicKey:         (NSData *)   publicKey
-serverKey:         (NSData *)   serverKey
+initWithServerKey: (NSData *)   serverKey
 hostname:          (NSString *) hostname
 port:              (NSInteger)  port;
 
@@ -24,7 +25,7 @@ port:              (NSInteger)  port;
 
 - (void) sendRequest: (NSData *) data;
 
-- (void) webSocketDidReceiveMessage: (NSDictionary *) dict;
+//- (void) webSocketDidReceiveMessage: (NSDictionary *) dict;
 
 - (BOOL) shouldPing;
 

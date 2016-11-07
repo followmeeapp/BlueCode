@@ -21,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>3.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -42,9 +42,17 @@
 				<string>blue</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prefs</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>21</string>
+	<string>47</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -66,9 +74,9 @@
 				<key>KitInfo</key>
 				<dict>
 					<key>consumerKey</key>
-					<string>anumxSjLvHMmneRqRR7vgi0HY</string>
+					<string>VH5L4tFJie8687ypxzWGLIzy8</string>
 					<key>consumerSecret</key>
-					<string>YhOEUWfE8EawzRomETwwG4K2KQsy0hQoIpGbBr0IB02QYW59t3</string>
+					<string>kXrmKjUJoiH0D8B91Xc0NACpwWXnQzXuUAiQcRsp7DoIVKCqnG</string>
 				</dict>
 				<key>KitName</key>
 				<string>Digits</string>
@@ -94,6 +102,9 @@
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+		<string>snapchat</string>
+		<string>pinterest</string>
+		<string>twitter</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -153,12 +164,17 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Send and receive $(PRODUCT_NAME) cards.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Used for avatar and cover photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Used for avatar and cover photos.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
 		<string>bluetooth-peripheral</string>
 		<string>fetch</string>
-		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
@@ -170,8 +186,10 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<false/>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

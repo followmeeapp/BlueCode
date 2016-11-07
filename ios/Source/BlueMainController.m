@@ -8,22 +8,30 @@
 
 #import "BlueMainController.h"
 
+#import <MessageUI/MessageUI.h>
+
+#import <Crashlytics/Crashlytics.h>
 #import <DigitsKit/DigitsKit.h>
 #import <Realm/Realm.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <CCMPopup/CCMPopupTransitioning.h>
 #import <CCMPopup/CCMPopupSegue.h>
+#import <REMenu/REMenu.h>
 
 #import "BlueApp.h"
 #import "BlueModel.h"
+#import "BlueClient.h"
+#import "BlueBackup.h"
+
+#import "ServerRequest.h"
 
 #import "BlueRegisterController.h"
-#import "BlueCardEditController.h"
 #import "BlueCardController.h"
-
-#import "EditCardController.h"
+#import "BlueCardPageController.h"
+#import "BlueIntroController.h"
 
 #import "UserObject.h"
+#import "DeviceObject.h"
 #import "SectionObject.h"
 #import "CardObject.h"
 
@@ -46,56 +54,176 @@ typedef NS_ENUM(NSInteger, MainStatus) {
     HaveCard,
 };
 
-@interface BlueMainController ()
+@interface BlueMainController () <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, assign) MainStatus mainStatus;
 
-@property (nonatomic, strong) RLMResults *array;
 @property (nonatomic, strong) RLMNotificationToken *notification;
 
 @property (nonatomic, strong) NSIndexPath *currentCard;
+@property (nonatomic, strong) NSIndexPath *pendingCard;
 
 @property (nonatomic, strong) NSArray *networkKeys;
 @property (nonatomic, strong) NSDictionary *networkInfo;
+
+@property (nonatomic, strong) REMenu *menu;
+
+@property (nonatomic, strong) MFMailComposeViewController *mailController;
+
+@property (nonatomic, strong) DeviceObject *activeDevice;
+@property (nonatomic, assign) NSInteger visibleCardCount;
+
+@property (nonatomic, assign) BOOL suppressTableViewUpdateOnDeletion;
 
 @end
 
 @implementation BlueMainController
 
+- (void) configureMenu
+{
+    REMenuItem *privacyItem = [[REMenuItem alloc] initWithTitle:    @"Privacy Policy"
+                                                  subtitle:         nil
+                                                  image:            nil
+                                                  highlightedImage: nil
+                                                  action:
+    ^(REMenuItem *item) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"PrivacyPolicy"];
+        [self.navigationController pushViewController: vc animated: YES];
+    }];
+
+    REMenuItem *termsItem = [[REMenuItem alloc] initWithTitle:    @"Terms & Conditions"
+                                                subtitle:         nil
+                                                image:            nil
+                                                highlightedImage: nil
+                                                action:
+    ^(REMenuItem *item) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
+        [self.navigationController pushViewController: vc animated: YES];
+    }];
+
+    REMenuItem *copyrightItem = [[REMenuItem alloc] initWithTitle:    @"Copyright Policy"
+                                                    subtitle:         nil
+                                                    image:            nil
+                                                    highlightedImage: nil
+                                                    action:
+    ^(REMenuItem *item) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"CopyrightPolicy"];
+        [self.navigationController pushViewController: vc animated: YES];
+    }];
+
+    REMenuItem *supportItem = [[REMenuItem alloc] initWithTitle:    @"Support"
+                                                  image:            nil
+                                                  highlightedImage: nil
+                                                  action:
+    ^(REMenuItem *item) {
+        NSString *emailTitle = @"Blue Support";
+        NSString *messageBody = @"How can we help you?";
+
+        MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+        if (!mc) return;
+
+        mc.mailComposeDelegate = self;
+        [mc setToRecipients: @[@"support@blue.social"]];
+        [mc setSubject: emailTitle];
+        [mc setMessageBody: messageBody isHTML: NO];
+
+        [self presentViewController: mc animated: YES completion: NULL];
+    }];
+
+    REMenuItem *backupItem = [[REMenuItem alloc] initWithTitle:    @"Backup"
+                                                 subtitle:         nil
+                                                 image:            nil
+                                                 highlightedImage: nil
+                                                 action:
+    ^(REMenuItem *item) {
+        NSLog(@"Triggering backup.");
+        [APP_DELEGATE.blueBackup backupNow: nil];
+    }];
+
+    REMenuItem *logoutItem = [[REMenuItem alloc] initWithTitle:    @"Logout"
+                                                 subtitle:         nil
+                                                 image:            nil
+                                                 highlightedImage: nil
+                                                 action:
+    ^(REMenuItem *item) {
+        [APP_DELEGATE.blueBackup logout: nil];
+    }];
+
+    privacyItem.tag = 0;
+    termsItem.tag = 1;
+    supportItem.tag = 2;
+    backupItem.tag = 3;
+    copyrightItem.tag = 4;
+    logoutItem.tag = 5;
+
+    self.menu = [[REMenu alloc] initWithItems: @[privacyItem, termsItem, copyrightItem, supportItem, backupItem, logoutItem]];
+
+    // Blurred background in iOS 7
+    self.menu.liveBlur = YES;
+    self.menu.liveBlurBackgroundStyle = REMenuLiveBackgroundStyleDark;
+
+    UIImage *image = [UIImage imageNamed: @"hamburger-icon"];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage: image
+                                                           style:         UIBarButtonItemStylePlain
+                                                           target:        self
+                                                           action:        @selector(toggleMenu:)   ];
+    self.navigationItem.leftBarButtonItem = menuButton;
+}
+
+- (IBAction) toggleMenu: sender
+{
+    if (self.menu.isOpen) {
+        return [self.menu close];
+    }
+
+    [self.menu showFromNavigationController: self.navigationController];
+}
+
+- (void)
+mailComposeController: (MFMailComposeViewController *) controller
+didFinishWithResult:   (MFMailComposeResult)           result
+error:                 (NSError *)                     error
+{
+    [self dismissViewControllerAnimated: YES completion: NULL];
+}
+
+- (void) configureTour
+{
+    UIImage *image = [UIImage imageNamed: @"tour-icon"];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage: image
+                                                           style:         UIBarButtonItemStylePlain
+                                                           target:        self
+                                                           action:        @selector(openTour:)     ];
+    self.navigationItem.rightBarButtonItem = menuButton;
+}
+
 - (void) setupNetworkInfo
 {
     self.networkKeys = @[
-//        @(PokemonGoType), // No icon is shown for Pokémon Go.
-        @(FacebookType),
-        @(TwitterType),
         @(InstagramType),
         @(SnapchatType),
-        @(GooglePlusType),
-        @(YouTubeType),
-        @(PinterestType),
-        @(TumblrType),
-        @(LinkedInType),
-        @(PeriscopeType),
-        @(VineType),
+        @(TwitterType),
+        @(FacebookType),
         @(SoundCloudType),
+        @(YouTubeType),
+        @(LinkedInType),
+//        @(VineType),
+        @(GooglePlusType),
+        @(PinterestType),
+        @(PeriscopeType),
+        @(TumblrType),
         @(SinaWeiboType),
         @(VKontakteType),
     ];
 
-    // TODO(Erich): This is extremely similar to code in BlueSocialNetworksController.
     self.networkInfo = @{
-        @(PokemonGoType): @{
-            @"property": @"hasPokemonGo",
-            @"name": @"Pokémon Go",
-            @"icon": @"pokemongo-tile",
-            @"largeIcon": @"pokemon-large",
-            @"color": [UIColor colorWithRed: (255.0/255.0) green: (255.0/255.0) blue: (255.0/255.0) alpha: 1.0],
-            @"key": @(PokemonGoType),
-        },
         @(FacebookType): @{
             @"property": @"hasFacebook",
             @"name": @"Facebook",
-            @"icon": @"facebook-tile",
+            @"icon": @"facebook-icon",
             @"largeIcon": @"facebook-large",
             @"color": [UIColor colorWithRed: (58.0/255.0) green: (87.0/255.0) blue: (154.0/255.0) alpha: 1.0],
             @"key": @(FacebookType),
@@ -103,7 +231,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(TwitterType): @{
             @"property": @"hasTwitter",
             @"name": @"Twitter",
-            @"icon": @"twitter-tile",
+            @"icon": @"twitter-icon",
             @"largeIcon": @"twitter-large",
             @"color": [UIColor colorWithRed: (80.0/255.0) green: (170.0/255.0) blue: (241.0/255.0) alpha: 1.0],
             @"key": @(TwitterType),
@@ -111,7 +239,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(InstagramType): @{
             @"property": @"hasInstagram",
             @"name": @"Instagram",
-            @"icon": @"instagram-tile",
+            @"icon": @"instagram-icon",
             @"largeIcon": @"instagram-large",
             @"color": [UIColor colorWithRed: (60.0/255.0) green: (113.0/255.0) blue: (157.0/255.0) alpha: 1.0],
             @"key": @(InstagramType),
@@ -119,7 +247,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(SnapchatType): @{
             @"property": @"hasSnapchat",
             @"name": @"Snapchat",
-            @"icon": @"snapchat-tile",
+            @"icon": @"snapchat-icon",
             @"largeIcon": @"snapchat-large",
             @"color": [UIColor colorWithRed: (254.0/255.0) green: (255.0/255.0) blue: (0.0/255.0) alpha: 1.0],
             @"key": @(SnapchatType),
@@ -127,7 +255,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(GooglePlusType): @{
             @"property": @"hasGooglePlus",
             @"name": @"Google+",
-            @"icon": @"googleplus-tile",
+            @"icon": @"googleplus-icon",
             @"largeIcon": @"googleplus-large",
             @"color": [UIColor colorWithRed: (225.0/255.0) green: (73.0/255.0) blue: (50.0/255.0) alpha: 1.0],
             @"key": @(GooglePlusType),
@@ -135,7 +263,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(YouTubeType): @{
             @"property": @"hasYouTube",
             @"name": @"YouTube",
-            @"icon": @"youtube-tile",
+            @"icon": @"youtube-icon",
             @"largeIcon": @"youtube-large",
             @"color": [UIColor colorWithRed: (234.0/255.0) green: (39.0/255.0) blue: (27.0/255.0) alpha: 1.0],
             @"key": @(YouTubeType),
@@ -143,7 +271,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(PinterestType): @{
             @"property": @"hasPinterest",
             @"name": @"Pinterest",
-            @"icon": @"pinterest-tile",
+            @"icon": @"pinterest-icon",
             @"largeIcon": @"pinterest-large",
             @"color": [UIColor colorWithRed: (208.0/255.0) green: (26.0/255.0) blue: (31.0/255.0) alpha: 1.0],
             @"key": @(PinterestType),
@@ -151,7 +279,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(TumblrType): @{
             @"property": @"hasTumblr",
             @"name": @"Tumblr",
-            @"icon": @"tumblr-tile",
+            @"icon": @"tumblr-icon",
             @"largeIcon": @"tumblr-large",
             @"color": [UIColor colorWithRed: (52.0/255.0) green: (69.0/255.0) blue: (93.0/255.0) alpha: 1.0],
             @"key": @(TumblrType),
@@ -159,7 +287,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(LinkedInType): @{
             @"property": @"hasLinkedIn",
             @"name": @"LinkedIn",
-            @"icon": @"linkedin-tile",
+            @"icon": @"linkedin-icon",
             @"largeIcon": @"linkedin-large",
             @"color": [UIColor colorWithRed: (0.0/255.0) green: (116.0/255.0) blue: (182.0/255.0) alpha: 1.0],
             @"key": @(LinkedInType),
@@ -167,23 +295,23 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(PeriscopeType): @{
             @"property": @"hasPeriscope",
             @"name": @"Periscope",
-            @"icon": @"periscope-tile",
+            @"icon": @"periscope-icon",
             @"largeIcon": @"periscope-large",
             @"color": [UIColor colorWithRed: (53.0/255.0) green: (163.0/255.0) blue: (198.0/255.0) alpha: 1.0],
             @"key": @(PeriscopeType),
         },
-        @(VineType): @{
-            @"property": @"hasVine",
-            @"name": @"Vine",
-            @"icon": @"vine-tile",
-            @"largeIcon": @"vine-large",
-            @"color": [UIColor colorWithRed: (0.0/255.0) green: (182.0/255.0) blue: (135.0/255.0) alpha: 1.0],
-            @"key": @(VineType),
-        },
+//        @(VineType): @{
+//            @"property": @"hasVine",
+//            @"name": @"Vine",
+//            @"icon": @"vine-icon",
+//            @"largeIcon": @"vine-large",
+//            @"color": [UIColor colorWithRed: (0.0/255.0) green: (182.0/255.0) blue: (135.0/255.0) alpha: 1.0],
+//            @"key": @(VineType),
+//        },
         @(SoundCloudType): @{
             @"property": @"hasSoundCloud",
             @"name": @"SoundCloud",
-            @"icon": @"soundcloud-tile",
+            @"icon": @"soundcloud-icon",
             @"largeIcon": @"soundcloud-large",
             @"color": [UIColor colorWithRed: (255.0/255.0) green: (136.0/255.0) blue: (0.0/255.0) alpha: 1.0],
             @"key": @(SoundCloudType),
@@ -191,7 +319,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(SinaWeiboType): @{
             @"property": @"hasSinaWeibo",
             @"name": @"Sina Weibo",
-            @"icon": @"weibo-tile",
+            @"icon": @"weibo-icon",
             @"largeIcon": @"weibo-large",
             @"color": [UIColor colorWithRed: (182.0/255.0) green: (48.0/255.0) blue: (47.0/255.0) alpha: 1.0],
             @"key": @(SinaWeiboType),
@@ -199,7 +327,7 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         @(VKontakteType): @{
             @"property": @"hasVKontakte",
             @"name": @"VKontakte",
-            @"icon": @"vk-tile",
+            @"icon": @"vk-icon",
             @"largeIcon": @"vk-large",
             @"color": [UIColor colorWithRed: (75.0/255.0) green: (117.0/255.0) blue: (163.0/255.0) alpha: 1.0],
             @"key": @(VKontakteType),
@@ -232,6 +360,12 @@ typedef NS_ENUM(NSInteger, MainStatus) {
     }
 }
 
+- (void) refreshUserCard
+{
+    [self.tableView reloadSections:   [NSIndexSet indexSetWithIndex: 0]
+                    withRowAnimation: UITableViewRowAnimationNone     ];
+}
+
 - (void) didCreateUser: (NSNotification *) note
 {
     [self updateStatus];
@@ -240,97 +374,282 @@ typedef NS_ENUM(NSInteger, MainStatus) {
 - (void) didCreateCard: (NSNotification *) note
 {
     [self updateStatus];
+
+    // If we don't have our card's images saved locally, we need to download them now.
+    CardObject *card = [APP_DELEGATE.blueModel activeUserCard];
+    if (!card) return;
+
+    if (card.avatarURLString) {
+        NSURL *url = [NSURL URLWithString: card.avatarURLString];
+        [self downloadAvatar: url];
+    }
+
+    if (card.backgroundURLString) {
+        NSURL *url = [NSURL URLWithString: card.backgroundURLString];
+        [self downloadCoverPhoto: url];
+    }
+}
+
+- (void) downloadAvatar: (NSURL *) url
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+
+    id task = [session downloadTaskWithURL: url
+                       completionHandler:
+    ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        NSData *data = location ? [NSData dataWithContentsOfURL: location] : nil;
+
+        if (data) {
+            [data writeToURL: APP_DELEGATE.localAvatarURL atomically: YES];
+            [data writeToURL: APP_DELEGATE.localOriginalAvatarURL atomically: YES];
+            [data writeToURL: APP_DELEGATE.localCroppedAvatarURL atomically: YES];
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [self refreshUserCard];
+            });
+        }
+    }];
+
+    [task resume];
+}
+
+- (void) downloadCoverPhoto: (NSURL *) url
+{
+    NSURLSession *session = [NSURLSession sharedSession];
+
+    id task = [session downloadTaskWithURL: url
+                       completionHandler:
+    ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        NSData *data = location ? [NSData dataWithContentsOfURL: location] : nil;
+
+        if (data) {
+            [data writeToURL: APP_DELEGATE.localCoverPhotoURL atomically: YES];
+            [data writeToURL: APP_DELEGATE.localOriginalCoverPhotoURL atomically: YES];
+            [data writeToURL: APP_DELEGATE.localCroppedCoverPhotoURL atomically: YES];
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [self refreshUserCard];
+            });
+        }
+    }];
+
+    [task resume];
 }
 
 - (void) viewDidLoad
 {
-//    [[Digits sharedInstance] logOut];
-
     [super viewDidLoad];
 
+//    [[Digits sharedInstance] logOut];
+    [self configureMenu];
+    [self configureTour];
     [self setupNetworkInfo];
-
     [self updateStatus];
 
-    UserObject *user = [APP_DELEGATE.blueModel activeUser];
-    if (user && user.cardId > 0) {
-        [APP_DELEGATE startBluetoothAdvertising];
-        [APP_DELEGATE startBluetoothDiscovery];
-    }
-
-    // Initialize Refresh Control
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-
-    // Configure Refresh Control
     [refreshControl addTarget: self action: @selector(refresh:) forControlEvents: UIControlEventValueChanged];
-
-    // Configure View Controller
     [self setRefreshControl: refreshControl];
 
-    // Register for Refresh notification
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(beginRefreshingTableView:) name: @"RefreshCards" object: nil];
 
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didCreateUser:) name: @"DidCreateUser" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didCreateCard:) name: @"DidCreateCard" object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didUpdateCardsFromBackup:) name: @"BlueDidUpdateCardsFromBackup" object: nil];
 
-    // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = YES;
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-//    UIImage *image = [UIImage imageNamed: @"logo"];
-//    UIImageView *imageview = [[UIImageView alloc] initWithImage: image];
-//    self.navigationItem.titleView = imageview;
-
-    UIImage *image = [UIImage imageNamed: @"logo"];
+    UIImage *image = [UIImage imageNamed: @"navbar-icon"];
     UIButton *titleButton = [UIButton buttonWithType: UIButtonTypeCustom];
     [titleButton setImage: image forState: UIControlStateNormal];
     [titleButton setUserInteractionEnabled: YES];
-    [titleButton addTarget: self action: @selector(viewUserCard:) forControlEvents: UIControlEventTouchUpInside];
-    [titleButton setFrame: CGRectMake(0, 0, 167, 27)];
+    [titleButton addTarget: self action: @selector(editUserCard:) forControlEvents: UIControlEventTouchUpInside];
+    [titleButton setFrame: CGRectMake(0, 0, 116, 53.0)];
     self.navigationItem.titleView = titleButton;
 
-    [self.navigationController.navigationBar setTintColor: [UIColor whiteColor]];
-    [self.navigationController.navigationBar setTitleTextAttributes: @{ NSForegroundColorAttributeName: [UIColor whiteColor] }];
+    UIColor *tintColor = APP_DELEGATE.black;
+    [self.navigationController.navigationBar setTintColor: tintColor];
+    [self.navigationController.navigationBar setTitleTextAttributes: @{ NSForegroundColorAttributeName: tintColor }];
 
-    self.array = [[CardObject allObjects] sortedResultsUsingProperty: @"timestamp" ascending: NO];
+    // Remove 1px high first "section"
+    self.tableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
 
-    // Set realm notification block
+    RLMRealm *realm = [RLMRealm defaultRealm];
+
+    [realm beginWriteTransaction];
+
+    self.activeDevice = [APP_DELEGATE.blueModel activeDevice];
+    self.visibleCardCount = self.activeDevice.visibleCards.count;
+
+    if (self.visibleCardCount < 3) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"discovery-icon"]];
+        [imageView setContentMode: UIViewContentModeBottom];
+        self.tableView.backgroundView = imageView;
+    }
+
+    if (self.activeDevice.needsToBeCreated) {
+        [realm addOrUpdateObject: self.activeDevice];
+    }
+
+    [realm commitWriteTransaction];
+
     __weak typeof(self) weakSelf = self;
-
-    self.notification = [self.array addNotificationBlock: ^(RLMResults *data, RLMCollectionChange *changes, NSError *error) {
-        if (error) {
-            NSLog(@"Failed to open Realm on background worker: %@", error);
+    self.notification = [[RLMRealm defaultRealm] addNotificationBlock: ^(RLMNotification notification, RLMRealm *realm) {
+        if (self.suppressTableViewUpdateOnDeletion) {
+            self.suppressTableViewUpdateOnDeletion = NO;
             return;
         }
 
         UITableView *tv = weakSelf.tableView;
+        [tv beginUpdates];
 
-        // Initial run of the query will pass nil for the change information
-        if (!changes) {
-            [tv reloadData];
+        // Reload the User's own card.
+        [tv reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0 inSection: 0]] withRowAnimation: UITableViewRowAnimationAutomatic];
 
-        } else {
-            // changes is non-nil, so we just need to update the tableview
-            [tv beginUpdates];
+        // Reload recents.
+        // FIXME(Erich): This assumes visibleCards is in reverse order from how it's actually stored,
+        // which we arrange for transparently in DeviceObject. It'd be MUCH better if instead we could
+        // work with visibleCards in its native order, as it takes time and energy to constantly be
+        // reversing the visibleCards array every time we add a new card.
+        NSInteger old = weakSelf.visibleCardCount;
+        DeviceObject *activeDevice = [APP_DELEGATE.blueModel activeDevice];
+        NSAssert(!activeDevice.needsToBeCreated, @"Active device should already be created!");
 
-            [tv reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0 inSection: 0]] withRowAnimation: UITableViewRowAnimationAutomatic];
+        NSArray *visibleCards = activeDevice.visibleCards;
 
-            if (self.array.count > 1) {
-                [tv deleteRowsAtIndexPaths: [changes deletionsInSection: 1]     withRowAnimation: UITableViewRowAnimationAutomatic];
-                [tv insertRowsAtIndexPaths: [changes insertionsInSection: 1]    withRowAnimation: UITableViewRowAnimationAutomatic];
-                [tv reloadRowsAtIndexPaths: [changes modificationsInSection: 1] withRowAnimation: UITableViewRowAnimationAutomatic];
-            }
-            
-            [tv endUpdates];
+        // Gather rows to insert.
+        NSMutableArray *insert = [NSMutableArray arrayWithCapacity: visibleCards.count - old];
+        for (NSInteger idx=0, len=visibleCards.count - old; idx<len; ++idx) {
+            [insert addObject: [NSIndexPath indexPathForRow: idx inSection: 1]];
         }
+        [tv insertRowsAtIndexPaths: insert withRowAnimation: UITableViewRowAnimationAutomatic];
+
+        // Gather rows to update.
+        NSMutableArray *update = [NSMutableArray arrayWithCapacity: visibleCards.count - insert.count];
+        for (NSInteger idx=visibleCards.count - old, len=old; idx<len; ++idx) {
+            [update addObject: [NSIndexPath indexPathForRow: idx inSection: 1]];
+        }
+        [tv reloadRowsAtIndexPaths: update withRowAnimation: UITableViewRowAnimationAutomatic];
+
+        weakSelf.activeDevice = activeDevice;
+        weakSelf.visibleCardCount = visibleCards.count;
+
+        [tv endUpdates];
     }];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // If we have no cards, add the CEO card.
+        RLMRealm *realm = [RLMRealm defaultRealm];
+
+        [realm beginWriteTransaction];
+
+        RLMResults *results = [CardObject allObjects];
+        if (results.count == 0) {
+            CardObject *ceoCard = [[CardObject alloc] init];
+
+            ceoCard.id = 0;
+            ceoCard.version = 1; // Prevent it from being treated as not-fully-loaded.
+            ceoCard.fullName = @"Blue";
+            ceoCard.location = @"Riverside, CA";
+            ceoCard.bio = @"The New Way to Network\n\nShare your Social Media with ANY iPhone user using Bluetooth Low Energy even if they do NOT have Blue\n\n\n\n\nhttp://www.Blue.Social";
+
+            NSString *avatarFilePath = [[NSBundle mainBundle] pathForResource: @"jose-avatar" ofType: @"jpg"];
+            NSURL *avatarImageURL = [NSURL fileURLWithPath: avatarFilePath];
+            ceoCard.avatarURLString = [avatarImageURL absoluteString];
+
+            NSString *coverPhotoFilePath = [[NSBundle mainBundle] pathForResource: @"jose-cover-photo" ofType: @"jpg"];
+            NSURL *coverPhotoImageURL = [NSURL fileURLWithPath: coverPhotoFilePath];
+            ceoCard.backgroundURLString = [coverPhotoImageURL absoluteString];
+
+            NetworkObject *instagram = [[NetworkObject alloc] init];
+            instagram.guid = [[NSUUID UUID] UUIDString];
+            instagram.cardId = 0;
+            instagram.type = InstagramType;
+            instagram.username = @"BLUE_SocialApp";
+            ceoCard.hasInstagram = YES;
+            [ceoCard.networks addObject: instagram];
+
+            NetworkObject *twitter = [[NetworkObject alloc] init];
+            twitter.guid = [[NSUUID UUID] UUIDString];
+            twitter.cardId = 0;
+            twitter.type = TwitterType;
+            twitter.username = @"BLUESocialApp";
+            ceoCard.hasTwitter = YES;
+            [ceoCard.networks addObject: twitter];
+
+            NetworkObject *googlePlus = [[NetworkObject alloc] init];
+            googlePlus.guid = [[NSUUID UUID] UUIDString];
+            googlePlus.cardId = 0;
+            googlePlus.type = GooglePlusType;
+            googlePlus.username = @"106740032818432453647";
+            ceoCard.hasGooglePlus = YES;
+            [ceoCard.networks addObject: googlePlus];
+
+            NetworkObject *facebook = [[NetworkObject alloc] init];
+            facebook.guid = [[NSUUID UUID] UUIDString];
+            facebook.cardId = 0;
+            facebook.type = FacebookType;
+            facebook.username = @"BLUESocialApp";
+            ceoCard.hasFacebook = YES;
+            [ceoCard.networks addObject: facebook];
+
+            NetworkObject *pinterest = [[NetworkObject alloc] init];
+            pinterest.guid = [[NSUUID UUID] UUIDString];
+            pinterest.cardId = 0;
+            pinterest.type = PinterestType;
+            pinterest.username = @"BlueSocialApp";
+            ceoCard.hasPinterest = YES;
+            [ceoCard.networks addObject: pinterest];
+
+            NetworkObject *youTube = [[NetworkObject alloc] init];
+            youTube.guid = [[NSUUID UUID] UUIDString];
+            youTube.cardId = 0;
+            youTube.type = YouTubeType;
+            youTube.username = @"UC6VjehRGZi9-Qoy3F7UVjyw";
+            ceoCard.hasYouTube = YES;
+            [ceoCard.networks addObject: youTube];
+
+            [realm addOrUpdateObject: instagram];
+            [realm addOrUpdateObject: twitter];
+            [realm addOrUpdateObject: googlePlus];
+            [realm addOrUpdateObject: facebook];
+            [realm addOrUpdateObject: pinterest];
+            [realm addOrUpdateObject: youTube];
+
+            [realm addOrUpdateObject: ceoCard];
+
+            DeviceObject *activeDevice = [APP_DELEGATE.blueModel activeDevice];
+
+            [activeDevice updateVisibleCards: @[@0] hiddenCards: @[]];
+
+            [realm addOrUpdateObject: activeDevice];
+
+            self.activeDevice = activeDevice;
+            self.visibleCardCount = 1;
+
+            self.suppressTableViewUpdateOnDeletion = YES; // HACK
+            UITableView *tv = self.tableView;
+            [tv beginUpdates];
+            [tv insertRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0 inSection: 1]] withRowAnimation: UITableViewRowAnimationAutomatic];
+            [tv endUpdates];
+       }
+
+        [realm commitWriteTransaction];
+    });
 }
 
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver: self];
+}
+
+- (void) didUpdateCardsFromBackup: (NSNotification *) note
+{
+    self.activeDevice = [APP_DELEGATE.blueModel activeDevice];
+    NSAssert(!self.activeDevice.needsToBeCreated, @"Active device should already be created!");
+
+    self.visibleCardCount = self.activeDevice.visibleCards.count;
+
+    [self.tableView reloadData];
 }
 
 - (void) beginRefreshingTableView: (NSNotification *) note;
@@ -346,22 +665,58 @@ typedef NS_ENUM(NSInteger, MainStatus) {
     }
 }
 
+// TODO(Erich): Make this do an active Bluetooth scan.
 - (void) refresh: (id) sender
 {
-    NSLog(@"Refreshing");
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void) {
-        NSLog(@"End Refreshing");
-        [(UIRefreshControl *)sender endRefreshing];
-    });
+//    NSLog(@"Begin refreshing");
+//
+//    BOOL didReferesh = NO;
+//
+//    RLMResults *array = self.array;
+//    BlueClient *client = APP_DELEGATE.blueClient;
+//
+//    for (NSInteger idx=0, len=array.count; idx<len; ++idx) {
+//        CardObject *card = array[idx];
+//        if (card.version <= 0) {
+//            didReferesh = YES;
+//            NSData *cardRequestPacket = [ServerRequest newCardRequestWithId: [client nextRequestId] cardId: card.id version: 0];
+//            [client sendRequest: cardRequestPacket];
+//            NSLog(@"refreshing card = %@ with version = %@", @(card.id), @(card.version));
+//        }
+//    }
+//
+//    if (!didReferesh) {
+//        NSLog(@"Nothing to refresh");
+//        [(UIRefreshControl *)sender endRefreshing];
+//
+//    } else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void) {
+//            NSLog(@"End Refreshing");
+            [self.tableView reloadData];
+            [(UIRefreshControl *)sender endRefreshing];
+        });
+//    }
 }
 
-- (IBAction) viewUserCard: sender
+#pragma mark - Actions
+
+- (IBAction) openTour: sender
+{
+    BlueIntroController *vc = [[BlueIntroController alloc] init];
+
+    vc.isUserInitiatedTour = YES;
+
+    [self presentViewController: vc animated: YES completion:^{
+
+    }];
+}
+
+- (IBAction) editUserCard: sender
 {
     CardObject *userCard = [APP_DELEGATE.blueModel activeUserCard];
     if (!userCard) return;
 
-    [self tableView: self.tableView didSelectRowAtIndexPath: [NSIndexPath indexPathForRow: 0 inSection: 0]];
+    [self tableView: self.tableView willSelectRowAtIndexPath: [NSIndexPath indexPathForRow: 0 inSection: 0]];
 }
 
 #pragma mark - Table view delegate
@@ -379,7 +734,11 @@ willSelectRowAtIndexPath: (NSIndexPath *) indexPath
             appearance.backgroundColor = APP_DELEGATE.blue1;
             appearance.accentColor = [UIColor whiteColor];
 
-            DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields: DGTAccountFieldsDefaultOptionMask];
+            appearance.headerFont = [UIFont systemFontOfSize: 18];
+            appearance.labelFont  = [UIFont systemFontOfSize: 16];
+            appearance.bodyFont   = [UIFont systemFontOfSize: 16];
+
+            DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields: DGTAccountFieldsEmail];
             configuration.appearance = appearance;
             configuration.title = @"Join Blue";
 
@@ -389,14 +748,28 @@ willSelectRowAtIndexPath: (NSIndexPath *) indexPath
 
             return nil;
 
-        } else if (_mainStatus == NeedToCreateCard) {
+        } else {
             UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
-            BlueCardEditController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueCardEditController"];
+            BlueCardController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueCardController"];
+            vc.isEditableCard = YES;
+
+            CardObject *userCard = [APP_DELEGATE.blueModel activeUserCard];
+            if (userCard) {
+                [APP_DELEGATE.blueAnalytics viewOwnCard: userCard.id];
+
+                vc.card = userCard;
+                vc.isUserCard = YES;
+                vc.shouldEditUserCard = NO;
+
+            } else {
+                [APP_DELEGATE.blueAnalytics createCard];
+
+                [APP_DELEGATE prepareToEditUserCard];
+                vc.shouldEditUserCard = YES;
+            }
+
             [self.navigationController pushViewController: vc animated: YES];
             return nil;
-
-        } else {
-            return indexPath;
         }
     }
 
@@ -416,67 +789,92 @@ numberOfRowsInSection: (NSInteger)     section
 {
     if (section == 0) {
         return 1;
-    }
 
-    return self.array.count == 0 ? 0 : self.array.count - 1;
+    } else if (section == 1) {
+        return self.visibleCardCount;
+
+    } else {
+        return 0;
+    }
 }
 
 - (void)
 configureBlueCardCell: (BlueCardCell *) cell
 withCardObject:        (CardObject *)   card
+isUserCard:            (BOOL)           isUserCard
 {
-    cell.fullName.text = card.fullName;
-    cell.location.text = card.location;
+    if (card && card.version <= 0) {
+        NSData *cardRequestPacket = [ServerRequest newCardRequestWithId: [APP_DELEGATE.blueClient nextRequestId] cardId: card.id version: card.version];
+        [APP_DELEGATE.blueClient sendRequest: cardRequestPacket];
+    }
 
     cell.avatar.clipsToBounds = YES;
-    cell.avatar.layer.cornerRadius = 32; // this value vary as per your desire
+    cell.avatar.layer.cornerRadius = 38; // this value vary as per your desire
     cell.avatar.layer.borderColor = [UIColor whiteColor].CGColor;
     cell.avatar.layer.borderWidth = 1.0;
 
-    if (card.backgroundURLString) {
-        [cell.coverPhoto sd_setImageWithURL: [NSURL URLWithString: card.backgroundURLString]
-                           placeholderImage: [UIImage imageNamed: @"default-cover-photo"]    ];
-
-    } else {
-        cell.coverPhoto.image = [UIImage imageNamed: @"default-cover-photo"];
-    }
-
-    if (card.avatarURLString) {
-        [cell.avatar sd_setImageWithURL: [NSURL URLWithString: card.avatarURLString]
-                       placeholderImage: [UIImage imageNamed: @"missing-avatar"]           ];
-
-    } else {
+    if (isUserCard && !card) {
+        cell.fullName.text = @"Your Name";
+        cell.location.text = @"Tap to configure your own card.";
+        cell.coverPhoto.image = [UIImage imageNamed: @"default-card-background"];
         cell.avatar.image = [UIImage imageNamed: @"missing-avatar"];
-    }
 
-    // Set the social network icons correctly.
-    __block NSInteger index = 0;
-    [self.networkKeys enumerateObjectsUsingBlock: ^(NSNumber *networkType, NSUInteger idx, BOOL *stop) {
-        NSDictionary *networkInfo = self.networkInfo[networkType];
+        cell.networks = @[];
+        [cell.collectionView reloadData];
 
-        if ([[card valueForKey: networkInfo[@"property"]] boolValue]) {
-            UIImageView *dropShadow = [cell viewWithTag: index + 100];
-            dropShadow.hidden = NO;
+    } else {
+        cell.fullName.text = card.fullName;
+        cell.location.text = card.location;
 
-            UIImageView *icon = [cell viewWithTag: index + 200];
-            icon.hidden = NO;
-            icon.image = [UIImage imageNamed: networkInfo[@"icon"]];
+        if (isUserCard) {
+            if (card.backgroundURLString) {
+                const char *filePath = [APP_DELEGATE.localCoverPhotoURL fileSystemRepresentation];
+                cell.coverPhoto.image = [UIImage imageWithContentsOfFile: [NSString stringWithUTF8String: filePath]];
 
-            index++;
+            } else {
+                cell.coverPhoto.image = [UIImage imageNamed: @"default-card-background"];
+            }
+
+        } else if (card.backgroundURLString) {
+            [cell.coverPhoto sd_setImageWithURL: [NSURL URLWithString: card.backgroundURLString]
+                             placeholderImage:   [UIImage imageNamed: @"default-card-background"]];
+
+        } else {
+            cell.coverPhoto.image = [UIImage imageNamed: @"default-card-background"];
         }
 
-        if (index >= 5) *stop = YES;
-    }];
+        if (isUserCard) {
+            if (card.avatarURLString) {
+                const char *filePath = [APP_DELEGATE.localAvatarURL fileSystemRepresentation];
+                cell.avatar.image = [UIImage imageWithContentsOfFile: [NSString stringWithUTF8String: filePath]];
 
-    // Hide remaining icons if we have fewer than 5 social networks.
-    while (index < 5) {
-        UIImageView *dropShadow = [cell viewWithTag: index + 100];
-        dropShadow.hidden = YES;
+            } else {
+                cell.avatar.image = [UIImage imageNamed: @"missing-avatar"];
+            }
 
-        UIImageView *icon = [cell viewWithTag: index + 200];
-        icon.hidden = YES;
+        } else if (card.avatarURLString) {
+            [cell.avatar sd_setImageWithURL: [NSURL URLWithString: card.avatarURLString]
+                         placeholderImage:   [UIImage imageNamed: @"missing-avatar"]   ];
 
-        index++;
+        } else {
+            cell.avatar.image = [UIImage imageNamed: @"missing-avatar"];
+        }
+
+        // Set the social network icons correctly.
+        __block NSInteger index = 0;
+        NSMutableArray *networks = [NSMutableArray array];
+        [self.networkKeys enumerateObjectsUsingBlock: ^(NSNumber *networkType, NSUInteger idx, BOOL *stop) {
+            NSDictionary *networkInfo = self.networkInfo[networkType];
+
+            if ([[card valueForKey: networkInfo[@"property"]] boolValue]) {
+                [networks addObject: networkType];
+            }
+
+            if (index >= 5) *stop = YES;
+        }];
+
+        cell.networks = networks;
+        [cell.collectionView reloadData];
     }
 }
 
@@ -485,45 +883,40 @@ tableView:             (UITableView *) tableView
 cellForRowAtIndexPath: (NSIndexPath *) indexPath
 {
     if (indexPath.section == 0) {
-        if (_mainStatus == NeedToJoin) {
-            BlueJoinCell *cell = [tableView dequeueReusableCellWithIdentifier: JOIN_CELL forIndexPath: indexPath];
-
-            // Configure the cell...
-            cell.customLabel.text = @"Tap to Join Blue";
-            return cell;
-
-        } else if (_mainStatus == NeedToCreateCard) {
-            BlueCreateCardCell *cell = [tableView dequeueReusableCellWithIdentifier: CREATE_CARD_CELL forIndexPath: indexPath];
-
-            // Configure the cell...
-//            cell.customLabel.text = @"Tap to Join Blue";
-            return cell;
-
-        } else if (_mainStatus == HaveCard) {
-            CardObject *card = [APP_DELEGATE.blueModel activeUserCard];
-            BlueCardCell *cell = [tableView dequeueReusableCellWithIdentifier: CARD_CELL forIndexPath: indexPath];
-
-            [self configureBlueCardCell: cell withCardObject: card];
-
-            return cell;
-        }
-
-    } else {
-        CardObject *card = self.array[indexPath.row];
+        CardObject *card = [APP_DELEGATE.blueModel activeUserCard];
         BlueCardCell *cell = [tableView dequeueReusableCellWithIdentifier: CARD_CELL forIndexPath: indexPath];
 
-        [self configureBlueCardCell: cell withCardObject: card];
+        [self configureBlueCardCell: cell withCardObject: card isUserCard: YES];
+
+        return cell;
+
+    } else if (indexPath.section == 1) {
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        CardObject *card = [CardObject objectForPrimaryKey: cardId];
+        BlueCardCell *cell = [tableView dequeueReusableCellWithIdentifier: CARD_CELL forIndexPath: indexPath];
+
+        [self configureBlueCardCell: cell withCardObject: card isUserCard: NO];
 
         return cell;
     }
+
+    return nil; // Shouldn't happen!
+}
+
+- (CGFloat)
+tableView:                (UITableView *) tableView
+heightForHeaderInSection: (NSInteger)     section
+{
+    if (section == 0) return 1.0f;
+    else return 36.0f;
 }
 
 - (NSString *)
 tableView:               (UITableView *) tableView
 titleForHeaderInSection: (NSInteger)     section
 {
-    if (section == 0) return @"Your Card";
-    else return @"Recent";
+    if (section == 0) return nil;
+    else return @"Who's here";
 }
 
 - (CGFloat)
@@ -538,12 +931,15 @@ tableView:             (UITableView *) tableView
 willDisplayHeaderView: (UIView *)      view
 forSection:            (NSInteger)     section
 {
-    // Set the background color of the View
-    view.tintColor = APP_DELEGATE.black;
-
-    // Text Color
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor: [UIColor whiteColor]];
+
+    header.tintColor = APP_DELEGATE.grey; // Set the background color
+    header.textLabel.textColor = APP_DELEGATE.black;
+    header.textLabel.font = [UIFont boldSystemFontOfSize: 16];
+
+    CGRect headerFrame = header.frame;
+    header.textLabel.frame = headerFrame;
+    header.textLabel.textAlignment = NSTextAlignmentLeft;
 }
 
 - (BOOL)
@@ -551,6 +947,7 @@ tableView:             (UITableView *) tableView
 canEditRowAtIndexPath: (NSIndexPath *) indexPath
 {
     if (indexPath.section == 0) return NO;
+    else if ([APP_DELEGATE.blueModel activeUserCard] == nil) return NO;
     else return YES;
 }
 
@@ -560,14 +957,27 @@ commitEditingStyle: (UITableViewCellEditingStyle) editingStyle
 forRowAtIndexPath:  (NSIndexPath *)               indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        CardObject *card = self.array[indexPath.row];
+        self.suppressTableViewUpdateOnDeletion = YES;
 
         RLMRealm *realm = [RLMRealm defaultRealm];
 
         [realm beginWriteTransaction];
-        // TODO(Erich): Is there anything else to delete?
+
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        CardObject *card = [CardObject objectForPrimaryKey: cardId];
+
         [realm deleteObjects: card.networks];
         [realm deleteObject: card];
+
+        // Update activeDevice
+        DeviceObject *activeDevice = [APP_DELEGATE.blueModel activeDevice];
+        NSMutableArray *ary = [activeDevice.visibleCards mutableCopy];
+        [ary removeObjectAtIndex: indexPath.row];
+
+        [activeDevice updateVisibleCards: [[ary reverseObjectEnumerator] allObjects] hiddenCards: @[]];
+        self.activeDevice = activeDevice;
+        self.visibleCardCount = activeDevice.visibleCards.count;
+
         [realm commitWriteTransaction];
 
         // Also delete the row from the data source
@@ -585,30 +995,37 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
         card = [APP_DELEGATE.blueModel activeUserCard];
 
     } else {
-        card = self.array[indexPath.row];
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        card = [CardObject objectForPrimaryKey: cardId];
     }
 
     if (card.version == 0) {
         // This is a Bluetooth-only card.
+        if (APP_DELEGATE.blueClient.hasWebSocket) {
+            NSData *cardRequestPacket = [ServerRequest newCardRequestWithId: [APP_DELEGATE.blueClient nextRequestId] cardId: card.id version: 0];
+            [APP_DELEGATE.blueClient sendRequest: cardRequestPacket];
+
+        } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        // FIXME(Erich): Try and load the card again.
-
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:     @"No Internet?"
-                                                      message:           @"We need to fetch the full card info from the Blue cloud. We'll do that once you have Internet access again."
-                                                      delegate:          nil
-                                                      cancelButtonTitle: @"OK"
-                                                      otherButtonTitles: nil                                                            ];
-        [alertView show];
-        return;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:     @"No Internet?"
+                                                          message:           @"We need to fetch the full card info from the Blue cloud. We'll do that once you have Internet access again."
+                                                          delegate:          nil
+                                                          cancelButtonTitle: @"OK"
+                                                          otherButtonTitles: nil                                                                                                          ];
+            [alertView show];
+            return;
 #pragma clang diagnostic pop
+        }
     }
 
     self.currentCard = indexPath;
 
-    UIPageViewController *vc = [[UIPageViewController alloc] initWithTransitionStyle: UIPageViewControllerTransitionStyleScroll
-                                                             navigationOrientation:   UIPageViewControllerNavigationOrientationHorizontal
-                                                             options:                 nil                                                ];
+    [APP_DELEGATE.blueAnalytics viewCardByTappingRow: card.id];
+
+    UIPageViewController *vc = [[BlueCardPageController alloc] initWithTransitionStyle: UIPageViewControllerTransitionStyleScroll
+                                                               navigationOrientation:   UIPageViewControllerNavigationOrientationHorizontal
+                                                               options:                 nil                                                ];
 
     vc.dataSource = self;
     vc.delegate = self;
@@ -618,15 +1035,19 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
     BlueCardController *cc = [sb instantiateViewControllerWithIdentifier: @"BlueCardController"];
 
     cc.card = card;
+    cc.indexPath = indexPath;
 
     [vc setViewControllers: @[cc] direction: UIPageViewControllerNavigationDirectionForward animated: NO completion: nil];
 
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController: vc];
+
     CCMPopupTransitioning *popup = [CCMPopupTransitioning sharedInstance];
     popup.dismissableByTouchingBackground = YES;
-    popup.destinationBounds = [[UIScreen mainScreen] bounds]; // CGRectMake(15, 72, 290, 435);
-    popup.presentedController = vc;
+    popup.destinationBounds = [[UIScreen mainScreen] bounds];
+    popup.presentedController = nc;
     popup.presentingController = self;
-    [self presentViewController: vc animated: YES completion: nil];
+
+    [self presentViewController: nc animated: YES completion: nil];
 }
 
 // Override to support rearranging the table view.
@@ -646,7 +1067,7 @@ didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 //    return YES;
 //}
 
-#pragma mark UIPageViewControllerDataSource
+#pragma mark - UIPageViewControllerDataSource
 
 - (UIViewController *)
 pageViewController:                 (UIPageViewController *) pageViewController
@@ -654,25 +1075,29 @@ viewControllerBeforeViewController: (UIViewController *)     viewController
 {
     NSIndexPath *indexPath = self.currentCard;
     CardObject *card;
+    BOOL isUserCard = NO;
 
     if (indexPath.section == 0) {
         return nil;
 
-    } else if (indexPath.row == 0) {
+    } else if (indexPath.section == 1 && indexPath.row == 0) {
         indexPath = [NSIndexPath indexPathForRow: 0 inSection: 0];
         card = [APP_DELEGATE.blueModel activeUserCard];
-        self.currentCard = indexPath;
+        if (!card) return nil;
+        isUserCard = YES;
 
     } else {
         indexPath = [NSIndexPath indexPathForRow: indexPath.row - 1 inSection: 1];
-        card = self.array[indexPath.row];
-        self.currentCard = indexPath;
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        card = [CardObject objectForPrimaryKey: cardId];
     }
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
     BlueCardController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueCardController"];
 
     vc.card = card;
+    vc.indexPath = indexPath;
+    vc.isUserCard = isUserCard;
 
     return vc;
 }
@@ -685,16 +1110,18 @@ viewControllerAfterViewController: (UIViewController *)     viewController
     CardObject *card;
 
     if (indexPath.section == 0) {
-        if (self.array.count <= 1) return nil;
+        if (self.activeDevice.visibleCards.count == 0) return nil;
 
         indexPath = [NSIndexPath indexPathForRow: 0 inSection: 1];
-        card = self.array[indexPath.row];
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        card = [CardObject objectForPrimaryKey: cardId];
 
     } else {
-        if (indexPath.row == self.array.count - 1) return nil;
-
         indexPath = [NSIndexPath indexPathForRow: indexPath.row + 1 inSection: 1];
-        card = self.array[indexPath.row];
+        if (indexPath.row >= self.activeDevice.visibleCards.count) return nil;
+
+        NSNumber *cardId = self.activeDevice.visibleCards[indexPath.row];
+        card = [CardObject objectForPrimaryKey: cardId];
     }
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
@@ -717,23 +1144,28 @@ viewControllerAfterViewController: (UIViewController *)     viewController
 //    return 0;
 //}
 
-#pragma mark UIPageViewControllerDelegate
+#pragma mark - UIPageViewControllerDelegate
 
 - (void)
 pageViewController:              (UIPageViewController *)        pageViewController
 willTransitionToViewControllers: (NSArray<UIViewController *> *) pendingViewControllers
 {
     BlueCardController *vc = (BlueCardController *)pendingViewControllers[0];
-    self.currentCard = vc.indexPath;
+    self.pendingCard = vc.indexPath;
 }
 
-//- (void)
-//pageViewController:      (UIPageViewController *)        pageViewController
-//didFinishAnimating:      (BOOL)                          finished
-//previousViewControllers: (NSArray<UIViewController *> *) previousViewControllers
-//transitionCompleted:     (BOOL)                          completed
-//{
-//}
+- (void)
+pageViewController:      (UIPageViewController *)        pageViewController
+didFinishAnimating:      (BOOL)                          finished
+previousViewControllers: (NSArray<UIViewController *> *) previousViewControllers
+transitionCompleted:     (BOOL)                          completed
+{
+    NSNumber *cardId = self.activeDevice.visibleCards[self.pendingCard.row];
+
+    [APP_DELEGATE.blueAnalytics viewCardBySwiping: [cardId integerValue]];
+
+    self.currentCard = self.pendingCard;
+}
 
 // #pragma mark - Navigation
 // 

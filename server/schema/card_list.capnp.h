@@ -28,7 +28,7 @@ struct CardList {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(e4ca4825a5360e75, 0, 2)
+    CAPNP_DECLARE_STRUCT_HEADER(e4ca4825a5360e75, 0, 4)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -57,8 +57,14 @@ public:
   inline bool hasVisibleCards() const;
   inline  ::capnp::List< ::int64_t>::Reader getVisibleCards() const;
 
+  inline bool hasVisibleCardTimestamps() const;
+  inline  ::capnp::List< ::int64_t>::Reader getVisibleCardTimestamps() const;
+
   inline bool hasHiddenCards() const;
   inline  ::capnp::List< ::int64_t>::Reader getHiddenCards() const;
+
+  inline bool hasHiddenCardTimestamps() const;
+  inline  ::capnp::List< ::int64_t>::Reader getHiddenCardTimestamps() const;
 
 private:
   ::capnp::_::StructReader _reader;
@@ -96,6 +102,14 @@ public:
   inline void adoptVisibleCards(::capnp::Orphan< ::capnp::List< ::int64_t>>&& value);
   inline ::capnp::Orphan< ::capnp::List< ::int64_t>> disownVisibleCards();
 
+  inline bool hasVisibleCardTimestamps();
+  inline  ::capnp::List< ::int64_t>::Builder getVisibleCardTimestamps();
+  inline void setVisibleCardTimestamps( ::capnp::List< ::int64_t>::Reader value);
+  inline void setVisibleCardTimestamps(::kj::ArrayPtr<const  ::int64_t> value);
+  inline  ::capnp::List< ::int64_t>::Builder initVisibleCardTimestamps(unsigned int size);
+  inline void adoptVisibleCardTimestamps(::capnp::Orphan< ::capnp::List< ::int64_t>>&& value);
+  inline ::capnp::Orphan< ::capnp::List< ::int64_t>> disownVisibleCardTimestamps();
+
   inline bool hasHiddenCards();
   inline  ::capnp::List< ::int64_t>::Builder getHiddenCards();
   inline void setHiddenCards( ::capnp::List< ::int64_t>::Reader value);
@@ -103,6 +117,14 @@ public:
   inline  ::capnp::List< ::int64_t>::Builder initHiddenCards(unsigned int size);
   inline void adoptHiddenCards(::capnp::Orphan< ::capnp::List< ::int64_t>>&& value);
   inline ::capnp::Orphan< ::capnp::List< ::int64_t>> disownHiddenCards();
+
+  inline bool hasHiddenCardTimestamps();
+  inline  ::capnp::List< ::int64_t>::Builder getHiddenCardTimestamps();
+  inline void setHiddenCardTimestamps( ::capnp::List< ::int64_t>::Reader value);
+  inline void setHiddenCardTimestamps(::kj::ArrayPtr<const  ::int64_t> value);
+  inline  ::capnp::List< ::int64_t>::Builder initHiddenCardTimestamps(unsigned int size);
+  inline void adoptHiddenCardTimestamps(::capnp::Orphan< ::capnp::List< ::int64_t>>&& value);
+  inline ::capnp::Orphan< ::capnp::List< ::int64_t>> disownHiddenCardTimestamps();
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -168,40 +190,112 @@ inline ::capnp::Orphan< ::capnp::List< ::int64_t>> CardList::Builder::disownVisi
       _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 
-inline bool CardList::Reader::hasHiddenCards() const {
+inline bool CardList::Reader::hasVisibleCardTimestamps() const {
   return !_reader.getPointerField(1 * ::capnp::POINTERS).isNull();
 }
-inline bool CardList::Builder::hasHiddenCards() {
+inline bool CardList::Builder::hasVisibleCardTimestamps() {
   return !_builder.getPointerField(1 * ::capnp::POINTERS).isNull();
 }
-inline  ::capnp::List< ::int64_t>::Reader CardList::Reader::getHiddenCards() const {
+inline  ::capnp::List< ::int64_t>::Reader CardList::Reader::getVisibleCardTimestamps() const {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
       _reader.getPointerField(1 * ::capnp::POINTERS));
 }
-inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::getHiddenCards() {
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::getVisibleCardTimestamps() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
       _builder.getPointerField(1 * ::capnp::POINTERS));
 }
-inline void CardList::Builder::setHiddenCards( ::capnp::List< ::int64_t>::Reader value) {
+inline void CardList::Builder::setVisibleCardTimestamps( ::capnp::List< ::int64_t>::Reader value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
       _builder.getPointerField(1 * ::capnp::POINTERS), value);
 }
-inline void CardList::Builder::setHiddenCards(::kj::ArrayPtr<const  ::int64_t> value) {
+inline void CardList::Builder::setVisibleCardTimestamps(::kj::ArrayPtr<const  ::int64_t> value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
       _builder.getPointerField(1 * ::capnp::POINTERS), value);
 }
-inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::initHiddenCards(unsigned int size) {
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::initVisibleCardTimestamps(unsigned int size) {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::init(
       _builder.getPointerField(1 * ::capnp::POINTERS), size);
 }
-inline void CardList::Builder::adoptHiddenCards(
+inline void CardList::Builder::adoptVisibleCardTimestamps(
     ::capnp::Orphan< ::capnp::List< ::int64_t>>&& value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::adopt(
       _builder.getPointerField(1 * ::capnp::POINTERS), kj::mv(value));
 }
-inline ::capnp::Orphan< ::capnp::List< ::int64_t>> CardList::Builder::disownHiddenCards() {
+inline ::capnp::Orphan< ::capnp::List< ::int64_t>> CardList::Builder::disownVisibleCardTimestamps() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::disown(
       _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+
+inline bool CardList::Reader::hasHiddenCards() const {
+  return !_reader.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline bool CardList::Builder::hasHiddenCards() {
+  return !_builder.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::List< ::int64_t>::Reader CardList::Reader::getHiddenCards() const {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
+      _reader.getPointerField(2 * ::capnp::POINTERS));
+}
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::getHiddenCards() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+inline void CardList::Builder::setHiddenCards( ::capnp::List< ::int64_t>::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
+      _builder.getPointerField(2 * ::capnp::POINTERS), value);
+}
+inline void CardList::Builder::setHiddenCards(::kj::ArrayPtr<const  ::int64_t> value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
+      _builder.getPointerField(2 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::initHiddenCards(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::init(
+      _builder.getPointerField(2 * ::capnp::POINTERS), size);
+}
+inline void CardList::Builder::adoptHiddenCards(
+    ::capnp::Orphan< ::capnp::List< ::int64_t>>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::adopt(
+      _builder.getPointerField(2 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::List< ::int64_t>> CardList::Builder::disownHiddenCards() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::disown(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+
+inline bool CardList::Reader::hasHiddenCardTimestamps() const {
+  return !_reader.getPointerField(3 * ::capnp::POINTERS).isNull();
+}
+inline bool CardList::Builder::hasHiddenCardTimestamps() {
+  return !_builder.getPointerField(3 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::List< ::int64_t>::Reader CardList::Reader::getHiddenCardTimestamps() const {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
+      _reader.getPointerField(3 * ::capnp::POINTERS));
+}
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::getHiddenCardTimestamps() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::get(
+      _builder.getPointerField(3 * ::capnp::POINTERS));
+}
+inline void CardList::Builder::setHiddenCardTimestamps( ::capnp::List< ::int64_t>::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
+      _builder.getPointerField(3 * ::capnp::POINTERS), value);
+}
+inline void CardList::Builder::setHiddenCardTimestamps(::kj::ArrayPtr<const  ::int64_t> value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::set(
+      _builder.getPointerField(3 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::List< ::int64_t>::Builder CardList::Builder::initHiddenCardTimestamps(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::init(
+      _builder.getPointerField(3 * ::capnp::POINTERS), size);
+}
+inline void CardList::Builder::adoptHiddenCardTimestamps(
+    ::capnp::Orphan< ::capnp::List< ::int64_t>>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::adopt(
+      _builder.getPointerField(3 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::List< ::int64_t>> CardList::Builder::disownHiddenCardTimestamps() {
+  return ::capnp::_::PointerHelpers< ::capnp::List< ::int64_t>>::disown(
+      _builder.getPointerField(3 * ::capnp::POINTERS));
 }
 
 

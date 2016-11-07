@@ -26,9 +26,10 @@ cc_library(
     "src/graph_db.cpp",
   ],
   deps=[
-    "//discovery_engine/cpp_lmdb",
+    "//cpp_lmdb",
     "//discovery_engine/xy_lmdb_graph",
     "//schema",
+    "//clock",
     "@boost//:boost"
   ],
   linkstatic=1,

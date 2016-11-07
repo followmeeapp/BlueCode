@@ -13,7 +13,6 @@ typedef NS_ENUM(NSInteger, NetworkType) {
     FacebookType = 0,
     TwitterType,
     InstagramType,
-    PokemonGoType,
     SnapchatType,
     GooglePlusType,
     YouTubeType,

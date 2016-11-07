@@ -10,6 +10,7 @@
 #error "Version mismatch between generated code and library headers.  You must use the same version of the Cap'n Proto compiler and library."
 #endif
 
+#include "backup.capnp.h"
 #include "block.capnp.h"
 #include "card.capnp.h"
 #include "client_sync.capnp.h"
@@ -17,6 +18,7 @@
 #include "hello.capnp.h"
 #include "join.capnp.h"
 #include "remove.capnp.h"
+#include "section.capnp.h"
 #include "set_device.capnp.h"
 
 namespace capnp {
@@ -63,6 +65,10 @@ struct Request::Kind {
     BLOCK_REQUEST,
     REMOVE_REQUEST,
     CLIENT_SYNC_REQUEST,
+    CREATE_SECTION_REQUEST,
+    CREATE_BACKUP_REQUEST,
+    BACKUP_LIST_REQUEST,
+    BACKUP_REQUEST,
   };
 
   struct _capnpPrivate {
@@ -218,6 +224,22 @@ public:
   inline bool hasClientSyncRequest() const;
   inline  ::ClientSyncRequest::Reader getClientSyncRequest() const;
 
+  inline bool isCreateSectionRequest() const;
+  inline bool hasCreateSectionRequest() const;
+  inline  ::CreateSectionRequest::Reader getCreateSectionRequest() const;
+
+  inline bool isCreateBackupRequest() const;
+  inline bool hasCreateBackupRequest() const;
+  inline  ::CreateBackupRequest::Reader getCreateBackupRequest() const;
+
+  inline bool isBackupListRequest() const;
+  inline bool hasBackupListRequest() const;
+  inline  ::BackupListRequest::Reader getBackupListRequest() const;
+
+  inline bool isBackupRequest() const;
+  inline bool hasBackupRequest() const;
+  inline  ::BackupRequest::Reader getBackupRequest() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -330,6 +352,38 @@ public:
   inline  ::ClientSyncRequest::Builder initClientSyncRequest();
   inline void adoptClientSyncRequest(::capnp::Orphan< ::ClientSyncRequest>&& value);
   inline ::capnp::Orphan< ::ClientSyncRequest> disownClientSyncRequest();
+
+  inline bool isCreateSectionRequest();
+  inline bool hasCreateSectionRequest();
+  inline  ::CreateSectionRequest::Builder getCreateSectionRequest();
+  inline void setCreateSectionRequest( ::CreateSectionRequest::Reader value);
+  inline  ::CreateSectionRequest::Builder initCreateSectionRequest();
+  inline void adoptCreateSectionRequest(::capnp::Orphan< ::CreateSectionRequest>&& value);
+  inline ::capnp::Orphan< ::CreateSectionRequest> disownCreateSectionRequest();
+
+  inline bool isCreateBackupRequest();
+  inline bool hasCreateBackupRequest();
+  inline  ::CreateBackupRequest::Builder getCreateBackupRequest();
+  inline void setCreateBackupRequest( ::CreateBackupRequest::Reader value);
+  inline  ::CreateBackupRequest::Builder initCreateBackupRequest();
+  inline void adoptCreateBackupRequest(::capnp::Orphan< ::CreateBackupRequest>&& value);
+  inline ::capnp::Orphan< ::CreateBackupRequest> disownCreateBackupRequest();
+
+  inline bool isBackupListRequest();
+  inline bool hasBackupListRequest();
+  inline  ::BackupListRequest::Builder getBackupListRequest();
+  inline void setBackupListRequest( ::BackupListRequest::Reader value);
+  inline  ::BackupListRequest::Builder initBackupListRequest();
+  inline void adoptBackupListRequest(::capnp::Orphan< ::BackupListRequest>&& value);
+  inline ::capnp::Orphan< ::BackupListRequest> disownBackupListRequest();
+
+  inline bool isBackupRequest();
+  inline bool hasBackupRequest();
+  inline  ::BackupRequest::Builder getBackupRequest();
+  inline void setBackupRequest( ::BackupRequest::Reader value);
+  inline  ::BackupRequest::Builder initBackupRequest();
+  inline void adoptBackupRequest(::capnp::Orphan< ::BackupRequest>&& value);
+  inline ::capnp::Orphan< ::BackupRequest> disownBackupRequest();
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -939,6 +993,214 @@ inline ::capnp::Orphan< ::ClientSyncRequest> Request::Kind::Builder::disownClien
   KJ_IREQUIRE((which() == Request::Kind::CLIENT_SYNC_REQUEST),
               "Must check which() before get()ing a union member.");
   return ::capnp::_::PointerHelpers< ::ClientSyncRequest>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Request::Kind::Reader::isCreateSectionRequest() const {
+  return which() == Request::Kind::CREATE_SECTION_REQUEST;
+}
+inline bool Request::Kind::Builder::isCreateSectionRequest() {
+  return which() == Request::Kind::CREATE_SECTION_REQUEST;
+}
+inline bool Request::Kind::Reader::hasCreateSectionRequest() const {
+  if (which() != Request::Kind::CREATE_SECTION_REQUEST) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Request::Kind::Builder::hasCreateSectionRequest() {
+  if (which() != Request::Kind::CREATE_SECTION_REQUEST) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::CreateSectionRequest::Reader Request::Kind::Reader::getCreateSectionRequest() const {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_SECTION_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateSectionRequest>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::CreateSectionRequest::Builder Request::Kind::Builder::getCreateSectionRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_SECTION_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateSectionRequest>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::setCreateSectionRequest( ::CreateSectionRequest::Reader value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_SECTION_REQUEST);
+  ::capnp::_::PointerHelpers< ::CreateSectionRequest>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::CreateSectionRequest::Builder Request::Kind::Builder::initCreateSectionRequest() {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_SECTION_REQUEST);
+  return ::capnp::_::PointerHelpers< ::CreateSectionRequest>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::adoptCreateSectionRequest(
+    ::capnp::Orphan< ::CreateSectionRequest>&& value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_SECTION_REQUEST);
+  ::capnp::_::PointerHelpers< ::CreateSectionRequest>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::CreateSectionRequest> Request::Kind::Builder::disownCreateSectionRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_SECTION_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateSectionRequest>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Request::Kind::Reader::isCreateBackupRequest() const {
+  return which() == Request::Kind::CREATE_BACKUP_REQUEST;
+}
+inline bool Request::Kind::Builder::isCreateBackupRequest() {
+  return which() == Request::Kind::CREATE_BACKUP_REQUEST;
+}
+inline bool Request::Kind::Reader::hasCreateBackupRequest() const {
+  if (which() != Request::Kind::CREATE_BACKUP_REQUEST) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Request::Kind::Builder::hasCreateBackupRequest() {
+  if (which() != Request::Kind::CREATE_BACKUP_REQUEST) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::CreateBackupRequest::Reader Request::Kind::Reader::getCreateBackupRequest() const {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateBackupRequest>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::CreateBackupRequest::Builder Request::Kind::Builder::getCreateBackupRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateBackupRequest>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::setCreateBackupRequest( ::CreateBackupRequest::Reader value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_BACKUP_REQUEST);
+  ::capnp::_::PointerHelpers< ::CreateBackupRequest>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::CreateBackupRequest::Builder Request::Kind::Builder::initCreateBackupRequest() {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_BACKUP_REQUEST);
+  return ::capnp::_::PointerHelpers< ::CreateBackupRequest>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::adoptCreateBackupRequest(
+    ::capnp::Orphan< ::CreateBackupRequest>&& value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::CREATE_BACKUP_REQUEST);
+  ::capnp::_::PointerHelpers< ::CreateBackupRequest>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::CreateBackupRequest> Request::Kind::Builder::disownCreateBackupRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::CREATE_BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::CreateBackupRequest>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Request::Kind::Reader::isBackupListRequest() const {
+  return which() == Request::Kind::BACKUP_LIST_REQUEST;
+}
+inline bool Request::Kind::Builder::isBackupListRequest() {
+  return which() == Request::Kind::BACKUP_LIST_REQUEST;
+}
+inline bool Request::Kind::Reader::hasBackupListRequest() const {
+  if (which() != Request::Kind::BACKUP_LIST_REQUEST) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Request::Kind::Builder::hasBackupListRequest() {
+  if (which() != Request::Kind::BACKUP_LIST_REQUEST) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::BackupListRequest::Reader Request::Kind::Reader::getBackupListRequest() const {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_LIST_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListRequest>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::BackupListRequest::Builder Request::Kind::Builder::getBackupListRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_LIST_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListRequest>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::setBackupListRequest( ::BackupListRequest::Reader value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_LIST_REQUEST);
+  ::capnp::_::PointerHelpers< ::BackupListRequest>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::BackupListRequest::Builder Request::Kind::Builder::initBackupListRequest() {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_LIST_REQUEST);
+  return ::capnp::_::PointerHelpers< ::BackupListRequest>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::adoptBackupListRequest(
+    ::capnp::Orphan< ::BackupListRequest>&& value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_LIST_REQUEST);
+  ::capnp::_::PointerHelpers< ::BackupListRequest>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::BackupListRequest> Request::Kind::Builder::disownBackupListRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_LIST_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListRequest>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Request::Kind::Reader::isBackupRequest() const {
+  return which() == Request::Kind::BACKUP_REQUEST;
+}
+inline bool Request::Kind::Builder::isBackupRequest() {
+  return which() == Request::Kind::BACKUP_REQUEST;
+}
+inline bool Request::Kind::Reader::hasBackupRequest() const {
+  if (which() != Request::Kind::BACKUP_REQUEST) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Request::Kind::Builder::hasBackupRequest() {
+  if (which() != Request::Kind::BACKUP_REQUEST) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::BackupRequest::Reader Request::Kind::Reader::getBackupRequest() const {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupRequest>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::BackupRequest::Builder Request::Kind::Builder::getBackupRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupRequest>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::setBackupRequest( ::BackupRequest::Reader value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_REQUEST);
+  ::capnp::_::PointerHelpers< ::BackupRequest>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::BackupRequest::Builder Request::Kind::Builder::initBackupRequest() {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_REQUEST);
+  return ::capnp::_::PointerHelpers< ::BackupRequest>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Request::Kind::Builder::adoptBackupRequest(
+    ::capnp::Orphan< ::BackupRequest>&& value) {
+  _builder.setDataField<Request::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Request::Kind::BACKUP_REQUEST);
+  ::capnp::_::PointerHelpers< ::BackupRequest>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::BackupRequest> Request::Kind::Builder::disownBackupRequest() {
+  KJ_IREQUIRE((which() == Request::Kind::BACKUP_REQUEST),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupRequest>::disown(
       _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 

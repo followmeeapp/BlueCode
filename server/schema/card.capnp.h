@@ -20,7 +20,6 @@ enum class Type_dc47300c7035a25a: uint16_t {
   FACEBOOK,
   TWITTER,
   INSTAGRAM,
-  POKEMON_GO,
   SNAPCHAT,
   GOOGLE_PLUS,
   YOU_TUBE,
@@ -35,6 +34,7 @@ enum class Type_dc47300c7035a25a: uint16_t {
 };
 CAPNP_DECLARE_ENUM(Type, dc47300c7035a25a);
 CAPNP_DECLARE_SCHEMA(8c28a1695bda5395);
+CAPNP_DECLARE_SCHEMA(e9adbca038894142);
 CAPNP_DECLARE_SCHEMA(b759c8b3bcadb41f);
 CAPNP_DECLARE_SCHEMA(bd813380641ba78d);
 CAPNP_DECLARE_SCHEMA(dad672334fc84c35);
@@ -76,7 +76,22 @@ struct Card {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(8c28a1695bda5395, 2, 6)
+    CAPNP_DECLARE_STRUCT_HEADER(8c28a1695bda5395, 3, 6)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct CardAnalytics {
+  CardAnalytics() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(e9adbca038894142, 18, 0)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -138,7 +153,7 @@ struct CardResponse {
 
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(a14517b8c6a1ef87, 1, 1)
+    CAPNP_DECLARE_STRUCT_HEADER(a14517b8c6a1ef87, 1, 2)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -252,7 +267,7 @@ public:
 
   inline  ::int64_t getId() const;
 
-  inline  ::uint32_t getVersion() const;
+  inline  ::int32_t getVersion() const;
 
   inline bool hasFullName() const;
   inline  ::capnp::Text::Reader getFullName() const;
@@ -269,13 +284,15 @@ public:
   inline bool hasBackgroundURLString() const;
   inline  ::capnp::Text::Reader getBackgroundURLString() const;
 
+  inline float getBackgroundOpacity() const;
+
+  inline  ::int32_t getRowOffset() const;
+
   inline bool getHasFacebook() const;
 
   inline bool getHasTwitter() const;
 
   inline bool getHasInstagram() const;
-
-  inline bool getHasPokemonGo() const;
 
   inline bool getHasSnapchat() const;
 
@@ -333,8 +350,8 @@ public:
   inline  ::int64_t getId();
   inline void setId( ::int64_t value);
 
-  inline  ::uint32_t getVersion();
-  inline void setVersion( ::uint32_t value);
+  inline  ::int32_t getVersion();
+  inline void setVersion( ::int32_t value);
 
   inline bool hasFullName();
   inline  ::capnp::Text::Builder getFullName();
@@ -371,6 +388,12 @@ public:
   inline void adoptBackgroundURLString(::capnp::Orphan< ::capnp::Text>&& value);
   inline ::capnp::Orphan< ::capnp::Text> disownBackgroundURLString();
 
+  inline float getBackgroundOpacity();
+  inline void setBackgroundOpacity(float value);
+
+  inline  ::int32_t getRowOffset();
+  inline void setRowOffset( ::int32_t value);
+
   inline bool getHasFacebook();
   inline void setHasFacebook(bool value);
 
@@ -379,9 +402,6 @@ public:
 
   inline bool getHasInstagram();
   inline void setHasInstagram(bool value);
-
-  inline bool getHasPokemonGo();
-  inline void setHasPokemonGo(bool value);
 
   inline bool getHasSnapchat();
   inline void setHasSnapchat(bool value);
@@ -436,6 +456,167 @@ private:
 class Card::Pipeline {
 public:
   typedef Card Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
+class CardAnalytics::Reader {
+public:
+  typedef CardAnalytics Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand);
+  }
+#endif  // !CAPNP_LITE
+
+  inline  ::int64_t getCardBLEDeliveries() const;
+
+  inline  ::int64_t getCardLinkDeliveries() const;
+
+  inline  ::int64_t getCardViews() const;
+
+  inline  ::int64_t getCardShares() const;
+
+  inline  ::int64_t getFacebookViews() const;
+
+  inline  ::int64_t getTwitterViews() const;
+
+  inline  ::int64_t getInstagramViews() const;
+
+  inline  ::int64_t getSnapchatViews() const;
+
+  inline  ::int64_t getGooglePlusViews() const;
+
+  inline  ::int64_t getYouTubeViews() const;
+
+  inline  ::int64_t getPinterestViews() const;
+
+  inline  ::int64_t getTumblrViews() const;
+
+  inline  ::int64_t getLinkedInViews() const;
+
+  inline  ::int64_t getPeriscopeViews() const;
+
+  inline  ::int64_t getVineViews() const;
+
+  inline  ::int64_t getSoundCloudViews() const;
+
+  inline  ::int64_t getSinaWeiboViews() const;
+
+  inline  ::int64_t getVKontakteViews() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class CardAnalytics::Builder {
+public:
+  typedef CardAnalytics Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline  ::int64_t getCardBLEDeliveries();
+  inline void setCardBLEDeliveries( ::int64_t value);
+
+  inline  ::int64_t getCardLinkDeliveries();
+  inline void setCardLinkDeliveries( ::int64_t value);
+
+  inline  ::int64_t getCardViews();
+  inline void setCardViews( ::int64_t value);
+
+  inline  ::int64_t getCardShares();
+  inline void setCardShares( ::int64_t value);
+
+  inline  ::int64_t getFacebookViews();
+  inline void setFacebookViews( ::int64_t value);
+
+  inline  ::int64_t getTwitterViews();
+  inline void setTwitterViews( ::int64_t value);
+
+  inline  ::int64_t getInstagramViews();
+  inline void setInstagramViews( ::int64_t value);
+
+  inline  ::int64_t getSnapchatViews();
+  inline void setSnapchatViews( ::int64_t value);
+
+  inline  ::int64_t getGooglePlusViews();
+  inline void setGooglePlusViews( ::int64_t value);
+
+  inline  ::int64_t getYouTubeViews();
+  inline void setYouTubeViews( ::int64_t value);
+
+  inline  ::int64_t getPinterestViews();
+  inline void setPinterestViews( ::int64_t value);
+
+  inline  ::int64_t getTumblrViews();
+  inline void setTumblrViews( ::int64_t value);
+
+  inline  ::int64_t getLinkedInViews();
+  inline void setLinkedInViews( ::int64_t value);
+
+  inline  ::int64_t getPeriscopeViews();
+  inline void setPeriscopeViews( ::int64_t value);
+
+  inline  ::int64_t getVineViews();
+  inline void setVineViews( ::int64_t value);
+
+  inline  ::int64_t getSoundCloudViews();
+  inline void setSoundCloudViews( ::int64_t value);
+
+  inline  ::int64_t getSinaWeiboViews();
+  inline void setSinaWeiboViews( ::int64_t value);
+
+  inline  ::int64_t getVKontakteViews();
+  inline void setVKontakteViews( ::int64_t value);
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class CardAnalytics::Pipeline {
+public:
+  typedef CardAnalytics Pipelines;
 
   inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
   inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
@@ -632,7 +813,7 @@ public:
 
   inline  ::int64_t getId() const;
 
-  inline  ::uint32_t getVersion() const;
+  inline  ::int32_t getVersion() const;
 
 private:
   ::capnp::_::StructReader _reader;
@@ -665,8 +846,8 @@ public:
   inline  ::int64_t getId();
   inline void setId( ::int64_t value);
 
-  inline  ::uint32_t getVersion();
-  inline void setVersion( ::uint32_t value);
+  inline  ::int32_t getVersion();
+  inline void setVersion( ::int32_t value);
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -716,6 +897,9 @@ public:
   inline bool hasCard() const;
   inline  ::Card::Reader getCard() const;
 
+  inline bool hasAnalytics() const;
+  inline  ::CardAnalytics::Reader getAnalytics() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -754,6 +938,13 @@ public:
   inline void adoptCard(::capnp::Orphan< ::Card>&& value);
   inline ::capnp::Orphan< ::Card> disownCard();
 
+  inline bool hasAnalytics();
+  inline  ::CardAnalytics::Builder getAnalytics();
+  inline void setAnalytics( ::CardAnalytics::Reader value);
+  inline  ::CardAnalytics::Builder initAnalytics();
+  inline void adoptAnalytics(::capnp::Orphan< ::CardAnalytics>&& value);
+  inline ::capnp::Orphan< ::CardAnalytics> disownAnalytics();
+
 private:
   ::capnp::_::StructBuilder _builder;
   template <typename, ::capnp::Kind>
@@ -773,6 +964,7 @@ public:
       : _typeless(kj::mv(typeless)) {}
 
   inline  ::Card::Pipeline getCard();
+  inline  ::CardAnalytics::Pipeline getAnalytics();
 private:
   ::capnp::AnyPointer::Pipeline _typeless;
   friend class ::capnp::PipelineHook;
@@ -843,17 +1035,17 @@ inline void Card::Builder::setId( ::int64_t value) {
       0 * ::capnp::ELEMENTS, value);
 }
 
-inline  ::uint32_t Card::Reader::getVersion() const {
-  return _reader.getDataField< ::uint32_t>(
+inline  ::int32_t Card::Reader::getVersion() const {
+  return _reader.getDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS);
 }
 
-inline  ::uint32_t Card::Builder::getVersion() {
-  return _builder.getDataField< ::uint32_t>(
+inline  ::int32_t Card::Builder::getVersion() {
+  return _builder.getDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS);
 }
-inline void Card::Builder::setVersion( ::uint32_t value) {
-  _builder.setDataField< ::uint32_t>(
+inline void Card::Builder::setVersion( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS, value);
 }
 
@@ -1017,214 +1209,228 @@ inline ::capnp::Orphan< ::capnp::Text> Card::Builder::disownBackgroundURLString(
       _builder.getPointerField(4 * ::capnp::POINTERS));
 }
 
+inline float Card::Reader::getBackgroundOpacity() const {
+  return _reader.getDataField<float>(
+      3 * ::capnp::ELEMENTS);
+}
+
+inline float Card::Builder::getBackgroundOpacity() {
+  return _builder.getDataField<float>(
+      3 * ::capnp::ELEMENTS);
+}
+inline void Card::Builder::setBackgroundOpacity(float value) {
+  _builder.setDataField<float>(
+      3 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int32_t Card::Reader::getRowOffset() const {
+  return _reader.getDataField< ::int32_t>(
+      4 * ::capnp::ELEMENTS);
+}
+
+inline  ::int32_t Card::Builder::getRowOffset() {
+  return _builder.getDataField< ::int32_t>(
+      4 * ::capnp::ELEMENTS);
+}
+inline void Card::Builder::setRowOffset( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
+      4 * ::capnp::ELEMENTS, value);
+}
+
 inline bool Card::Reader::getHasFacebook() const {
   return _reader.getDataField<bool>(
-      96 * ::capnp::ELEMENTS);
+      160 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasFacebook() {
   return _builder.getDataField<bool>(
-      96 * ::capnp::ELEMENTS);
+      160 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasFacebook(bool value) {
   _builder.setDataField<bool>(
-      96 * ::capnp::ELEMENTS, value);
+      160 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasTwitter() const {
   return _reader.getDataField<bool>(
-      97 * ::capnp::ELEMENTS);
+      161 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasTwitter() {
   return _builder.getDataField<bool>(
-      97 * ::capnp::ELEMENTS);
+      161 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasTwitter(bool value) {
   _builder.setDataField<bool>(
-      97 * ::capnp::ELEMENTS, value);
+      161 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasInstagram() const {
   return _reader.getDataField<bool>(
-      98 * ::capnp::ELEMENTS);
+      162 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasInstagram() {
   return _builder.getDataField<bool>(
-      98 * ::capnp::ELEMENTS);
+      162 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasInstagram(bool value) {
   _builder.setDataField<bool>(
-      98 * ::capnp::ELEMENTS, value);
-}
-
-inline bool Card::Reader::getHasPokemonGo() const {
-  return _reader.getDataField<bool>(
-      99 * ::capnp::ELEMENTS);
-}
-
-inline bool Card::Builder::getHasPokemonGo() {
-  return _builder.getDataField<bool>(
-      99 * ::capnp::ELEMENTS);
-}
-inline void Card::Builder::setHasPokemonGo(bool value) {
-  _builder.setDataField<bool>(
-      99 * ::capnp::ELEMENTS, value);
+      162 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasSnapchat() const {
   return _reader.getDataField<bool>(
-      100 * ::capnp::ELEMENTS);
+      163 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasSnapchat() {
   return _builder.getDataField<bool>(
-      100 * ::capnp::ELEMENTS);
+      163 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasSnapchat(bool value) {
   _builder.setDataField<bool>(
-      100 * ::capnp::ELEMENTS, value);
+      163 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasGooglePlus() const {
   return _reader.getDataField<bool>(
-      101 * ::capnp::ELEMENTS);
+      164 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasGooglePlus() {
   return _builder.getDataField<bool>(
-      101 * ::capnp::ELEMENTS);
+      164 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasGooglePlus(bool value) {
   _builder.setDataField<bool>(
-      101 * ::capnp::ELEMENTS, value);
+      164 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasYouTube() const {
   return _reader.getDataField<bool>(
-      102 * ::capnp::ELEMENTS);
+      165 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasYouTube() {
   return _builder.getDataField<bool>(
-      102 * ::capnp::ELEMENTS);
+      165 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasYouTube(bool value) {
   _builder.setDataField<bool>(
-      102 * ::capnp::ELEMENTS, value);
+      165 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasPinterest() const {
   return _reader.getDataField<bool>(
-      103 * ::capnp::ELEMENTS);
+      166 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasPinterest() {
   return _builder.getDataField<bool>(
-      103 * ::capnp::ELEMENTS);
+      166 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasPinterest(bool value) {
   _builder.setDataField<bool>(
-      103 * ::capnp::ELEMENTS, value);
+      166 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasTumblr() const {
   return _reader.getDataField<bool>(
-      104 * ::capnp::ELEMENTS);
+      167 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasTumblr() {
   return _builder.getDataField<bool>(
-      104 * ::capnp::ELEMENTS);
+      167 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasTumblr(bool value) {
   _builder.setDataField<bool>(
-      104 * ::capnp::ELEMENTS, value);
+      167 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasLinkedIn() const {
   return _reader.getDataField<bool>(
-      105 * ::capnp::ELEMENTS);
+      168 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasLinkedIn() {
   return _builder.getDataField<bool>(
-      105 * ::capnp::ELEMENTS);
+      168 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasLinkedIn(bool value) {
   _builder.setDataField<bool>(
-      105 * ::capnp::ELEMENTS, value);
+      168 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasPeriscope() const {
   return _reader.getDataField<bool>(
-      106 * ::capnp::ELEMENTS);
+      169 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasPeriscope() {
   return _builder.getDataField<bool>(
-      106 * ::capnp::ELEMENTS);
+      169 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasPeriscope(bool value) {
   _builder.setDataField<bool>(
-      106 * ::capnp::ELEMENTS, value);
+      169 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasVine() const {
   return _reader.getDataField<bool>(
-      107 * ::capnp::ELEMENTS);
+      170 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasVine() {
   return _builder.getDataField<bool>(
-      107 * ::capnp::ELEMENTS);
+      170 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasVine(bool value) {
   _builder.setDataField<bool>(
-      107 * ::capnp::ELEMENTS, value);
+      170 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasSoundCloud() const {
   return _reader.getDataField<bool>(
-      108 * ::capnp::ELEMENTS);
+      171 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasSoundCloud() {
   return _builder.getDataField<bool>(
-      108 * ::capnp::ELEMENTS);
+      171 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasSoundCloud(bool value) {
   _builder.setDataField<bool>(
-      108 * ::capnp::ELEMENTS, value);
+      171 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasSinaWeibo() const {
   return _reader.getDataField<bool>(
-      109 * ::capnp::ELEMENTS);
+      172 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasSinaWeibo() {
   return _builder.getDataField<bool>(
-      109 * ::capnp::ELEMENTS);
+      172 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasSinaWeibo(bool value) {
   _builder.setDataField<bool>(
-      109 * ::capnp::ELEMENTS, value);
+      172 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::getHasVKontakte() const {
   return _reader.getDataField<bool>(
-      110 * ::capnp::ELEMENTS);
+      173 * ::capnp::ELEMENTS);
 }
 
 inline bool Card::Builder::getHasVKontakte() {
   return _builder.getDataField<bool>(
-      110 * ::capnp::ELEMENTS);
+      173 * ::capnp::ELEMENTS);
 }
 inline void Card::Builder::setHasVKontakte(bool value) {
   _builder.setDataField<bool>(
-      110 * ::capnp::ELEMENTS, value);
+      173 * ::capnp::ELEMENTS, value);
 }
 
 inline bool Card::Reader::hasNetworks() const {
@@ -1257,6 +1463,258 @@ inline void Card::Builder::adoptNetworks(
 inline ::capnp::Orphan< ::capnp::List< ::Network>> Card::Builder::disownNetworks() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::Network>>::disown(
       _builder.getPointerField(5 * ::capnp::POINTERS));
+}
+
+inline  ::int64_t CardAnalytics::Reader::getCardBLEDeliveries() const {
+  return _reader.getDataField< ::int64_t>(
+      0 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getCardBLEDeliveries() {
+  return _builder.getDataField< ::int64_t>(
+      0 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setCardBLEDeliveries( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      0 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getCardLinkDeliveries() const {
+  return _reader.getDataField< ::int64_t>(
+      1 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getCardLinkDeliveries() {
+  return _builder.getDataField< ::int64_t>(
+      1 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setCardLinkDeliveries( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      1 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getCardViews() const {
+  return _reader.getDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getCardViews() {
+  return _builder.getDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setCardViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getCardShares() const {
+  return _reader.getDataField< ::int64_t>(
+      3 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getCardShares() {
+  return _builder.getDataField< ::int64_t>(
+      3 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setCardShares( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      3 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getFacebookViews() const {
+  return _reader.getDataField< ::int64_t>(
+      4 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getFacebookViews() {
+  return _builder.getDataField< ::int64_t>(
+      4 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setFacebookViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      4 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getTwitterViews() const {
+  return _reader.getDataField< ::int64_t>(
+      5 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getTwitterViews() {
+  return _builder.getDataField< ::int64_t>(
+      5 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setTwitterViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      5 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getInstagramViews() const {
+  return _reader.getDataField< ::int64_t>(
+      6 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getInstagramViews() {
+  return _builder.getDataField< ::int64_t>(
+      6 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setInstagramViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      6 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getSnapchatViews() const {
+  return _reader.getDataField< ::int64_t>(
+      7 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getSnapchatViews() {
+  return _builder.getDataField< ::int64_t>(
+      7 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setSnapchatViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      7 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getGooglePlusViews() const {
+  return _reader.getDataField< ::int64_t>(
+      8 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getGooglePlusViews() {
+  return _builder.getDataField< ::int64_t>(
+      8 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setGooglePlusViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      8 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getYouTubeViews() const {
+  return _reader.getDataField< ::int64_t>(
+      9 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getYouTubeViews() {
+  return _builder.getDataField< ::int64_t>(
+      9 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setYouTubeViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      9 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getPinterestViews() const {
+  return _reader.getDataField< ::int64_t>(
+      10 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getPinterestViews() {
+  return _builder.getDataField< ::int64_t>(
+      10 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setPinterestViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      10 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getTumblrViews() const {
+  return _reader.getDataField< ::int64_t>(
+      11 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getTumblrViews() {
+  return _builder.getDataField< ::int64_t>(
+      11 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setTumblrViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      11 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getLinkedInViews() const {
+  return _reader.getDataField< ::int64_t>(
+      12 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getLinkedInViews() {
+  return _builder.getDataField< ::int64_t>(
+      12 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setLinkedInViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      12 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getPeriscopeViews() const {
+  return _reader.getDataField< ::int64_t>(
+      13 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getPeriscopeViews() {
+  return _builder.getDataField< ::int64_t>(
+      13 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setPeriscopeViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      13 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getVineViews() const {
+  return _reader.getDataField< ::int64_t>(
+      14 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getVineViews() {
+  return _builder.getDataField< ::int64_t>(
+      14 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setVineViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      14 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getSoundCloudViews() const {
+  return _reader.getDataField< ::int64_t>(
+      15 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getSoundCloudViews() {
+  return _builder.getDataField< ::int64_t>(
+      15 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setSoundCloudViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      15 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getSinaWeiboViews() const {
+  return _reader.getDataField< ::int64_t>(
+      16 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getSinaWeiboViews() {
+  return _builder.getDataField< ::int64_t>(
+      16 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setSinaWeiboViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      16 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t CardAnalytics::Reader::getVKontakteViews() const {
+  return _reader.getDataField< ::int64_t>(
+      17 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t CardAnalytics::Builder::getVKontakteViews() {
+  return _builder.getDataField< ::int64_t>(
+      17 * ::capnp::ELEMENTS);
+}
+inline void CardAnalytics::Builder::setVKontakteViews( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      17 * ::capnp::ELEMENTS, value);
 }
 
 inline bool CreateCardRequest::Reader::hasCard() const {
@@ -1347,17 +1805,17 @@ inline void CardRequest::Builder::setId( ::int64_t value) {
       0 * ::capnp::ELEMENTS, value);
 }
 
-inline  ::uint32_t CardRequest::Reader::getVersion() const {
-  return _reader.getDataField< ::uint32_t>(
+inline  ::int32_t CardRequest::Reader::getVersion() const {
+  return _reader.getDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS);
 }
 
-inline  ::uint32_t CardRequest::Builder::getVersion() {
-  return _builder.getDataField< ::uint32_t>(
+inline  ::int32_t CardRequest::Builder::getVersion() {
+  return _builder.getDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS);
 }
-inline void CardRequest::Builder::setVersion( ::uint32_t value) {
-  _builder.setDataField< ::uint32_t>(
+inline void CardRequest::Builder::setVersion( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
       2 * ::capnp::ELEMENTS, value);
 }
 
@@ -1410,6 +1868,43 @@ inline void CardResponse::Builder::adoptCard(
 inline ::capnp::Orphan< ::Card> CardResponse::Builder::disownCard() {
   return ::capnp::_::PointerHelpers< ::Card>::disown(
       _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool CardResponse::Reader::hasAnalytics() const {
+  return !_reader.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline bool CardResponse::Builder::hasAnalytics() {
+  return !_builder.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline  ::CardAnalytics::Reader CardResponse::Reader::getAnalytics() const {
+  return ::capnp::_::PointerHelpers< ::CardAnalytics>::get(
+      _reader.getPointerField(1 * ::capnp::POINTERS));
+}
+inline  ::CardAnalytics::Builder CardResponse::Builder::getAnalytics() {
+  return ::capnp::_::PointerHelpers< ::CardAnalytics>::get(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::CardAnalytics::Pipeline CardResponse::Pipeline::getAnalytics() {
+  return  ::CardAnalytics::Pipeline(_typeless.getPointerField(1));
+}
+#endif  // !CAPNP_LITE
+inline void CardResponse::Builder::setAnalytics( ::CardAnalytics::Reader value) {
+  ::capnp::_::PointerHelpers< ::CardAnalytics>::set(
+      _builder.getPointerField(1 * ::capnp::POINTERS), value);
+}
+inline  ::CardAnalytics::Builder CardResponse::Builder::initAnalytics() {
+  return ::capnp::_::PointerHelpers< ::CardAnalytics>::init(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+inline void CardResponse::Builder::adoptAnalytics(
+    ::capnp::Orphan< ::CardAnalytics>&& value) {
+  ::capnp::_::PointerHelpers< ::CardAnalytics>::adopt(
+      _builder.getPointerField(1 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::CardAnalytics> CardResponse::Builder::disownAnalytics() {
+  return ::capnp::_::PointerHelpers< ::CardAnalytics>::disown(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
 }
 
 

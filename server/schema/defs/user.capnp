@@ -10,7 +10,11 @@
 struct User {
   id @0 :Int64;
 
-  activeDevice     @1 :Int64 = 0;
-  activeDeviceUUID @2 :Data;      # should be 16 bytes
-  card             @3 :Int64 = 0;
+  telephone     @1 :Text;
+  email         @2 :Text;
+  emailVerified @3 :Bool;
+
+  activeDevice     @4 :Int64 = 0;
+  activeDeviceUUID @5 :Data;      # should be 16 bytes
+  card             @6 :Int64 = 0;
 }

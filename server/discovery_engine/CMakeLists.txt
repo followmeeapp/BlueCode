@@ -12,8 +12,11 @@ add_compile_options(-std=c++14)
 
 SET( CPP_FILES
 ${PROJECT_SOURCE_DIR}/src/main.cpp
+${PROJECT_SOURCE_DIR}/src/discoveryd.cpp
 )
 SET( H_FILES
+${PROJECT_SOURCE_DIR}/src/config.h
+${PROJECT_SOURCE_DIR}/src/discoveryd.h
 )
 
 SET( SOURCE_FILES ${CPP_FILES} ${H_FILES})
@@ -24,10 +27,12 @@ ${PROJECT_SOURCE_DIR}/PACKAGE.cmake
 )
 
 include (${WORKSPACE}/discovery_engine/xy_lmdb_graph/PACKAGE.cmake)
-include (${WORKSPACE}/discovery_engine/cpp_lmdb/PACKAGE.cmake)
+include (${WORKSPACE}/cpp_lmdb/PACKAGE.cmake)
 include (${WORKSPACE}/discovery_engine/engine/PACKAGE.cmake)
 include (${WORKSPACE}/aeron/PACKAGE.cmake)
 include (${WORKSPACE}/schema/PACKAGE.cmake)
+include (${WORKSPACE}/clock/PACKAGE.cmake)
+include (${WORKSPACE}/test_process_runner/PACKAGE.cmake)
 
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost REQUIRED COMPONENTS system)
@@ -36,7 +41,7 @@ add_executable(discoveryd ${SOURCE_FILES} ${BUILD_FILES})
 target_link_libraries(discoveryd ${ENGINE_LIB} ${CPP_LMDB_LIB} ${LMDB_LIB} ${SCHEMA_LIB} ${CAPNPROTO_CAPNP_LIB} ${CAPNPROTO_KJ_LIB} ${AERON_LIB})
 
 add_executable(test ${PROJECT_SOURCE_DIR}/src/test/test.cpp ${BUILD_FILES})
-target_link_libraries(test ${Boost_LIBRARIES} ${SCHEMA_LIB} ${CAPNPROTO_CAPNP_LIB} ${CAPNPROTO_KJ_LIB} ${AERON_LIB})
+target_link_libraries(test ${TEST_PROCESS_RUNNER_LIB} ${Boost_LIBRARIES} ${ENGINE_LIB} ${CPP_LMDB_LIB} ${LMDB_LIB} ${SCHEMA_LIB} ${CAPNPROTO_CAPNP_LIB} ${CAPNPROTO_KJ_LIB} ${AERON_LIB})
 target_link_libraries(test ${GTEST_LIB})
 
 add_custom_target (FORMAT ALL

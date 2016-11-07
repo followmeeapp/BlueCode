@@ -30,7 +30,7 @@ struct HelloRequest {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(f489a65181ad32c9, 0, 1)
+    CAPNP_DECLARE_STRUCT_HEADER(f489a65181ad32c9, 1, 3)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -45,7 +45,7 @@ struct HelloResponse {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(ca0f437a8bea2455, 1, 1)
+    CAPNP_DECLARE_STRUCT_HEADER(ca0f437a8bea2455, 4, 1)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -73,6 +73,14 @@ public:
 
   inline bool hasUuid() const;
   inline  ::capnp::Data::Reader getUuid() const;
+
+  inline  ::int32_t getVersion() const;
+
+  inline bool hasPublicKey() const;
+  inline  ::capnp::Data::Reader getPublicKey() const;
+
+  inline bool hasNonce() const;
+  inline  ::capnp::Data::Reader getNonce() const;
 
 private:
   ::capnp::_::StructReader _reader;
@@ -108,6 +116,23 @@ public:
   inline  ::capnp::Data::Builder initUuid(unsigned int size);
   inline void adoptUuid(::capnp::Orphan< ::capnp::Data>&& value);
   inline ::capnp::Orphan< ::capnp::Data> disownUuid();
+
+  inline  ::int32_t getVersion();
+  inline void setVersion( ::int32_t value);
+
+  inline bool hasPublicKey();
+  inline  ::capnp::Data::Builder getPublicKey();
+  inline void setPublicKey( ::capnp::Data::Reader value);
+  inline  ::capnp::Data::Builder initPublicKey(unsigned int size);
+  inline void adoptPublicKey(::capnp::Orphan< ::capnp::Data>&& value);
+  inline ::capnp::Orphan< ::capnp::Data> disownPublicKey();
+
+  inline bool hasNonce();
+  inline  ::capnp::Data::Builder getNonce();
+  inline void setNonce( ::capnp::Data::Reader value);
+  inline  ::capnp::Data::Builder initNonce(unsigned int size);
+  inline void adoptNonce(::capnp::Orphan< ::capnp::Data>&& value);
+  inline ::capnp::Orphan< ::capnp::Data> disownNonce();
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -157,6 +182,16 @@ public:
   inline bool hasDiscoveryResponse() const;
   inline  ::DiscoveryResponse::Reader getDiscoveryResponse() const;
 
+  inline  ::int32_t getServerVersion() const;
+
+  inline  ::int32_t getSchemaVersion() const;
+
+  inline  ::int64_t getDatabaseID() const;
+
+  inline bool getJoinRequired() const;
+
+  inline bool getIsClientCompatible() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -194,6 +229,21 @@ public:
   inline  ::DiscoveryResponse::Builder initDiscoveryResponse();
   inline void adoptDiscoveryResponse(::capnp::Orphan< ::DiscoveryResponse>&& value);
   inline ::capnp::Orphan< ::DiscoveryResponse> disownDiscoveryResponse();
+
+  inline  ::int32_t getServerVersion();
+  inline void setServerVersion( ::int32_t value);
+
+  inline  ::int32_t getSchemaVersion();
+  inline void setSchemaVersion( ::int32_t value);
+
+  inline  ::int64_t getDatabaseID();
+  inline void setDatabaseID( ::int64_t value);
+
+  inline bool getJoinRequired();
+  inline void setJoinRequired(bool value);
+
+  inline bool getIsClientCompatible();
+  inline void setIsClientCompatible(bool value);
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -256,6 +306,84 @@ inline ::capnp::Orphan< ::capnp::Data> HelloRequest::Builder::disownUuid() {
       _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 
+inline  ::int32_t HelloRequest::Reader::getVersion() const {
+  return _reader.getDataField< ::int32_t>(
+      0 * ::capnp::ELEMENTS);
+}
+
+inline  ::int32_t HelloRequest::Builder::getVersion() {
+  return _builder.getDataField< ::int32_t>(
+      0 * ::capnp::ELEMENTS);
+}
+inline void HelloRequest::Builder::setVersion( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
+      0 * ::capnp::ELEMENTS, value);
+}
+
+inline bool HelloRequest::Reader::hasPublicKey() const {
+  return !_reader.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline bool HelloRequest::Builder::hasPublicKey() {
+  return !_builder.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Data::Reader HelloRequest::Reader::getPublicKey() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
+      _reader.getPointerField(1 * ::capnp::POINTERS));
+}
+inline  ::capnp::Data::Builder HelloRequest::Builder::getPublicKey() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+inline void HelloRequest::Builder::setPublicKey( ::capnp::Data::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::set(
+      _builder.getPointerField(1 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Data::Builder HelloRequest::Builder::initPublicKey(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::init(
+      _builder.getPointerField(1 * ::capnp::POINTERS), size);
+}
+inline void HelloRequest::Builder::adoptPublicKey(
+    ::capnp::Orphan< ::capnp::Data>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::adopt(
+      _builder.getPointerField(1 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Data> HelloRequest::Builder::disownPublicKey() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::disown(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+
+inline bool HelloRequest::Reader::hasNonce() const {
+  return !_reader.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline bool HelloRequest::Builder::hasNonce() {
+  return !_builder.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Data::Reader HelloRequest::Reader::getNonce() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
+      _reader.getPointerField(2 * ::capnp::POINTERS));
+}
+inline  ::capnp::Data::Builder HelloRequest::Builder::getNonce() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+inline void HelloRequest::Builder::setNonce( ::capnp::Data::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::set(
+      _builder.getPointerField(2 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Data::Builder HelloRequest::Builder::initNonce(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::init(
+      _builder.getPointerField(2 * ::capnp::POINTERS), size);
+}
+inline void HelloRequest::Builder::adoptNonce(
+    ::capnp::Orphan< ::capnp::Data>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Data>::adopt(
+      _builder.getPointerField(2 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Data> HelloRequest::Builder::disownNonce() {
+  return ::capnp::_::PointerHelpers< ::capnp::Data>::disown(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+
 inline  ::int64_t HelloResponse::Reader::getDeviceId() const {
   return _reader.getDataField< ::int64_t>(
       0 * ::capnp::ELEMENTS);
@@ -305,6 +433,76 @@ inline void HelloResponse::Builder::adoptDiscoveryResponse(
 inline ::capnp::Orphan< ::DiscoveryResponse> HelloResponse::Builder::disownDiscoveryResponse() {
   return ::capnp::_::PointerHelpers< ::DiscoveryResponse>::disown(
       _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline  ::int32_t HelloResponse::Reader::getServerVersion() const {
+  return _reader.getDataField< ::int32_t>(
+      2 * ::capnp::ELEMENTS);
+}
+
+inline  ::int32_t HelloResponse::Builder::getServerVersion() {
+  return _builder.getDataField< ::int32_t>(
+      2 * ::capnp::ELEMENTS);
+}
+inline void HelloResponse::Builder::setServerVersion( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
+      2 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int32_t HelloResponse::Reader::getSchemaVersion() const {
+  return _reader.getDataField< ::int32_t>(
+      3 * ::capnp::ELEMENTS);
+}
+
+inline  ::int32_t HelloResponse::Builder::getSchemaVersion() {
+  return _builder.getDataField< ::int32_t>(
+      3 * ::capnp::ELEMENTS);
+}
+inline void HelloResponse::Builder::setSchemaVersion( ::int32_t value) {
+  _builder.setDataField< ::int32_t>(
+      3 * ::capnp::ELEMENTS, value);
+}
+
+inline  ::int64_t HelloResponse::Reader::getDatabaseID() const {
+  return _reader.getDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS);
+}
+
+inline  ::int64_t HelloResponse::Builder::getDatabaseID() {
+  return _builder.getDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS);
+}
+inline void HelloResponse::Builder::setDatabaseID( ::int64_t value) {
+  _builder.setDataField< ::int64_t>(
+      2 * ::capnp::ELEMENTS, value);
+}
+
+inline bool HelloResponse::Reader::getJoinRequired() const {
+  return _reader.getDataField<bool>(
+      192 * ::capnp::ELEMENTS);
+}
+
+inline bool HelloResponse::Builder::getJoinRequired() {
+  return _builder.getDataField<bool>(
+      192 * ::capnp::ELEMENTS);
+}
+inline void HelloResponse::Builder::setJoinRequired(bool value) {
+  _builder.setDataField<bool>(
+      192 * ::capnp::ELEMENTS, value);
+}
+
+inline bool HelloResponse::Reader::getIsClientCompatible() const {
+  return _reader.getDataField<bool>(
+      193 * ::capnp::ELEMENTS, true);
+}
+
+inline bool HelloResponse::Builder::getIsClientCompatible() {
+  return _builder.getDataField<bool>(
+      193 * ::capnp::ELEMENTS, true);
+}
+inline void HelloResponse::Builder::setIsClientCompatible(bool value) {
+  _builder.setDataField<bool>(
+      193 * ::capnp::ELEMENTS, value, true);
 }
 
 

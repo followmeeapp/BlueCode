@@ -12,7 +12,7 @@ using import "device_info.capnp".DeviceInfo;
 using import "section.capnp".Section;
 
 struct DiscoveryRequest {
-  lastDiscovery @0 :Int64 = 0;
+  lastDiscoveryTimestamp @0 :Int64 = 0;
 
   cards         @1 :List(CardInfo);
   devices       @2 :List(DeviceInfo);

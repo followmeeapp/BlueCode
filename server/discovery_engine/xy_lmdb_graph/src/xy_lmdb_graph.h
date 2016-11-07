@@ -9,9 +9,9 @@
 #ifndef XYGRAPHENGINE_XY_LMDB_GRAPH_H_
 #define XYGRAPHENGINE_XY_LMDB_GRAPH_H_
 
-#include "discovery_engine/cpp_lmdb/lmdb_database.h"
-#include "discovery_engine/cpp_lmdb/lmdb_env.h"
-#include "discovery_engine/cpp_lmdb/lmdb_cursor.h"
+#include "cpp_lmdb/lmdb_database.h"
+#include "cpp_lmdb/lmdb_env.h"
+#include "cpp_lmdb/lmdb_cursor.h"
 
 #include "boost/optional.hpp"
 #include <vector>

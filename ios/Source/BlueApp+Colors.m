@@ -16,6 +16,30 @@
 
 @implementation BlueApp (Colors)
 
+- (UIColor *) grey
+{
+    static dispatch_once_t pred;
+    static UIColor *color = nil;
+
+    dispatch_once(&pred, ^{
+        color = [UIColor colorWithHexString: @"#eeeeee"];
+    });
+
+    return color;
+}
+
+- (UIColor *) logoBlue
+{
+    static dispatch_once_t pred;
+    static UIColor *color = nil;
+
+    dispatch_once(&pred, ^{
+        color = [UIColor colorWithHexString: @"#0183fd"];
+    });
+
+    return color;
+}
+
 - (UIColor *) blue1
 {
     static dispatch_once_t pred;
@@ -107,42 +131,6 @@
 
     dispatch_once(&pred, ^{
         color = [UIColor colorWithHexString: @"#0082FC"]; // rgb(0,130,252)
-    });
-
-    return color;
-}
-
-- (UIColor *) instinctColor
-{
-    static dispatch_once_t pred;
-    static UIColor *color = nil;
-
-    dispatch_once(&pred, ^{
-        color = [UIColor colorWithRed: (255.0/255.0) green: (211.0/255.0) blue: (3.0/255.0) alpha: 1.0];
-    });
-
-    return color;
-}
-
-- (UIColor *) mysticColor
-{
-    static dispatch_once_t pred;
-    static UIColor *color = nil;
-
-    dispatch_once(&pred, ^{
-        color = [UIColor colorWithRed: (2.0/255.0) green: (118.0/255.0) blue: (242.0/255.0) alpha: 1.0];
-    });
-
-    return color;
-}
-
-- (UIColor *) valorColor
-{
-    static dispatch_once_t pred;
-    static UIColor *color = nil;
-
-    dispatch_once(&pred, ^{
-        color = [UIColor colorWithRed: (247.0/255.0) green: (17.0/255.0) blue: (7.0/255.0) alpha: 1.0];
     });
 
     return color;

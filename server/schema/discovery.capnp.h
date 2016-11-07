@@ -73,7 +73,7 @@ public:
   }
 #endif  // !CAPNP_LITE
 
-  inline  ::int64_t getLastDiscovery() const;
+  inline  ::int64_t getLastDiscoveryTimestamp() const;
 
   inline bool hasCards() const;
   inline  ::capnp::List< ::CardInfo>::Reader getCards() const;
@@ -109,8 +109,8 @@ public:
   inline ::kj::StringTree toString() const { return asReader().toString(); }
 #endif  // !CAPNP_LITE
 
-  inline  ::int64_t getLastDiscovery();
-  inline void setLastDiscovery( ::int64_t value);
+  inline  ::int64_t getLastDiscoveryTimestamp();
+  inline void setLastDiscoveryTimestamp( ::int64_t value);
 
   inline bool hasCards();
   inline  ::capnp::List< ::CardInfo>::Builder getCards();
@@ -251,16 +251,16 @@ private:
 
 // =======================================================================================
 
-inline  ::int64_t DiscoveryRequest::Reader::getLastDiscovery() const {
+inline  ::int64_t DiscoveryRequest::Reader::getLastDiscoveryTimestamp() const {
   return _reader.getDataField< ::int64_t>(
       0 * ::capnp::ELEMENTS);
 }
 
-inline  ::int64_t DiscoveryRequest::Builder::getLastDiscovery() {
+inline  ::int64_t DiscoveryRequest::Builder::getLastDiscoveryTimestamp() {
   return _builder.getDataField< ::int64_t>(
       0 * ::capnp::ELEMENTS);
 }
-inline void DiscoveryRequest::Builder::setLastDiscovery( ::int64_t value) {
+inline void DiscoveryRequest::Builder::setLastDiscoveryTimestamp( ::int64_t value) {
   _builder.setDataField< ::int64_t>(
       0 * ::capnp::ELEMENTS, value);
 }

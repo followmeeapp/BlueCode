@@ -38,7 +38,7 @@ struct JoinRequest {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(8003a1de1a845568, 0, 1)
+    CAPNP_DECLARE_STRUCT_HEADER(8003a1de1a845568, 1, 3)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -84,6 +84,14 @@ public:
   inline bool hasTelephone() const;
   inline  ::capnp::Text::Reader getTelephone() const;
 
+  inline bool hasDigitsId() const;
+  inline  ::capnp::Text::Reader getDigitsId() const;
+
+  inline bool hasEmail() const;
+  inline  ::capnp::Text::Reader getEmail() const;
+
+  inline bool getEmailVerified() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -118,6 +126,23 @@ public:
   inline  ::capnp::Text::Builder initTelephone(unsigned int size);
   inline void adoptTelephone(::capnp::Orphan< ::capnp::Text>&& value);
   inline ::capnp::Orphan< ::capnp::Text> disownTelephone();
+
+  inline bool hasDigitsId();
+  inline  ::capnp::Text::Builder getDigitsId();
+  inline void setDigitsId( ::capnp::Text::Reader value);
+  inline  ::capnp::Text::Builder initDigitsId(unsigned int size);
+  inline void adoptDigitsId(::capnp::Orphan< ::capnp::Text>&& value);
+  inline ::capnp::Orphan< ::capnp::Text> disownDigitsId();
+
+  inline bool hasEmail();
+  inline  ::capnp::Text::Builder getEmail();
+  inline void setEmail( ::capnp::Text::Reader value);
+  inline  ::capnp::Text::Builder initEmail(unsigned int size);
+  inline void adoptEmail(::capnp::Orphan< ::capnp::Text>&& value);
+  inline ::capnp::Orphan< ::capnp::Text> disownEmail();
+
+  inline bool getEmailVerified();
+  inline void setEmailVerified(bool value);
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -285,6 +310,84 @@ inline void JoinRequest::Builder::adoptTelephone(
 inline ::capnp::Orphan< ::capnp::Text> JoinRequest::Builder::disownTelephone() {
   return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(
       _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool JoinRequest::Reader::hasDigitsId() const {
+  return !_reader.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline bool JoinRequest::Builder::hasDigitsId() {
+  return !_builder.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Text::Reader JoinRequest::Reader::getDigitsId() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _reader.getPointerField(1 * ::capnp::POINTERS));
+}
+inline  ::capnp::Text::Builder JoinRequest::Builder::getDigitsId() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+inline void JoinRequest::Builder::setDigitsId( ::capnp::Text::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::set(
+      _builder.getPointerField(1 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Text::Builder JoinRequest::Builder::initDigitsId(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::init(
+      _builder.getPointerField(1 * ::capnp::POINTERS), size);
+}
+inline void JoinRequest::Builder::adoptDigitsId(
+    ::capnp::Orphan< ::capnp::Text>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::adopt(
+      _builder.getPointerField(1 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Text> JoinRequest::Builder::disownDigitsId() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+
+inline bool JoinRequest::Reader::hasEmail() const {
+  return !_reader.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline bool JoinRequest::Builder::hasEmail() {
+  return !_builder.getPointerField(2 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Text::Reader JoinRequest::Reader::getEmail() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _reader.getPointerField(2 * ::capnp::POINTERS));
+}
+inline  ::capnp::Text::Builder JoinRequest::Builder::getEmail() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+inline void JoinRequest::Builder::setEmail( ::capnp::Text::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::set(
+      _builder.getPointerField(2 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Text::Builder JoinRequest::Builder::initEmail(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::init(
+      _builder.getPointerField(2 * ::capnp::POINTERS), size);
+}
+inline void JoinRequest::Builder::adoptEmail(
+    ::capnp::Orphan< ::capnp::Text>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::adopt(
+      _builder.getPointerField(2 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Text> JoinRequest::Builder::disownEmail() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(
+      _builder.getPointerField(2 * ::capnp::POINTERS));
+}
+
+inline bool JoinRequest::Reader::getEmailVerified() const {
+  return _reader.getDataField<bool>(
+      0 * ::capnp::ELEMENTS);
+}
+
+inline bool JoinRequest::Builder::getEmailVerified() {
+  return _builder.getDataField<bool>(
+      0 * ::capnp::ELEMENTS);
+}
+inline void JoinRequest::Builder::setEmailVerified(bool value) {
+  _builder.setDataField<bool>(
+      0 * ::capnp::ELEMENTS, value);
 }
 
 inline  ::JoinResponse::Status JoinResponse::Reader::getStatus() const {

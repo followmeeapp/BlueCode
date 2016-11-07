@@ -15,9 +15,17 @@
 @property NSDate *timestamp;
 
 @property (readonly) NSArray *visibleCards;
+@property (readonly) NSArray *visibleCardTimestamps;
 @property (readonly) NSArray *hiddenCards;
+@property (readonly) NSArray *hiddenCardTimestamps;
 
-@property NSData *cards; // Stores a Cap'n Proto object containing visibleCards and hiddenCards
+@property NSData *cardData; // Stores a Cap'n Proto object containing visibleCards and hiddenCards
+
+- (void)
+updateVisibleCards:    (NSArray *) visibleCards
+visibleCardTimestamps: (NSArray *) visibleCardTimestamps
+hiddenCards:           (NSArray *) hiddenCards
+hiddenCardTimestamps:  (NSArray *) hiddenCardTimestamps;
 
 @end
 

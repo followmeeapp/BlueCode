@@ -26,9 +26,7 @@
 @property (nonatomic, assign) BOOL didStartWebSocket;
 
 @property (nonatomic, copy) NSData *secretKey;
-@property (nonatomic, copy) NSData *publicKey;
 
-@property (nonatomic, copy) NSData *serverKey;
 @property (nonatomic, copy) NSString *hostname;
 @property (nonatomic, assign) NSInteger port;
 
@@ -45,16 +43,11 @@
 @implementation BlueClient
 
 - (instancetype)
-initWithSecretKey: (NSData *)   secretKey
-publicKey:         (NSData *)   publicKey
-serverKey:         (NSData *)   serverKey
+initWithServerKey: (NSData *)   serverKey
 hostname:          (NSString *) hostname
 port:              (NSInteger)  port
 {
     if (self = [super init]) {
-        self.secretKey = secretKey;
-        self.publicKey = publicKey;
-
         self.serverKey = serverKey;
         self.hostname = hostname;
         _port = port;
@@ -67,6 +60,27 @@ port:              (NSInteger)  port
     }
 
     return self;
+}
+
+- (void) dealloc
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
+- (void) createKeyPair
+{
+    // We generate a new keypair for each connection.
+    unsigned char publicKeyBytes[crypto_box_PUBLICKEYBYTES];
+    unsigned char secretKeyBytes[crypto_box_SECRETKEYBYTES];
+
+    crypto_box_keypair(publicKeyBytes, secretKeyBytes);
+
+    NSData *publicKey = [NSData dataWithBytes: publicKeyBytes length: crypto_box_PUBLICKEYBYTES];
+    NSData *secretKey = [NSData dataWithBytes: secretKeyBytes length: crypto_box_SECRETKEYBYTES];
+
+    self.publicKey = publicKey;
+    self.secretKey = secretKey;
 }
 
 - (void) stopWebSocket
@@ -85,12 +99,14 @@ port:              (NSInteger)  port
 
 - (void) reopenWebSocketIfNeeded: (NSTimer *) timer
 {
-//    NSLog(@"-[ServerClient reopenWebSocketIfNeeded:]");
+//    NSLog(@"-[BlueClient reopenWebSocketIfNeeded:]");
 
     if (_webSocket) {
 //        if (self.shouldPing && _webSocket.readyState == SR_OPEN) [self sendRequest: @"ping"];
         return;
     }
+
+    [self createKeyPair];
 
     NSString *urlString = [NSString stringWithFormat: @"ws://%@:%@/", self.hostname, @(self.port)];
     NSURL *url = [NSURL URLWithString: urlString];
@@ -138,10 +154,10 @@ port:              (NSInteger)  port
 
 - (void) webSocketDidOpen: (SRWebSocket *) webSocket
 {
-    NSLog(@"-[ServerClient webSocketDidOpen:]");
+//    NSLog(@"-[BlueClient webSocketDidOpen:]");
     _hasWebSocket = YES;
 
-    [self webSocketStatusDidChange: _hasWebSocket];
+//    [self webSocketStatusDidChange: _hasWebSocket];
 
     NSData *helloRequestPacket = [ServerRequest newHelloRequestWithId: [self nextRequestId]];
     if (_webSocket && _webSocket.readyState == SR_OPEN) {
@@ -159,19 +175,6 @@ port:              (NSInteger)  port
     }];
 
     [self.pendingMessages removeAllObjects];
-
-//    [self sendRequest: [HelloRequest2 newHelloRequestWithId: [self nextRequestId]]];
-//    [self sendRequest: [CardRequest newCreateCardRequestWithId: [self nextRequestId] properties: @{
-//        @"firstName": @"Erich",
-//        @"lastName": @"Ocean",
-//        @"location": @"Palmdale, CA",
-//        @"networks": @{
-//            @(FacebookType): @"erich.ocean",
-//            @(TwitterType): @"erichocean",
-//            @(InstagramType): @"erichocean2",
-//        }
-//    }]];
-//    [self sendRequest: [CardRequest newReadCardRequestWithId: [self nextRequestId] cardId: 2]];
 }
 
 - (NSInteger) nextRequestId
@@ -183,10 +186,10 @@ port:              (NSInteger)  port
 webSocket:        (SRWebSocket *) webSocket
 didFailWithError: (NSError *)     error
 {
-    NSLog(@"-[ServerClient webSocket:didFailWithError:] %@", error);
+    NSLog(@"-[BlueClient webSocket:didFailWithError:] %@", error);
     _hasWebSocket = NO;
 
-    [self webSocketStatusDidChange: _hasWebSocket];
+//    [self webSocketStatusDidChange: _hasWebSocket];
     _webSocket = nil;
 }
 
@@ -196,7 +199,7 @@ didFailWithError: (NSError *)     error
 webSocket:         (SRWebSocket *) webSocket
 didReceiveMessage: (NSData *)      message
 {
-//    NSLog(@"-[ServerClient webSocket:didReceiveMessage:]");
+//    NSLog(@"-[BlueClient webSocket:didReceiveMessage:]");
 //    DDLogInfo(@"Received %@", message);
 
     if (![message isKindOfClass: [NSData class]]) {
@@ -204,44 +207,38 @@ didReceiveMessage: (NSData *)      message
         return;
     }
 
-    [ServerResponse handleResponse: message];
+    if (!self.serverKey) {
+        // No crypto is being used.
+        [ServerResponse handleResponse: message];
 
-//    NSData *nonce = [message subdataWithRange: NSMakeRange(0, 24)];
-//    NSData *cipherText = [message subdataWithRange: NSMakeRange(24, message.length - 24)];
-//    NSMutableData *plainText = [NSMutableData dataWithLength: cipherText.length];
-//
-//    int result = crypto_box_open((unsigned char *)plainText.bytes,
-//                                 cipherText.bytes,
-//                                 cipherText.length,
-//                                 nonce.bytes,
-//                                 self.serverKey.bytes,
-//                                 self.secretKey.bytes);
-//
-//    if (result == -1) {
-//        NSLog(@"Decryption failed.");
-//        return;
-//    }
-//
-//    NSData *jsonData = [plainText subdataWithRange: NSMakeRange(32, plainText.length - 32)];
-//
-//    NSError *error = nil;
-//    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData: jsonData options: (NSJSONReadingOptions)0 error: &error];
-//
-//    if (!dict) {
-//        NSLog(@"Error: Could not deserialize JSON. Reason: %@", error);
-//        return;
-//    }
-//
-//    NSLog(@"Received %@", dict);
-//
-//    [self webSocketDidReceiveMessage: dict];
+    } else {
+        NSData *nonce = [message subdataWithRange: NSMakeRange(0, 24)];
+        NSData *cipherText = [message subdataWithRange: NSMakeRange(24, message.length - 24)];
+        NSMutableData *plainText = [NSMutableData dataWithLength: cipherText.length];
+
+        int result = crypto_box_open((unsigned char *)plainText.bytes,
+                                     cipherText.bytes,
+                                     cipherText.length,
+                                     nonce.bytes,
+                                     self.serverKey.bytes,
+                                     self.secretKey.bytes);
+
+        if (result == -1) {
+            NSLog(@"Decryption failed.");
+            return;
+        }
+
+        NSData *decryptedMessage = [plainText subdataWithRange: NSMakeRange(32, plainText.length - 32)];
+
+        [ServerResponse handleResponse: decryptedMessage];
+    }
 }
 
 - (void)
 webSocket:      (SRWebSocket *) webSocket
 didReceivePong: (NSData *)      pongPayload
 {
-    NSLog(@"-[ServerClient webSocket:didReceivePong:]");
+    NSLog(@"-[BlueClient webSocket:didReceivePong:]");
 }
 
 - (void)
@@ -250,32 +247,41 @@ didCloseWithCode: (NSInteger)     code
 reason:           (NSString *)    reason
 wasClean:         (BOOL)          wasClean
 {
-    NSLog(@"-[ServerClient webSocket:didCloseWithCode:reason:wasClean:]");
+    NSLog(@"-[BlueClient webSocket:didCloseWithCode:reason:wasClean:]");
     _webSocket = nil;
     _hasWebSocket = NO;
 
-    [self webSocketStatusDidChange: _hasWebSocket];
+//    [self webSocketStatusDidChange: _hasWebSocket];
 }
 
 #pragma mark WebSocket helpers
 
 - (void) sendRequest: (NSData *) data
 {
-    [_webSocket send: data];
+    if (!self.serverKey) {
+        // No crypto is being used.
+        if (_webSocket && _webSocket.readyState == SR_OPEN) {
+            [_webSocket send: data];
 
-//    NSData *packet = [self encryptData: data];
-//
-//    if (!packet) {
-//        NSLog(@"Something went wrong with the encryption");
-//        return;
-//    }
-//
-//    if (_webSocket && _webSocket.readyState == SR_OPEN) {
-//        [_webSocket send: packet];
-//
-//    } else {
-//        [self.pendingMessages addObject: packet];
-//    }
+        } else {
+            [self.pendingMessages addObject: data];
+        }
+
+    } else {
+        NSData *packet = [self encryptData: data];
+
+        if (!packet) {
+            NSLog(@"Something went wrong with the encryption");
+            return;
+        }
+
+        if (_webSocket && _webSocket.readyState == SR_OPEN) {
+            [_webSocket send: packet];
+
+        } else {
+            [self.pendingMessages addObject: packet];
+        }
+    }
 }
 
 - (NSData *) encryptData: (NSData *) message
@@ -312,16 +318,16 @@ wasClean:         (BOOL)          wasClean
     return packet;
 }
 
-#pragma mark Template methods
-
-- (void) webSocketStatusDidChange: (BOOL) hasWebSocket
-{
-//    [APP_DELEGATE webSocketStatusDidChange: hasWebSocket];
-}
-
-- (void) webSocketDidReceiveMessage: (NSData *) data
-{
-//    [APP_DELEGATE webSocketDidReceiveMessage: data];
-}
+//#pragma mark Template methods
+//
+//- (void) webSocketStatusDidChange: (BOOL) hasWebSocket
+//{
+////    [APP_DELEGATE webSocketStatusDidChange: hasWebSocket];
+//}
+//
+//- (void) webSocketDidReceiveMessage: (NSData *) data
+//{
+////    [APP_DELEGATE webSocketDidReceiveMessage: data];
+//}
 
 @end

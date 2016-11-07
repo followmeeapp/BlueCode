@@ -28,7 +28,7 @@ struct User {
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(e976aa3a3ab751c6, 3, 1)
+    CAPNP_DECLARE_STRUCT_HEADER(e976aa3a3ab751c6, 4, 3)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -55,6 +55,14 @@ public:
 #endif  // !CAPNP_LITE
 
   inline  ::int64_t getId() const;
+
+  inline bool hasTelephone() const;
+  inline  ::capnp::Text::Reader getTelephone() const;
+
+  inline bool hasEmail() const;
+  inline  ::capnp::Text::Reader getEmail() const;
+
+  inline bool getEmailVerified() const;
 
   inline  ::int64_t getActiveDevice() const;
 
@@ -93,6 +101,23 @@ public:
 
   inline  ::int64_t getId();
   inline void setId( ::int64_t value);
+
+  inline bool hasTelephone();
+  inline  ::capnp::Text::Builder getTelephone();
+  inline void setTelephone( ::capnp::Text::Reader value);
+  inline  ::capnp::Text::Builder initTelephone(unsigned int size);
+  inline void adoptTelephone(::capnp::Orphan< ::capnp::Text>&& value);
+  inline ::capnp::Orphan< ::capnp::Text> disownTelephone();
+
+  inline bool hasEmail();
+  inline  ::capnp::Text::Builder getEmail();
+  inline void setEmail( ::capnp::Text::Reader value);
+  inline  ::capnp::Text::Builder initEmail(unsigned int size);
+  inline void adoptEmail(::capnp::Orphan< ::capnp::Text>&& value);
+  inline ::capnp::Orphan< ::capnp::Text> disownEmail();
+
+  inline bool getEmailVerified();
+  inline void setEmailVerified(bool value);
 
   inline  ::int64_t getActiveDevice();
   inline void setActiveDevice( ::int64_t value);
@@ -149,64 +174,142 @@ inline void User::Builder::setId( ::int64_t value) {
       0 * ::capnp::ELEMENTS, value);
 }
 
+inline bool User::Reader::hasTelephone() const {
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool User::Builder::hasTelephone() {
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Text::Reader User::Reader::getTelephone() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::capnp::Text::Builder User::Builder::getTelephone() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void User::Builder::setTelephone( ::capnp::Text::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Text::Builder User::Builder::initTelephone(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS), size);
+}
+inline void User::Builder::adoptTelephone(
+    ::capnp::Orphan< ::capnp::Text>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Text> User::Builder::disownTelephone() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool User::Reader::hasEmail() const {
+  return !_reader.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline bool User::Builder::hasEmail() {
+  return !_builder.getPointerField(1 * ::capnp::POINTERS).isNull();
+}
+inline  ::capnp::Text::Reader User::Reader::getEmail() const {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _reader.getPointerField(1 * ::capnp::POINTERS));
+}
+inline  ::capnp::Text::Builder User::Builder::getEmail() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::get(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+inline void User::Builder::setEmail( ::capnp::Text::Reader value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::set(
+      _builder.getPointerField(1 * ::capnp::POINTERS), value);
+}
+inline  ::capnp::Text::Builder User::Builder::initEmail(unsigned int size) {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::init(
+      _builder.getPointerField(1 * ::capnp::POINTERS), size);
+}
+inline void User::Builder::adoptEmail(
+    ::capnp::Orphan< ::capnp::Text>&& value) {
+  ::capnp::_::PointerHelpers< ::capnp::Text>::adopt(
+      _builder.getPointerField(1 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::capnp::Text> User::Builder::disownEmail() {
+  return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(
+      _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+
+inline bool User::Reader::getEmailVerified() const {
+  return _reader.getDataField<bool>(
+      64 * ::capnp::ELEMENTS);
+}
+
+inline bool User::Builder::getEmailVerified() {
+  return _builder.getDataField<bool>(
+      64 * ::capnp::ELEMENTS);
+}
+inline void User::Builder::setEmailVerified(bool value) {
+  _builder.setDataField<bool>(
+      64 * ::capnp::ELEMENTS, value);
+}
+
 inline  ::int64_t User::Reader::getActiveDevice() const {
   return _reader.getDataField< ::int64_t>(
-      1 * ::capnp::ELEMENTS);
+      2 * ::capnp::ELEMENTS);
 }
 
 inline  ::int64_t User::Builder::getActiveDevice() {
   return _builder.getDataField< ::int64_t>(
-      1 * ::capnp::ELEMENTS);
+      2 * ::capnp::ELEMENTS);
 }
 inline void User::Builder::setActiveDevice( ::int64_t value) {
   _builder.setDataField< ::int64_t>(
-      1 * ::capnp::ELEMENTS, value);
+      2 * ::capnp::ELEMENTS, value);
 }
 
 inline bool User::Reader::hasActiveDeviceUUID() const {
-  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+  return !_reader.getPointerField(2 * ::capnp::POINTERS).isNull();
 }
 inline bool User::Builder::hasActiveDeviceUUID() {
-  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+  return !_builder.getPointerField(2 * ::capnp::POINTERS).isNull();
 }
 inline  ::capnp::Data::Reader User::Reader::getActiveDeviceUUID() const {
   return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
-      _reader.getPointerField(0 * ::capnp::POINTERS));
+      _reader.getPointerField(2 * ::capnp::POINTERS));
 }
 inline  ::capnp::Data::Builder User::Builder::getActiveDeviceUUID() {
   return ::capnp::_::PointerHelpers< ::capnp::Data>::get(
-      _builder.getPointerField(0 * ::capnp::POINTERS));
+      _builder.getPointerField(2 * ::capnp::POINTERS));
 }
 inline void User::Builder::setActiveDeviceUUID( ::capnp::Data::Reader value) {
   ::capnp::_::PointerHelpers< ::capnp::Data>::set(
-      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+      _builder.getPointerField(2 * ::capnp::POINTERS), value);
 }
 inline  ::capnp::Data::Builder User::Builder::initActiveDeviceUUID(unsigned int size) {
   return ::capnp::_::PointerHelpers< ::capnp::Data>::init(
-      _builder.getPointerField(0 * ::capnp::POINTERS), size);
+      _builder.getPointerField(2 * ::capnp::POINTERS), size);
 }
 inline void User::Builder::adoptActiveDeviceUUID(
     ::capnp::Orphan< ::capnp::Data>&& value) {
   ::capnp::_::PointerHelpers< ::capnp::Data>::adopt(
-      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+      _builder.getPointerField(2 * ::capnp::POINTERS), kj::mv(value));
 }
 inline ::capnp::Orphan< ::capnp::Data> User::Builder::disownActiveDeviceUUID() {
   return ::capnp::_::PointerHelpers< ::capnp::Data>::disown(
-      _builder.getPointerField(0 * ::capnp::POINTERS));
+      _builder.getPointerField(2 * ::capnp::POINTERS));
 }
 
 inline  ::int64_t User::Reader::getCard() const {
   return _reader.getDataField< ::int64_t>(
-      2 * ::capnp::ELEMENTS);
+      3 * ::capnp::ELEMENTS);
 }
 
 inline  ::int64_t User::Builder::getCard() {
   return _builder.getDataField< ::int64_t>(
-      2 * ::capnp::ELEMENTS);
+      3 * ::capnp::ELEMENTS);
 }
 inline void User::Builder::setCard( ::int64_t value) {
   _builder.setDataField< ::int64_t>(
-      2 * ::capnp::ELEMENTS, value);
+      3 * ::capnp::ELEMENTS, value);
 }
 
 

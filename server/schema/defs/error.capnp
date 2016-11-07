@@ -13,6 +13,8 @@ struct ErrorResponse {
 
   enum Code {
     unknown @0;
-    discoveryNotAvailable   @1;
+    discoveryNotAvailable    @1;
+    lastDiscoveryNotApplied  @2;
+    previousBackupNotApplied @3;
   }
 }

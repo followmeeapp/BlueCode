@@ -17,6 +17,7 @@ namespace capnp {
 namespace schemas {
 
 CAPNP_DECLARE_SCHEMA(f06fa914aa4f1ac6);
+CAPNP_DECLARE_SCHEMA(fde12b7311fa3502);
 
 }  // namespace schemas
 }  // namespace capnp
@@ -31,6 +32,21 @@ struct Section {
 
   struct _capnpPrivate {
     CAPNP_DECLARE_STRUCT_HEADER(f06fa914aa4f1ac6, 1, 2)
+    #if !CAPNP_LITE
+    static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
+    #endif  // !CAPNP_LITE
+  };
+};
+
+struct CreateSectionRequest {
+  CreateSectionRequest() = delete;
+
+  class Reader;
+  class Builder;
+  class Pipeline;
+
+  struct _capnpPrivate {
+    CAPNP_DECLARE_STRUCT_HEADER(fde12b7311fa3502, 0, 1)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand = &schema->defaultBrand;
     #endif  // !CAPNP_LITE
@@ -136,6 +152,88 @@ private:
 };
 #endif  // !CAPNP_LITE
 
+class CreateSectionRequest::Reader {
+public:
+  typedef CreateSectionRequest Reads;
+
+  Reader() = default;
+  inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
+
+  inline ::capnp::MessageSize totalSize() const {
+    return _reader.totalSize().asPublic();
+  }
+
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const {
+    return ::capnp::_::structString(_reader, *_capnpPrivate::brand);
+  }
+#endif  // !CAPNP_LITE
+
+  inline bool hasCard() const;
+  inline  ::Section::Reader getCard() const;
+
+private:
+  ::capnp::_::StructReader _reader;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::List;
+  friend class ::capnp::MessageBuilder;
+  friend class ::capnp::Orphanage;
+};
+
+class CreateSectionRequest::Builder {
+public:
+  typedef CreateSectionRequest Builds;
+
+  Builder() = delete;  // Deleted to discourage incorrect usage.
+                       // You can explicitly initialize to nullptr instead.
+  inline Builder(decltype(nullptr)) {}
+  inline explicit Builder(::capnp::_::StructBuilder base): _builder(base) {}
+  inline operator Reader() const { return Reader(_builder.asReader()); }
+  inline Reader asReader() const { return *this; }
+
+  inline ::capnp::MessageSize totalSize() const { return asReader().totalSize(); }
+#if !CAPNP_LITE
+  inline ::kj::StringTree toString() const { return asReader().toString(); }
+#endif  // !CAPNP_LITE
+
+  inline bool hasCard();
+  inline  ::Section::Builder getCard();
+  inline void setCard( ::Section::Reader value);
+  inline  ::Section::Builder initCard();
+  inline void adoptCard(::capnp::Orphan< ::Section>&& value);
+  inline ::capnp::Orphan< ::Section> disownCard();
+
+private:
+  ::capnp::_::StructBuilder _builder;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+  friend class ::capnp::Orphanage;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::_::PointerHelpers;
+};
+
+#if !CAPNP_LITE
+class CreateSectionRequest::Pipeline {
+public:
+  typedef CreateSectionRequest Pipelines;
+
+  inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
+  inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
+      : _typeless(kj::mv(typeless)) {}
+
+  inline  ::Section::Pipeline getCard();
+private:
+  ::capnp::AnyPointer::Pipeline _typeless;
+  friend class ::capnp::PipelineHook;
+  template <typename, ::capnp::Kind>
+  friend struct ::capnp::ToDynamic_;
+};
+#endif  // !CAPNP_LITE
+
 // =======================================================================================
 
 inline  ::int64_t Section::Reader::getId() const {
@@ -219,6 +317,43 @@ inline void Section::Builder::adoptCards(
 inline ::capnp::Orphan< ::capnp::List< ::CardInfo>> Section::Builder::disownCards() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::CardInfo>>::disown(
       _builder.getPointerField(1 * ::capnp::POINTERS));
+}
+
+inline bool CreateSectionRequest::Reader::hasCard() const {
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool CreateSectionRequest::Builder::hasCard() {
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::Section::Reader CreateSectionRequest::Reader::getCard() const {
+  return ::capnp::_::PointerHelpers< ::Section>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::Section::Builder CreateSectionRequest::Builder::getCard() {
+  return ::capnp::_::PointerHelpers< ::Section>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+#if !CAPNP_LITE
+inline  ::Section::Pipeline CreateSectionRequest::Pipeline::getCard() {
+  return  ::Section::Pipeline(_typeless.getPointerField(0));
+}
+#endif  // !CAPNP_LITE
+inline void CreateSectionRequest::Builder::setCard( ::Section::Reader value) {
+  ::capnp::_::PointerHelpers< ::Section>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::Section::Builder CreateSectionRequest::Builder::initCard() {
+  return ::capnp::_::PointerHelpers< ::Section>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void CreateSectionRequest::Builder::adoptCard(
+    ::capnp::Orphan< ::Section>&& value) {
+  ::capnp::_::PointerHelpers< ::Section>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::Section> CreateSectionRequest::Builder::disownCard() {
+  return ::capnp::_::PointerHelpers< ::Section>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 
 

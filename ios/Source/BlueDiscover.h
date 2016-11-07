@@ -14,6 +14,8 @@
 
 #import "BlueDiscoverSession.h"
 
+@class CardObject;
+
 @interface BlueDiscover : NSObject <CBCentralManagerDelegate, CBPeripheralManagerDelegate, CBPeripheralDelegate>
 
 // disable the default initializer
@@ -27,7 +29,9 @@
 /**
  * Username specific to your device.
  **/
-- (void) startAdvertisingWithUsername: (NSString *) username;
+- (void)
+startAdvertisingWithDeviceId: (NSInteger)    deviceId
+card:                         (CardObject *) card;
 
 /**
  * Stop advertising.
@@ -59,13 +63,16 @@
  * UUID is used for id as advertisement, peripheral services and characteristics.
  * It should be unique to you app, not to your device. Otherwise the peers won't be able to discover each other.
  */
-@property (strong, nonatomic, readonly) CBUUID *uuid;
+@property (strong, nonatomic) CBUUID *uuid;
 
 /**
  * This is the value that should be unique to your device.
  * The users will be identified with username. This value is advertised as the user ID.
  */
-@property (strong, nonatomic, readonly) NSString *username;
+@property (strong, nonatomic) NSString *username;
+
+@property (strong, nonatomic) NSString *fullName;
+@property (strong, nonatomic) NSString *location;
 
 /**
  * Central and Peripheral managers and the queue for the manager events.

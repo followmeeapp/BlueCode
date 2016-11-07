@@ -116,3 +116,19 @@
 }
 
 @end
+
+@implementation NSDate (Blue)
+
++ (instancetype) dateWithMillisecondsSince1970: (int64_t) milliseconds
+{
+    NSTimeInterval timeInterval = ((double)milliseconds) / 1000.0;
+
+    return [self dateWithTimeIntervalSince1970: timeInterval];
+}
+
+- (int64_t) millisecondsSince1970
+{
+  return (int64_t)([self timeIntervalSince1970] * 1000);
+}
+
+@end

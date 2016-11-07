@@ -12,7 +12,10 @@
 
 + (NSData *)
 newJoinRequestWithId: (NSInteger)  requestId
-telephone:            (NSString *) telephone;
+telephone:            (NSString *) telephone
+digitsId:             (NSString *) digitsId
+email:                (NSString *) email
+emailIsVerified:      (BOOL)       isVerified;
 
 + (NSData *)
 newCreateCardRequestWithId: (NSInteger)      requestId
@@ -26,5 +29,12 @@ properties:                 (NSDictionary *) props;
 newCardRequestWithId: (NSInteger) requestId
 cardId:               (NSInteger) cardId
 version:              (int)       version;
+
++ (NSData *)
+newCreateBackupRequestWithId: (NSInteger) requestId
+timestamp:                    (int64_t)   timestamp
+previous:                     (int64_t)   previous;
+
++ (NSData *) newBackupRequestWithId: (NSInteger) requestId;
 
 @end

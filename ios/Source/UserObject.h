@@ -16,6 +16,10 @@
 
 @property NSInteger cardId;
 
+@property NSData *advertisingInfo;
+
+@property int64_t lastBackup;
+
 @end
 
 RLM_ARRAY_TYPE(UserObject)

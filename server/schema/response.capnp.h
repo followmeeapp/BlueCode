@@ -10,6 +10,7 @@
 #error "Version mismatch between generated code and library headers.  You must use the same version of the Cap'n Proto compiler and library."
 #endif
 
+#include "backup.capnp.h"
 #include "card.capnp.h"
 #include "discovery.capnp.h"
 #include "error.capnp.h"
@@ -56,6 +57,8 @@ struct Response::Kind {
     DISCOVERY_RESPONSE,
     HELLO_RESPONSE,
     JOIN_RESPONSE,
+    BACKUP_LIST_RESPONSE,
+    BACKUP_RESPONSE,
   };
 
   struct _capnpPrivate {
@@ -194,6 +197,14 @@ public:
   inline bool hasJoinResponse() const;
   inline  ::JoinResponse::Reader getJoinResponse() const;
 
+  inline bool isBackupListResponse() const;
+  inline bool hasBackupListResponse() const;
+  inline  ::BackupListResponse::Reader getBackupListResponse() const;
+
+  inline bool isBackupResponse() const;
+  inline bool hasBackupResponse() const;
+  inline  ::BackupResponse::Reader getBackupResponse() const;
+
 private:
   ::capnp::_::StructReader _reader;
   template <typename, ::capnp::Kind>
@@ -270,6 +281,22 @@ public:
   inline  ::JoinResponse::Builder initJoinResponse();
   inline void adoptJoinResponse(::capnp::Orphan< ::JoinResponse>&& value);
   inline ::capnp::Orphan< ::JoinResponse> disownJoinResponse();
+
+  inline bool isBackupListResponse();
+  inline bool hasBackupListResponse();
+  inline  ::BackupListResponse::Builder getBackupListResponse();
+  inline void setBackupListResponse( ::BackupListResponse::Reader value);
+  inline  ::BackupListResponse::Builder initBackupListResponse();
+  inline void adoptBackupListResponse(::capnp::Orphan< ::BackupListResponse>&& value);
+  inline ::capnp::Orphan< ::BackupListResponse> disownBackupListResponse();
+
+  inline bool isBackupResponse();
+  inline bool hasBackupResponse();
+  inline  ::BackupResponse::Builder getBackupResponse();
+  inline void setBackupResponse( ::BackupResponse::Reader value);
+  inline  ::BackupResponse::Builder initBackupResponse();
+  inline void adoptBackupResponse(::capnp::Orphan< ::BackupResponse>&& value);
+  inline ::capnp::Orphan< ::BackupResponse> disownBackupResponse();
 
 private:
   ::capnp::_::StructBuilder _builder;
@@ -645,6 +672,110 @@ inline ::capnp::Orphan< ::JoinResponse> Response::Kind::Builder::disownJoinRespo
   KJ_IREQUIRE((which() == Response::Kind::JOIN_RESPONSE),
               "Must check which() before get()ing a union member.");
   return ::capnp::_::PointerHelpers< ::JoinResponse>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Response::Kind::Reader::isBackupListResponse() const {
+  return which() == Response::Kind::BACKUP_LIST_RESPONSE;
+}
+inline bool Response::Kind::Builder::isBackupListResponse() {
+  return which() == Response::Kind::BACKUP_LIST_RESPONSE;
+}
+inline bool Response::Kind::Reader::hasBackupListResponse() const {
+  if (which() != Response::Kind::BACKUP_LIST_RESPONSE) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Response::Kind::Builder::hasBackupListResponse() {
+  if (which() != Response::Kind::BACKUP_LIST_RESPONSE) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::BackupListResponse::Reader Response::Kind::Reader::getBackupListResponse() const {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_LIST_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListResponse>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::BackupListResponse::Builder Response::Kind::Builder::getBackupListResponse() {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_LIST_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListResponse>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Response::Kind::Builder::setBackupListResponse( ::BackupListResponse::Reader value) {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_LIST_RESPONSE);
+  ::capnp::_::PointerHelpers< ::BackupListResponse>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::BackupListResponse::Builder Response::Kind::Builder::initBackupListResponse() {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_LIST_RESPONSE);
+  return ::capnp::_::PointerHelpers< ::BackupListResponse>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Response::Kind::Builder::adoptBackupListResponse(
+    ::capnp::Orphan< ::BackupListResponse>&& value) {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_LIST_RESPONSE);
+  ::capnp::_::PointerHelpers< ::BackupListResponse>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::BackupListResponse> Response::Kind::Builder::disownBackupListResponse() {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_LIST_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupListResponse>::disown(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+
+inline bool Response::Kind::Reader::isBackupResponse() const {
+  return which() == Response::Kind::BACKUP_RESPONSE;
+}
+inline bool Response::Kind::Builder::isBackupResponse() {
+  return which() == Response::Kind::BACKUP_RESPONSE;
+}
+inline bool Response::Kind::Reader::hasBackupResponse() const {
+  if (which() != Response::Kind::BACKUP_RESPONSE) return false;
+  return !_reader.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline bool Response::Kind::Builder::hasBackupResponse() {
+  if (which() != Response::Kind::BACKUP_RESPONSE) return false;
+  return !_builder.getPointerField(0 * ::capnp::POINTERS).isNull();
+}
+inline  ::BackupResponse::Reader Response::Kind::Reader::getBackupResponse() const {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupResponse>::get(
+      _reader.getPointerField(0 * ::capnp::POINTERS));
+}
+inline  ::BackupResponse::Builder Response::Kind::Builder::getBackupResponse() {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupResponse>::get(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Response::Kind::Builder::setBackupResponse( ::BackupResponse::Reader value) {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_RESPONSE);
+  ::capnp::_::PointerHelpers< ::BackupResponse>::set(
+      _builder.getPointerField(0 * ::capnp::POINTERS), value);
+}
+inline  ::BackupResponse::Builder Response::Kind::Builder::initBackupResponse() {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_RESPONSE);
+  return ::capnp::_::PointerHelpers< ::BackupResponse>::init(
+      _builder.getPointerField(0 * ::capnp::POINTERS));
+}
+inline void Response::Kind::Builder::adoptBackupResponse(
+    ::capnp::Orphan< ::BackupResponse>&& value) {
+  _builder.setDataField<Response::Kind::Which>(
+      4 * ::capnp::ELEMENTS, Response::Kind::BACKUP_RESPONSE);
+  ::capnp::_::PointerHelpers< ::BackupResponse>::adopt(
+      _builder.getPointerField(0 * ::capnp::POINTERS), kj::mv(value));
+}
+inline ::capnp::Orphan< ::BackupResponse> Response::Kind::Builder::disownBackupResponse() {
+  KJ_IREQUIRE((which() == Response::Kind::BACKUP_RESPONSE),
+              "Must check which() before get()ing a union member.");
+  return ::capnp::_::PointerHelpers< ::BackupResponse>::disown(
       _builder.getPointerField(0 * ::capnp::POINTERS));
 }
 

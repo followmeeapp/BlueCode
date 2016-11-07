@@ -20,9 +20,12 @@
 
 // the unique id for our user.
 @property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *fullName;
+@property (strong, nonatomic) NSString *location;
 
 // indicates wheather the user's username is extracted from the peer device.
 @property (nonatomic, getter=isIdentified) BOOL identified;
+@property (nonatomic, getter=isFinished) BOOL finished;
 
 // rssi
 @property (nonatomic) float rssi;

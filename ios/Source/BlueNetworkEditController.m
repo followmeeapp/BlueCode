@@ -8,9 +8,12 @@
 
 #import "BlueNetworkEditController.h"
 
+#import <Crashlytics/Crashlytics.h>
+#import <QuartzCore/QuartzCore.h>
+
 #import "BlueApp.h"
 
-#import <QuartzCore/QuartzCore.h>
+#import "BlueWebController.h"
 
 #import "Blue-Swift.h"
 
@@ -25,6 +28,8 @@
 - (void) viewDidLoad
 {
     [super viewDidLoad];
+
+    self.navigationItem.title = self.networkName;
 
     self.button.clipsToBounds = YES;
     self.button.layer.cornerRadius = 4; // this value vary as per your desire
@@ -44,7 +49,44 @@
 
     self.textField.delegate = self;
 
+    if ([self.networkName isEqualToString: @"Snapchat"]) {
+        [self.button setTitleColor: [UIColor blackColor] forState: UIControlStateNormal];
+        self.button.layer.borderColor = [UIColor blackColor].CGColor;
+
+        self.textField.textColor = [UIColor blackColor];
+
+        self.divider.backgroundColor = [UIColor blackColor];
+    }
+
     [self.textField becomeFirstResponder];
+
+    UIImage *image = [UIImage imageNamed: @"tour-icon"];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithImage: image
+                                                           style:         UIBarButtonItemStylePlain
+                                                           target:        self
+                                                           action:        @selector(showHelp:)     ];
+    self.navigationItem.rightBarButtonItem = menuButton;
+}
+
+- (void) viewWillDisappear: (BOOL) animated
+{
+    if ([self.navigationController.viewControllers indexOfObject: self] == NSNotFound) {
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"BlueRefreshNetworkIcons" object: nil];
+    }
+
+    [super viewWillDisappear: animated];
+}
+
+- (IBAction) showHelp: sender
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+    BlueWebController *wc = [sb instantiateViewControllerWithIdentifier: @"BlueWeb"];
+
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat: @"http://blue.social/help-%@", self.networkSlug]];
+    NSLog(@"URL: %@", url);
+    wc.url = url;
+
+    [self.navigationController pushViewController: wc animated: YES];
 }
 
 - (IBAction) testDeepLink: sender
@@ -53,17 +95,20 @@
 
     if (!username || [username length] == 0) return;
 
+    [APP_DELEGATE.blueAnalytics testSocialNetwork: self.networkName
+                                withUsername:      username
+                                fromCard:          self.cardId     ];
+
     // TODO(Erich): This logic is very similar to that in BlueCardController.
     switch ((NetworkType)[self.networkKey integerValue]) {
-        case PokemonGoType: {
-            NSString *urlString = @"https://itunes.apple.com/us/app/pokemon-go/id1094591345";
-            // Android: https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo
-            [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
-        } break;
-
         case FacebookType: {
-            NSString *urlString = [NSString stringWithFormat: @"https://www.facebook.com/%@", username];
-            [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
+            NSString *urlString = [NSString stringWithFormat: @"fb://profile?id=%@", username];
+            NSURL *appURL = [NSURL URLWithString: urlString];
+            if (![[UIApplication sharedApplication] openURL: appURL]) {
+                urlString = [NSString stringWithFormat: @"https://www.facebook.com/%@", username];
+                NSURL *webURL = [NSURL URLWithString: urlString];
+                [[UIApplication sharedApplication] openURL: webURL];
+            }
         } break;
 
         case TwitterType: {
@@ -81,9 +126,16 @@
         } break;
 
         case GooglePlusType: {
-            // (or deep link with actual numeric id on iOS)
-            NSString *urlString = [NSString stringWithFormat: @"https://plus.google.com/u/0/+%@", username];
-            [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
+            NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+            if ([username rangeOfCharacterFromSet: notDigits].location == NSNotFound) {
+                // TODO(Erich): we can deep link with an actual numeric id on iOS
+                NSString *urlString = [NSString stringWithFormat: @"https://plus.google.com/%@", username];
+                [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
+
+            } else {
+                NSString *urlString = [NSString stringWithFormat: @"https://plus.google.com/u/0/+%@", username];
+                [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
+            }
         } break;
 
         case YouTubeType: {
@@ -153,15 +205,5 @@
         APP_DELEGATE.networks[self.networkKey] = username;
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

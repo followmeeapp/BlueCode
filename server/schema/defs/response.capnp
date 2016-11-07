@@ -18,5 +18,7 @@ struct Response {
     discoveryResponse   @5 :import "discovery.capnp".DiscoveryResponse;
     helloResponse       @6 :import "hello.capnp".HelloResponse;
     joinResponse        @7 :import "join.capnp".JoinResponse;
+    backupListResponse  @8 :import "backup.capnp".BackupListResponse;
+    backupResponse      @9 :import "backup.capnp".BackupResponse;
   }
 }

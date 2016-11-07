@@ -13,7 +13,9 @@
 @interface SectionObject ()
 
 @property (nonatomic, strong) NSArray *internalVisibleCards;
+@property (nonatomic, strong) NSArray *internalVisibleCardTimestamps;
 @property (nonatomic, strong) NSArray *internalHiddenCards;
+@property (nonatomic, strong) NSArray *internalHiddenCardTimestamps;
 
 @end
 
@@ -22,6 +24,11 @@
 + (NSString *) primaryKey
 {
     return @"id";
+}
+
++ (NSArray *) ignoredProperties
+{
+    return @[@"internalVisibleCards", @"internalVisibleCardTimestamps", @"internalHiddenCards", @"internalHiddenCardTimestamps"];
 }
 
 - (NSArray *) visibleCards
@@ -33,6 +40,15 @@
     return self.internalVisibleCards;
 }
 
+- (NSArray *) visibleCardTimestamps
+{
+    NSArray *cards = self.internalVisibleCardTimestamps;
+
+    if (!cards) [self loadCards];
+
+    return self.internalVisibleCardTimestamps;
+}
+
 - (NSArray *) hiddenCards
 {
     NSArray *cards = self.internalHiddenCards;
@@ -42,17 +58,41 @@
     return self.internalHiddenCards;
 }
 
-- (void) loadCards
+- (NSArray *) hiddenCardTimestamps
 {
-    NSData *data = self.cards;
+    NSArray *cards = self.internalHiddenCardTimestamps;
 
-    self.internalVisibleCards = [CardListBuilder visibleCardsFromData: data];
-    self.internalHiddenCards  = [CardListBuilder hiddenCardsFromData: data];
+    if (!cards) [self loadCards];
+
+    return self.internalHiddenCardTimestamps;
 }
 
-+ (NSArray *) ignoredProperties
+- (void)
+updateVisibleCards:    (NSArray *) visibleCards
+visibleCardTimestamps: (NSArray *) visibleCardTimestamps
+hiddenCards:           (NSArray *) hiddenCards
+hiddenCardTimestamps:  (NSArray *) hiddenCardTimestamps
 {
-    return @[@"internalVisibleCards", @"internalHiddenCards"];
+    self.cardData = [CardListBuilder dataWithVisibleCards:  visibleCards
+                                     visibleCardTimestamps: visibleCardTimestamps
+                                     hiddenCards:           hiddenCards
+                                     hiddenCardTimestamps:  hiddenCardTimestamps];
+
+    // Update internal cache.
+    self.internalVisibleCards          = [visibleCards copy];
+    self.internalVisibleCardTimestamps = [visibleCardTimestamps copy];
+    self.internalHiddenCards           = [hiddenCards copy];
+    self.internalHiddenCardTimestamps  = [hiddenCardTimestamps copy];
+}
+
+- (void) loadCards
+{
+    NSData *data = self.cardData;
+
+    self.internalVisibleCards          = data ? [CardListBuilder visibleCardsFromData: data] : @[];
+    self.internalVisibleCardTimestamps = data ? [CardListBuilder visibleCardTimestampsFromData: data] : @[];
+    self.internalHiddenCards           = data ? [CardListBuilder hiddenCardsFromData: data] : @[];
+    self.internalHiddenCardTimestamps  = data ? [CardListBuilder hiddenCardTimestampsFromData: data] : @[];
 }
 
 @end

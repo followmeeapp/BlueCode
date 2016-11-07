@@ -10,9 +10,11 @@
 #include <stdio.h>
 #include <chrono>
 #include "discovery_engine/engine/engine.h"
-#include "discovery_engine/cpp_lmdb/lmdb_database.h"
-#include "discovery_engine/cpp_lmdb/lmdb_env.h"
-#include "discovery_engine/cpp_lmdb/lmdb_cursor.h"
+#include "cpp_lmdb/lmdb_database.h"
+#include "cpp_lmdb/lmdb_env.h"
+#include "cpp_lmdb/lmdb_cursor.h"
+#include "clock/clock.h"
+
 using namespace DISCOVERY_ENGINE::ENGINE;
 
 namespace {
@@ -55,6 +57,7 @@ class engine_test : public ::testing::Test {
 
   // Objects declared here can be used by all tests in the test case for Foo.
   string dbPath = "/Users/erik/Documents/Suiron/Data/engine_test";
+  xy::clock<xy::ClockSource> clock = xy::clock<xy::ClockSource>();
 };
 
 //__________________________________________________________________________________
@@ -70,7 +73,7 @@ TEST_F(engine_test, EngineErrorTest) {
   ASSERT_EQ("discovery type is unknown", e.message());
   ERROR_RESET(e);
   LMDBEnv EngineEnv = LMDBEnv(e, dbPath, 16, 4048);
-  auto Engine = engine(e, EngineEnv);
+  auto Engine = engine<xy::ClockSource>(e, EngineEnv, clock);
 
 }  // EngineErrorTest
 
@@ -120,7 +123,7 @@ TEST_F(engine_test, NewDevice) {
   ErrorPtr e;
 
   LMDBEnv EngineEnv = LMDBEnv(e, dbPath, 16, 4048);
-  auto Engine = engine(e, EngineEnv);
+  auto Engine = engine<xy::ClockSource>(e, EngineEnv, clock);
 
   capnp::MallocMessageBuilder builder;
   capnp::MallocMessageBuilder ResponseBuilder;
@@ -168,9 +171,9 @@ TEST_F(engine_test, NewDevice) {
     // this could actually be calculated on the DiscoverD, but as a service
     // this is already done.
     auto SInfo = SResponse.initSyncInfo();
-    SInfo.setLastCard(200);
+    SInfo.setLastCardTimestamp(200);
     SInfo.setCardsVersion(1);
-    SInfo.setLastDeviceUpdate(CurrentTime - HourDuration);
+    SInfo.setLastDeviceUpdateTimestamp(CurrentTime - HourDuration);
 
   });  // onSendSyncRequest
 
@@ -190,9 +193,10 @@ TEST_F(engine_test, NewDevice) {
         // check on sync info
         // it should be same as that from our own sync response
         auto SInfo = response.getSyncInfo();
-        ASSERT_EQ(200, SInfo.getLastCard());
+        ASSERT_EQ(200, SInfo.getLastCardTimestamp());
         ASSERT_EQ(1, SInfo.getCardsVersion());
-        ASSERT_EQ(CurrentTime - HourDuration, SInfo.getLastDeviceUpdate());
+        ASSERT_EQ(CurrentTime - HourDuration,
+                  SInfo.getLastDeviceUpdateTimestamp());
 
         DAResponse.setTimestamp(response.getTimestamp());
       });  // onSendDiscoveryResponse
@@ -250,7 +254,7 @@ TEST_F(engine_test, DiscoverGraph) {
   ErrorPtr e;
 
   LMDBEnv EngineEnv = LMDBEnv(e, dbPath, 16, 1048);
-  auto Engine = engine(e, EngineEnv);
+  auto Engine = engine<xy::ClockSource>(e, EngineEnv, clock);
   auto CurrentTime = now();
   capnp::MallocMessageBuilder builder;
   capnp::MallocMessageBuilder ResponseBuilder;

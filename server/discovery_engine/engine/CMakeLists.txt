@@ -31,10 +31,11 @@ ${PROJECT_SOURCE_DIR}/BUILD
 ${PROJECT_SOURCE_DIR}/PACKAGE.cmake
 )
 
-include (${WORKSPACE}/discovery_engine/cpp_lmdb/PACKAGE.cmake)
+include (${WORKSPACE}/cpp_lmdb/PACKAGE.cmake)
 include (${WORKSPACE}/discovery_engine/xy_lmdb_graph/PACKAGE.cmake)
 include (${WORKSPACE}/discovery_engine/engine/PACKAGE.cmake)
 include (${WORKSPACE}/schema/PACKAGE.cmake)
+include (${WORKSPACE}/clock/PACKAGE.cmake)
 
 add_library(engine STATIC ${SOURCE_FILES} ${BUILD_FILES})
 target_link_libraries(engine ${LMDB_LIB} ${CPP_LMDB_LIB} ${SCHEMA_LIB} ${CAPNPROTO_CAPNP_LIB} ${CAPNPROTO_KJ_LIB})

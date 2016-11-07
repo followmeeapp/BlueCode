@@ -9,5 +9,9 @@
 @interface BlueCardLinkController : UINavigationController
 
 @property (nonatomic, assign) NSInteger cardId;
+@property (nonatomic, copy) NSString *fullName;
+@property (nonatomic, copy) NSString *location;
+
+- (void) configure;
 
 @end

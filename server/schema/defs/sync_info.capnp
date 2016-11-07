@@ -9,6 +9,6 @@
 
 struct SyncInfo {
   cardsVersion     @0 :Int64 = 0;
-  lastCard         @1 :Int64 = 0;
-  lastDeviceUpdate @2 :Int64 = 0;
+  lastCardTimestamp         @1 :Int64 = 0;
+  lastDeviceUpdateTimestamp @2 :Int64 = 0;
 }

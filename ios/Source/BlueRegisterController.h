@@ -10,4 +10,6 @@
 
 @interface BlueRegisterController : UIViewController <DGTCompletionViewController>
 
+@property (nonatomic, assign) BOOL shouldDismissNavigationController;
+
 @end

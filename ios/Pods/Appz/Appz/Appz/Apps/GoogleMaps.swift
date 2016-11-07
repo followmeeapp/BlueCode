@@ -25,11 +25,14 @@ public extension Applications {
 public extension Applications.GoogleMaps {
     
     public enum Action {
-        case Open
-        case DisplayDirections(saddr: String,
+        case open
+        case displayDirections(saddr: String,
                                daddr: String,
                       directionsmode: String)
-        case Search(q: String)
+        case displayLocation(center: String,
+                               zoom: String,
+                              views: String)
+        case search(q: String)
         
     }
 }
@@ -39,7 +42,7 @@ extension Applications.GoogleMaps.Action: ExternalApplicationAction {
     public var paths: ActionPaths {
         
         switch self {
-        case .Open:
+        case .open:
             return ActionPaths(
                 app: Path(
                     pathComponents: ["app"],
@@ -48,7 +51,7 @@ extension Applications.GoogleMaps.Action: ExternalApplicationAction {
                 web: Path()
             )
             
-        case .DisplayDirections(let saddr, let daddr, let directionsmode):
+        case .displayDirections(let saddr, let daddr, let directionsmode):
             return ActionPaths(
                 app: Path(
                     pathComponents: [""],
@@ -66,7 +69,25 @@ extension Applications.GoogleMaps.Action: ExternalApplicationAction {
                 )
             )
             
-        case .Search(let q):
+        case .displayLocation(let center, let zoom, let views):
+            return ActionPaths(
+                app: Path(
+                    pathComponents: [""],
+                    queryParameters: [
+                        "center": center,
+                        "zoom": zoom,
+                        "views": views,
+                    ]
+                ),
+                web: Path(
+                    pathComponents: [""],
+                    queryParameters: ["center": center,
+                                        "zoom": zoom,
+                                       "views": views,]
+                )
+            )
+            
+        case .search(let q):
             return ActionPaths(
                 app: Path(
                     pathComponents: [""],

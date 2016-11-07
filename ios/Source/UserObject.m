@@ -19,6 +19,7 @@
     return @{
         @"activeDeviceId": @0,
         @"cardId": @0,
+        @"lastBackup": @0,
     };
 }
 

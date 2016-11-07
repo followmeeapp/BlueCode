@@ -5,7 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:bnc.lt</string>
-		<string>applinks:follow.cards</string>
+		<string>applinks:blue.cards</string>
 	</array>
 </dict>
 </plist>

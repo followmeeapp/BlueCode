@@ -1,55 +1,91 @@
 PODS:
-  - ABFRealmMapView (1.8):
-    - RBQFetchedResultsController (>= 2.0)
-    - Realm (>= 0.98)
-  - Appz (1.6.0)
-  - Atlas (1.0.23):
-    - LayerKit (>= 0.21.0)
+  - Appz (2.0.1)
+  - AttributedMarkdown (0.9.2)
+  - BZipCompression (1.0.2)
   - CCMPopup (1.1.0)
-  - KSReachability (1.4.1)
-  - LayerKit (0.21.1)
+  - Firebase/AdMob (3.8.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.13.0)
+  - Firebase/Core (3.8.0):
+    - FirebaseAnalytics (= 3.5.1)
+    - FirebaseCore (= 3.4.4)
+  - FirebaseAnalytics (3.5.1):
+    - FirebaseCore (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.4.4):
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.8)
+  - Google-Mobile-Ads-SDK (7.13.0)
+  - GoogleInterchangeUtilities (1.2.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/NSData+zlib (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - IQKeyboardManager (4.0.7)
   - NSHash (1.1.0)
-  - RBQFetchedResultsController (4.0.4):
-    - Realm (>= 1.0.0)
-  - Realm (1.0.1):
-    - Realm/Headers (= 1.0.1)
-  - Realm/Headers (1.0.1)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
+  - REMenu (1.10)
   - Reveal-iOS-SDK (1.6.2)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - SVProgressHUD (2.0.3)
-  - TOCropViewController (2.0.4)
+  - TOCropViewController (2.0.10)
 
 DEPENDENCIES:
-  - ABFRealmMapView
   - Appz
-  - Atlas
+  - AttributedMarkdown (from `https://github.com/dreamwieber/AttributedMarkdown.git`)
+  - BZipCompression (~> 1.0.0)
   - CCMPopup
-  - KSReachability
-  - LayerKit
+  - Firebase/AdMob
+  - Firebase/Core
+  - IQKeyboardManager
   - NSHash (~> 1.1.0)
   - Realm
+  - REMenu (~> 1.10)
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.8)
   - SVProgressHUD
   - TOCropViewController
 
-SPEC CHECKSUMS:
-  ABFRealmMapView: b440d11a5666a4575847a8e02313e57c370a4d38
-  Appz: 8310129e6fe178e844f20894ef397291bcedd87e
-  Atlas: acf154ee2a10c6257a47e872366154653932302f
-  CCMPopup: e41fad5b8a0823c9cddea8eab6d431670c9dabe5
-  KSReachability: ddf4af6e6488c45c5c41c59e72d72d078062ee28
-  LayerKit: 7d77cfa591a3b82e76dfa1c7b477d90ccd87feb0
-  NSHash: 61d598c6d48957c5557f1eef0aeafd6ef5ec5fb7
-  RBQFetchedResultsController: 56494d69fef1e47f9f70c3adcf1317d7b2e3d71c
-  Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
-  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  TOCropViewController: 5e3b8b380e6ec21536c645492d2aa64336d060b9
+EXTERNAL SOURCES:
+  AttributedMarkdown:
+    :git: https://github.com/dreamwieber/AttributedMarkdown.git
 
-PODFILE CHECKSUM: 4ce34b1421dacfdc6b5ef030183bf04f4441e9f8
+CHECKOUT OPTIONS:
+  AttributedMarkdown:
+    :commit: 4aef3c80e0ffe6c7011c20c7f703ea56af774861
+    :git: https://github.com/dreamwieber/AttributedMarkdown.git
+
+SPEC CHECKSUMS:
+  Appz: 06989c7fae267e014480f997c8d68ec8c4347d7e
+  AttributedMarkdown: ac5060667280be8cc8ee33a46c73e4ec6b17ca1a
+  BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
+  CCMPopup: e41fad5b8a0823c9cddea8eab6d431670c9dabe5
+  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
+  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
+  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
+  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Google-Mobile-Ads-SDK: b0cac2909229e8f13fb30e03537cdefbd7be28fa
+  GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
+  NSHash: 61d598c6d48957c5557f1eef0aeafd6ef5ec5fb7
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  REMenu: 30dad195930adf6c5eeb8041e3257aa60bf9fa49
+  Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  TOCropViewController: 62c251749c728e985b556604874fd79d9de0ed4d
+
+PODFILE CHECKSUM: 6530cbf9cdc1eb73849aefcbbbf45757e9e1c909
 
 COCOAPODS: 1.0.1

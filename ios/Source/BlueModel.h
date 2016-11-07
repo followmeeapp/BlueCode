@@ -16,7 +16,10 @@
 
 @interface BlueModel : NSObject
 
+- (void) destroyRealmAndExit;
+
 - (UserObject *) activeUser;
+- (DeviceObject *) activeDevice;
 - (CardObject *) activeUserCard;
 
 @end

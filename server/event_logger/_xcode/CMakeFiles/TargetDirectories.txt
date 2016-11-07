@@ -1,0 +1,5 @@
+/Users/erich/Desktop/Follow/follow/server/event_logger/_xcode/CMakeFiles/FORMAT.dir
+/Users/erich/Desktop/Follow/follow/server/event_logger/_xcode/CMakeFiles/test.dir
+/Users/erich/Desktop/Follow/follow/server/event_logger/_xcode/CMakeFiles/event_logger.dir
+/Users/erich/Desktop/Follow/follow/server/event_logger/_xcode/CMakeFiles/ALL_BUILD.dir
+/Users/erich/Desktop/Follow/follow/server/event_logger/_xcode/CMakeFiles/ZERO_CHECK.dir

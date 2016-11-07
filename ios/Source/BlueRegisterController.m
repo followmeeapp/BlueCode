@@ -8,13 +8,14 @@
 
 #import "BlueRegisterController.h"
 
+#import <Crashlytics/Crashlytics.h>
 #import <Realm/Realm.h>
 
 #import "BlueApp.h"
 #import "BlueModel.h"
 #import "BlueClient.h"
 
-#import "BlueCardEditController.h"
+#import "BlueCardController.h"
 
 #import "ServerRequest.h"
 
@@ -60,6 +61,23 @@
     _isNewUser = NO;
 }
 
+- (void) didJoin: (NSNotification *) note
+{
+    NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval delay = 0.0;
+
+    if (now - self.started < 1.0) {
+        delay = 1.0 - (now - self.started);
+    }
+
+    [APP_DELEGATE.blueAnalytics digitsLoginSuccess];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [APP_DELEGATE.window.rootViewController dismissViewControllerAnimated: YES completion: nil];
+        [APP_DELEGATE startBlueBackup];
+    });
+}
+
 #pragma mark - DGTCompletionViewController delegate
 
 - (void)
@@ -72,8 +90,22 @@ error:                                   (NSError *)    error
         NSString *phoneNumber = session.phoneNumber;
         NSString *telephone = [phoneNumber substringWithRange: NSMakeRange(1, phoneNumber.length - 1)];
 
-        NSData *request = [ServerRequest newJoinRequestWithId: requestId telephone: telephone];
+        NSString *digitsId = session.userID;
+        NSString *email = session.emailAddress;
+        BOOL isVerified = session.emailAddressIsVerified;
+
+        NSData *request = [ServerRequest newJoinRequestWithId: requestId
+                                         telephone:            telephone
+                                         digitsId:             digitsId
+                                         email:                email
+                                         emailIsVerified:      isVerified];
+
         [APP_DELEGATE.blueClient sendRequest: request];
+
+        if (self.shouldDismissNavigationController) {
+            [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didJoin:) name: @"DidJoin" object: nil];
+            return;
+        }
 
         RLMRealm *realm = [RLMRealm defaultRealm];
 
@@ -81,34 +113,31 @@ error:                                   (NSError *)    error
             // Do we have a user yet?
             UserObject *user = [APP_DELEGATE.blueModel activeUser];
 
-//            if (user && user.cardId == 0) {
-//                [APP_DELEGATE.blueClient sendRequest: [ServerRequest newCreateCardRequestWithId: [APP_DELEGATE.blueClient nextRequestId] properties: @{
-//                    @"fullName": [NSString stringWithFormat: @"Erich Ocean #%@", @(user.activeDeviceId)],
-//                    @"location": @"Palmdale, CA",
-//                    @"location": [NSString stringWithFormat: @"%@", user.activeDeviceUUID],
-//                    @"networks": @{
-//                        @(FacebookType): @"erich.ocean",
-//                        @(TwitterType): @"erichocean",
-//                        @(InstagramType): @"erichocean2",
-//                    }
-//                }]];
-//
-//            } else
-                if (user) {
+            if (user) {
                 [self.token stop];
                 self.token = nil; // Stop listening for updates.
 
                 NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
                 NSTimeInterval delay = 0.0;
 
-                if (now - self.started < 1.0) {
-                    delay = 1.0 - (now - self.started);
+                if (now - self.started < 1.5) {
+                    delay = 1.5 - (now - self.started);
                 }
 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [APP_DELEGATE startBlueBackup];
+
                     if (user.cardId == 0) {
+                        [APP_DELEGATE.blueAnalytics digitsSignUpSuccess];
+
                         UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
-                        BlueCardEditController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueCardEditController"];
+                        BlueCardController *vc = [sb instantiateViewControllerWithIdentifier: @"BlueCardController"];
+                        vc.isEditableCard = YES;
+                        vc.shouldEditUserCard = YES;
+
+                        [APP_DELEGATE.blueAnalytics createCard];
+
+                        [APP_DELEGATE prepareToEditUserCard];
 
                         NSMutableArray *vcs = [[self.navigationController viewControllers] mutableCopy];
                         NSUInteger lastVcIndex = [vcs count] - 1;
@@ -117,21 +146,10 @@ error:                                   (NSError *)    error
                             [self.navigationController setViewControllers: vcs animated: YES];
                         }
 
-//                        if (self.isNewUser) {
-//                            // We don't have a card, so transition to the create card screen.
-//                            AlertWithMessage(@"New user without card not implemented.");
-//
-//                        } else {
-//                            // We don't have a card, so transition to the create card screen.
-//                            AlertWithMessage(@"Existing user without card not implemented.");
-//                        }
-
                     } else {
-                        // We do have a card (and probably other stuff, sections and what not.
-                        // We need to load cards referenced by our sections (our own card will
-                        // already be here) and then transition back to the main screen.
-                        //                    AlertWithMessage(@"Existing user with card not implemnted.");
-                        
+                        [APP_DELEGATE.blueAnalytics digitsLoginSuccess];
+
+                        [APP_DELEGATE startBluetoothAdvertising];
                         [self.navigationController popViewControllerAnimated: YES];
                     }
                 });
@@ -139,20 +157,25 @@ error:                                   (NSError *)    error
         }];
 
     } else {
+        if (self.shouldDismissNavigationController) {
+            [APP_DELEGATE.blueAnalytics digitsLoginFail];
+
+        } else {
+            [APP_DELEGATE.blueAnalytics digitsSignUpFail];
+        }
+
         NSLog(@"Authentication error: %@", error.localizedDescription);
         AlertWithMessage(error.localizedDescription);
-        // FIXME: Need to exit the Register controller.
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+            if (self.shouldDismissNavigationController) {
+                [APP_DELEGATE.window.rootViewController dismissViewControllerAnimated: YES completion: nil];
+
+            } else {
+                [self.navigationController popViewControllerAnimated: YES];
+            }
+        });
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

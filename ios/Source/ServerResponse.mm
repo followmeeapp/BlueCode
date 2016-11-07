@@ -1,4 +1,4 @@
-//
+ //
 //  ServerResponse.mm
 //  Follow
 //
@@ -13,12 +13,15 @@
 #import <Realm/Realm.h>
 
 #import "BlueModel.h"
+#import "BlueBackup.h"
 
 #import "UserObject.h"
 #import "DeviceObject.h"
 #import "CardObject.h"
 #import "NetworkObject.h"
 #import "SectionObject.h"
+
+#import "Utilities.h"
 
 #include <iostream>
 #include <string>
@@ -27,6 +30,12 @@
 #include "capnproto/capnp/serialize-packed.h"
 
 #include "schema/response.capnp.h"
+
+//#ifdef DEBUG
+//static int64_t expectedDatabaseID = 5252361846472838764L;
+//#else
+static int64_t expectedDatabaseID = -4641795497629477407L;
+//#endif
 
 @implementation ServerResponse
 
@@ -45,42 +54,114 @@
     if (which == Response::Kind::ERROR_RESPONSE) {
         auto errorResponse = kind.getErrorResponse();
         NSLog(@"ERROR: %s", errorResponse.getMessage().cStr());
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"ResponseDidError" object: nil userInfo: @{
+                @"requestId": @(requestId)
+            }];
+        });
+
+        const char *message = errorResponse.getMessage().cStr();
+        NSString *errorMessage = [NSString stringWithUTF8String: message];
+        if ([errorMessage isEqualToString: @"User has not joined Blue yet 2"]) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"JoinRequired" object: nil];
+            });
+        }
+
+        if (errorResponse.getCode() == ErrorResponse::Code::PREVIOUS_BACKUP_NOT_APPLIED) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"BluePreviousBackupNotApplied" object: nil];
+            });
+        }
+
+    } else if (which == Response::Kind::BACKUP_RESPONSE) {
+        auto backupResponse = kind.getBackupResponse();
+        if (!backupResponse.hasBackup()) return;
+
+        auto backup = backupResponse.getBackup();
+        NSLog(@"BACKUP: %@", [NSDate dateWithMillisecondsSince1970: backup.getTimestamp()]);
+
+        NSData *clientData = nil;
+
+        if (backup.hasData()) {
+            auto data = backup.getData();
+            size_t size = data.size();
+            char *from = (char *)(data.begin());
+
+            clientData = [NSData dataWithBytes: from length: size];
+        }
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+            [APP_DELEGATE.blueBackup handleBackupWithTimestamp: backup.getTimestamp() data: clientData];
+        });
 
     } else if (which == Response::Kind::HELLO_RESPONSE) {
         auto helloResponse = kind.getHelloResponse();
         NSLog(@"HELLO: %@", @(helloResponse.hasDiscoveryResponse()));
 
+        if (helloResponse.getDatabaseID() != expectedDatabaseID) {
+            NSLog(@"Resetting app (because we got an unexpected databaseID) and quitting. Got %@, expected %@", @(helloResponse.getDatabaseID()), @(expectedDatabaseID));
+
+            // FIXME(Erich): Disable this code entirely in Release builds, once the beta is updated and working correctly.
+
+            NSError *error = nil;
+            if (![[NSFileManager defaultManager] removeItemAtURL: [RLMRealmConfiguration defaultConfiguration].fileURL error: &error]) {
+              NSLog(@"Error removing Realm database: %@", error);
+            }
+
+            // This is the easiest way to make sure we restart cleanly. Shouldn't happen in a release build.
+            exit(1);
+
+        } else {
+            NSLog(@"Got the expected databaseID: %@", @(expectedDatabaseID));
+        }
+
+        if (!helloResponse.getIsClientCompatible()) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"UpgradeRequired" object: nil];
+            });
+
+        } else if (helloResponse.getJoinRequired()) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"JoinRequired" object: nil];
+            });
+        }
+
     } else if (which == Response::Kind::JOIN_RESPONSE) {
-      auto joinResponse = kind.getJoinResponse();
-      NSLog(@"JOIN");
+        auto joinResponse = kind.getJoinResponse();
+        NSLog(@"JOIN");
+        BOOL hasCard = joinResponse.hasCard();
 
-      if (joinResponse.getStatus() == JoinResponse::Status::NEW) {
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"NewUser" object: nil];
+        if (joinResponse.getStatus() == JoinResponse::Status::NEW) {
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"NewUser" object: nil];
 
-        [realm beginWriteTransaction];
-        auto user = joinResponse.getUser();
-        [self insertUser: user inRealm: realm];
-        [realm commitWriteTransaction];
+            [realm beginWriteTransaction];
+            auto user = joinResponse.getUser();
+            [self insertUser: user inRealm: realm];
 
-      } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"ExistingUser" object: nil];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"ExistingUser" object: nil];
 
-        [realm beginWriteTransaction];
-        auto user = joinResponse.getUser();
-        [self insertUser: user inRealm: realm];
+            [realm beginWriteTransaction];
+            auto user = joinResponse.getUser();
+            [self insertUser: user inRealm: realm];
 
-        if (joinResponse.hasCard()) {
-          auto card = joinResponse.getCard();
-          [self insertOwnCard: card inRealm: realm];
+            if (hasCard) {
+                auto card = joinResponse.getCard();
+                [self insertOwnCard: card inRealm: realm];
+            }
         }
 
         [realm commitWriteTransaction];
-      }
 
-      [[NSNotificationCenter defaultCenter] postNotificationName: @"DidCreateUser" object: nil];
-      if (joinResponse.hasCard()) {
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"DidCreateCard" object: nil];
-      }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"DidJoin" object: nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"DidCreateUser" object: nil];
+
+            if (hasCard) {
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"DidCreateCard" object: nil];
+            }
+        });
 
     } else if (which == Response::Kind::CARD_RESPONSE) {
         auto cardResponse = kind.getCardResponse();
@@ -125,8 +206,6 @@ inRealm:    (RLMRealm *)     realm
     NSInteger cardId = card.getId();
     int version = card.getVersion();
 
-//    NSPredicate *pred = [NSPredicate predicateWithFormat: @"id = %@", @(cardId)];
-//    CardObject *existingCard = [[CardObject objectsWithPredicate: pred] firstObject];
     CardObject *existingCard = [CardObject objectForPrimaryKey: @(cardId)];
 
     if (existingCard && existingCard.version == version) return;
@@ -267,49 +346,6 @@ inRealm:    (RLMRealm *)     realm
             existingCard.hasInstagram = NO;
 
             NSPredicate *pred = [NSPredicate predicateWithFormat: @"cardId = %@ AND type = %@", @(cardId), @(InstagramType)];
-            NetworkObject *existingNetwork = [[NetworkObject objectsWithPredicate: pred] firstObject];
-            if (existingNetwork) {
-                [realm deleteObject: existingNetwork];
-            }
-        }
-    }
-
-    // Pokémon Go
-    if (card.getHasPokemonGo()) {
-        if (existingCard.hasPokemonGo) {
-            // Make sure the existing Pokémon Go network object has the correct username.
-            NSPredicate *pred = [NSPredicate predicateWithFormat: @"cardId = %@ AND type = %@", @(cardId), @(PokemonGoType)];
-            NetworkObject *existingNetwork = [[NetworkObject objectsWithPredicate: pred] firstObject];
-            if (existingNetwork) {
-                for (auto network : card.getNetworks()) {
-                    if (network.getType() == Network::Type::POKEMON_GO) {
-                        existingNetwork.username = network.hasUsername() ? [NSString stringWithUTF8String: network.getUsername().cStr()] : nil;
-                    }
-                }
-                [realm addOrUpdateObject: existingNetwork];
-            }
-
-        } else {
-            existingCard.hasPokemonGo = YES;
-            NetworkObject *networkObject = [[NetworkObject alloc] init];
-            networkObject.guid = [[NSUUID UUID] UUIDString];
-            networkObject.type = PokemonGoType;
-            networkObject.cardId = cardId;
-            for (auto network : card.getNetworks()) {
-                if (network.getType() == Network::Type::POKEMON_GO) {
-                    networkObject.username = network.hasUsername() ? [NSString stringWithUTF8String: network.getUsername().cStr()] : nil;
-                }
-            }
-            [existingCard.networks addObject: networkObject];
-            [realm addOrUpdateObject: networkObject];
-        }
-
-    } else {
-        if (existingCard.hasPokemonGo) {
-            // Remove the existing Pokémon Go network object.
-            existingCard.hasPokemonGo = NO;
-
-            NSPredicate *pred = [NSPredicate predicateWithFormat: @"cardId = %@ AND type = %@", @(cardId), @(PokemonGoType)];
             NetworkObject *existingNetwork = [[NetworkObject objectsWithPredicate: pred] firstObject];
             if (existingNetwork) {
                 [realm deleteObject: existingNetwork];
@@ -804,8 +840,7 @@ inRealm:       (RLMRealm *)     realm
     // Update User object if needed.
     UserObject *existingUser = [[UserObject allObjects] firstObject];
 
-    if (existingUser && existingUser.cardId == cardId) return;
-        // Nothing to do.
+    if (existingUser && existingUser.cardId == cardId) return; // Nothing to do.
 
     if (existingUser) {
         // Need to update existing user.

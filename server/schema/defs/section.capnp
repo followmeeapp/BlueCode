@@ -15,3 +15,7 @@ struct Section {
   info  @1 :SectionInfo;
   cards @2 :List(CardInfo);
 }
+
+struct CreateSectionRequest {
+  card @0 :Section;
+}

@@ -10,7 +10,11 @@
 #include <signal.h>
 #include <thread>
 #include <array>
-
+#include <cstdlib>
+#include <unistd.h>
+#include <algorithm>
+#include <cstdlib>
+#include <spawn.h>
 #include "aeron/Aeron.h"
 #include "aeron/FragmentAssembler.h"
 #include "aeron/util/CommandOptionParser.h"
@@ -20,8 +24,12 @@
 #include "capnproto/capnp/serialize-packed.h"
 
 #include "schema/rpc.capnp.h"
+#include "schema/test_processes.capnp.h"
 
 #include "../config.h"
+#include "../discoveryd.h"
+#include "clock/clock.h"
+#include "test_process_runner/test_process_runner.h"
 
 using namespace std;
 using namespace aeron::util;
@@ -30,49 +38,9 @@ using namespace aeron;
 std::atomic<bool> running(true);
 static int deviceId = 1;
 
-void sigIntHandler(int param) { running = false; }
-
-static const char optHelp = 'h';
-
-// Aeron options
-static const char optPrefix = 'p';
-static const char optServerChannel = 'c';
-static const char optEngineChannel = 'C';
-static const char optServerStreamId = 's';
-static const char optEngineStreamId = 'S';
-static const char optFrags = 'f';
-
-struct Settings {
-  string dirPrefix = "/Users/erich/Desktop/aeron";
-  string serverChannel = DISCOVERY_ENGINE::CONFIG::DEFAULT_SERVER_CHANNEL;
-  string engineChannel = DISCOVERY_ENGINE::CONFIG::DEFAULT_ENGINE_CHANNEL;
-  int32_t serverStreamId = DISCOVERY_ENGINE::CONFIG::DEFAULT_SERVER_STREAM_ID;
-  int32_t engineStreamId = DISCOVERY_ENGINE::CONFIG::DEFAULT_ENGINE_STREAM_ID;
-  int32_t fragmentCountLimit =
-      DISCOVERY_ENGINE::CONFIG::DEFAULT_FRAGMENT_COUNT_LIMIT;
-};
-
-auto parseCmdLine(CommandOptionParser& cp, int argc, char** argv) -> Settings {
-  cp.parse(argc, argv);
-
-  if (cp.getOption(optHelp).isPresent()) {
-    cp.displayOptionsHelp(cout);
-    exit(0);
-  }
-
-  Settings s;
-
-  s.dirPrefix = cp.getOption(optPrefix).getParam(0, s.dirPrefix);
-  s.serverChannel = cp.getOption(optServerChannel).getParam(0, s.serverChannel);
-  s.engineChannel = cp.getOption(optEngineChannel).getParam(0, s.engineChannel);
-  s.serverStreamId = cp.getOption(optServerStreamId)
-                         .getParamAsInt(0, 1, INT32_MAX, s.serverStreamId);
-  s.engineStreamId = cp.getOption(optEngineStreamId)
-                         .getParamAsInt(0, 1, INT32_MAX, s.engineStreamId);
-  s.fragmentCountLimit = cp.getOption(optFrags).getParamAsInt(
-      0, 1, INT32_MAX, s.fragmentCountLimit);
-
-  return s;
+void sigIntHandler(int param) {
+  std::cout << "sigkill";
+  running = false;
 }
 
 void messageHandler(std::shared_ptr<Publication> serverPublication,
@@ -101,46 +69,52 @@ void messageHandler(std::shared_ptr<Publication> serverPublication,
   }
 }
 
-int main(int argc, char** argv) {
-  CommandOptionParser cp;
-  cp.addOption(CommandOption(optHelp, 0, 0,
-                             "                Displays help information."));
+int main(int argc, char** argv, char* env[]) {
+  signal(SIGKILL, sigIntHandler);
+  capnp::MallocMessageBuilder SettingsBuilder;
 
-  cp.addOption(CommandOption(
-      optPrefix, 1, 1, "dir             Prefix directory for aeron driver."));
-  cp.addOption(
-      CommandOption(optServerChannel, 1, 1, "channel         Server Channel."));
-  cp.addOption(
-      CommandOption(optEngineChannel, 1, 1, "channel         Engine Channel."));
-  cp.addOption(CommandOption(optServerStreamId, 1, 1,
-                             "streamId        Server Stream ID."));
-  cp.addOption(CommandOption(optEngineStreamId, 1, 1,
-                             "streamId        Engine Stream ID."));
-  cp.addOption(
-      CommandOption(optFrags, 1, 1, "limit           Fragment Count Limit."));
+  auto SettingsRoot = SettingsBuilder.initRoot<TestProcesses>();
+  auto ServerList = SettingsRoot.initServers(1);
 
-  signal(SIGINT, sigIntHandler);
+  ServerList[0].setClockRegion("ClockRegion3");
+  auto DiscSetting = ServerList[0].initSettings().initDiscoveryd();
 
+  using namespace DISCOVERY_ENGINE::CONFIG;
+
+  DiscSetting.setDbPath(DEFAULT_DB_PATH);
+  DiscSetting.setDbSize(DEFAULT_DB_SIZE);
+  DiscSetting.setDirPrefix(DEFAULT_DIR_PREFIX);
+  DiscSetting.setServerChannel(DEFAULT_SERVER_CHANNEL);
+  DiscSetting.setEngineChannel(DEFAULT_ENGINE_CHANNEL);
+  DiscSetting.setServerStreamId(DEFAULT_SERVER_STREAM_ID);
+  DiscSetting.setEngineStreamId(DEFAULT_ENGINE_STREAM_ID);
+  DiscSetting.setFragmentCountLimit(DEFAULT_FRAGMENT_COUNT_LIMIT);
+
+  auto ServerRunner = ServerProcessRunner(env);
+  ServerRunner.setDiscoveryDRunFunction(::runServer<xy::SharedMemorySource>);
+  auto ret = ServerRunner.runServerProcesses(SettingsRoot);
+
+  if (ret == -1) return 1;
   try {
-    Settings settings = parseCmdLine(cp, argc, argv);
-
     cout << "Tester" << endl;
-    cout << "Publishing Server at " << settings.serverChannel
-         << " on Stream ID " << settings.serverStreamId << endl;
-    cout << "Subscribing Engine at " << settings.engineChannel
-         << " on Stream ID " << settings.engineStreamId << endl;
+    cout << "Publishing Server at " << DiscSetting.getServerChannel().cStr()
+         << " on Stream ID " << DiscSetting.getServerStreamId() << endl;
+    cout << "Subscribing Engine at " << DiscSetting.getEngineChannel().cStr()
+         << " on Stream ID " << DiscSetting.getEngineStreamId() << endl;
 
     aeron::Context context;
     int64_t publicationId;
     int64_t subscriptionId;
     std::atomic<bool> shouldPoll(false);
 
-    shared_ptr<Publication> serverPublication = nullptr;
-    shared_ptr<Subscription> engineSubscription = nullptr;
+    std::shared_ptr<Publication> serverPublication = nullptr;
+    std::shared_ptr<Subscription> engineSubscription = nullptr;
 
-    if (settings.dirPrefix != "") {
-      context.aeronDir(settings.dirPrefix);
+    if (DiscSetting.getDirPrefix().asString() != "") {
+      context.aeronDir(DiscSetting.getDirPrefix().cStr());
     }
+
+    ServerRunner.getClock("ClockRegion3").setTime(100);
 
     context.newPublicationHandler([](const string& channel, int32_t streamId,
                                      int32_t sessionId, int64_t correlationId) {
@@ -156,7 +130,7 @@ int main(int argc, char** argv) {
 
     context.availableImageHandler(
         [&shouldPoll, &subscriptionId, &serverPublication, &engineSubscription,
-         &settings](Image& image) {
+         &DiscSetting](Image& image) {
           cout << "Available image correlationId=" << image.correlationId()
                << " sessionId=" << image.sessionId();
           cout << " at position=" << image.position() << " from "
@@ -194,8 +168,9 @@ int main(int argc, char** argv) {
           // Poll for messages from discovery engine.
           BusySpinIdleStrategy idleStrategy;
           while (shouldPoll && running &&
-                 engineSubscription->poll(fragmentAssembler.handler(),
-                                          settings.fragmentCountLimit) <= 0) {
+                 engineSubscription->poll(
+                     fragmentAssembler.handler(),
+                     DiscSetting.getFragmentCountLimit()) <= 0) {
             idleStrategy.idle(0);
           }
         });
@@ -215,9 +190,11 @@ int main(int argc, char** argv) {
     Aeron aeron(context);
 
     publicationId =
-        aeron.addPublication(settings.serverChannel, settings.serverStreamId);
+        aeron.addPublication(DiscSetting.getServerChannel().asString(),
+                             DiscSetting.getServerStreamId());
     subscriptionId =
-        aeron.addSubscription(settings.engineChannel, settings.engineStreamId);
+        aeron.addSubscription(DiscSetting.getEngineChannel().asString(),
+                              DiscSetting.getEngineStreamId());
 
     serverPublication = aeron.findPublication(publicationId);
     while (!serverPublication) {
@@ -233,12 +210,6 @@ int main(int argc, char** argv) {
 
     // Wait for an image for the server subscription to become available.
     while (running) this_thread::yield();
-
-  } catch (CommandOptionException& e) {
-    cerr << "ERROR: " << e.what() << endl
-         << endl;
-    cp.displayOptionsHelp(cerr);
-    return -1;
 
   } catch (SourcedException& e) {
     cerr << "FAILED: " << e.what() << " : " << e.where() << endl;

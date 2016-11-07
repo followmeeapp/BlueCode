@@ -16,7 +16,6 @@ struct Network {
   #     FacebookType = 0,
   #     TwitterType,
   #     InstagramType,
-  #     PokemonGoType,
   #     SnapchatType,
   #     GooglePlusType,
   #     YouTubeType,
@@ -33,24 +32,23 @@ struct Network {
     facebook    @0;
     twitter     @1;
     instagram   @2;
-    pokemonGo   @3;
-    snapchat    @4;
-    googlePlus  @5;
-    youTube     @6;
-    pinterest   @7;
-    tumblr      @8;
-    linkedIn    @9;
-    periscope   @10;
-    vine        @11;
-    soundClound @12;
-    sinaWeibo   @13;
-    vKontakte   @14;
+    snapchat    @3;
+    googlePlus  @4;
+    youTube     @5;
+    pinterest   @6;
+    tumblr      @7;
+    linkedIn    @8;
+    periscope   @9;
+    vine        @10;
+    soundClound @11;
+    sinaWeibo   @12;
+    vKontakte   @13;
   }
 }
 
 struct Card {
   id      @0 :Int64;
-  version @1 :UInt32;
+  version @1 :Int32;
 
   fullName @2 :Text;
   location @3 :Text;
@@ -58,24 +56,46 @@ struct Card {
 
   avatarURLString     @5 :Text;
   backgroundURLString @6 :Text;
+  backgroundOpacity   @7 :Float32;
+  rowOffset           @8 :Int32;
 
-  hasFacebook   @7  :Bool;
-  hasTwitter    @8  :Bool;
-  hasInstagram  @9  :Bool;
-  hasPokemonGo  @10 :Bool;
-  hasSnapchat   @11 :Bool;
-  hasGooglePlus @12 :Bool;
-  hasYouTube    @13 :Bool;
-  hasPinterest  @14 :Bool;
-  hasTumblr     @15 :Bool;
-  hasLinkedIn   @16 :Bool;
-  hasPeriscope  @17 :Bool;
-  hasVine       @18 :Bool;
-  hasSoundCloud @19 :Bool;
-  hasSinaWeibo  @20 :Bool;
-  hasVKontakte  @21 :Bool;
+  hasFacebook   @9  :Bool;
+  hasTwitter    @10 :Bool;
+  hasInstagram  @11 :Bool;
+  hasSnapchat   @12 :Bool;
+  hasGooglePlus @13 :Bool;
+  hasYouTube    @14 :Bool;
+  hasPinterest  @15 :Bool;
+  hasTumblr     @16 :Bool;
+  hasLinkedIn   @17 :Bool;
+  hasPeriscope  @18 :Bool;
+  hasVine       @19 :Bool;
+  hasSoundCloud @20 :Bool;
+  hasSinaWeibo  @21 :Bool;
+  hasVKontakte  @22 :Bool;
 
-  networks @22 :List(Network);
+  networks @23 :List(Network);
+}
+
+struct CardAnalytics {
+  cardBLEDeliveries  @0  :Int64;
+  cardLinkDeliveries @1  :Int64;
+  cardViews          @2  :Int64;
+  cardShares         @3  :Int64;
+  facebookViews      @4  :Int64;
+  twitterViews       @5  :Int64;
+  instagramViews     @6  :Int64;
+  snapchatViews      @7  :Int64;
+  googlePlusViews    @8  :Int64;
+  youTubeViews       @9  :Int64;
+  pinterestViews     @10 :Int64;
+  tumblrViews        @11 :Int64;
+  linkedInViews      @12 :Int64;
+  periscopeViews     @13 :Int64;
+  vineViews          @14 :Int64;
+  soundCloudViews    @15 :Int64;
+  sinaWeiboViews     @16 :Int64;
+  vKontakteViews     @17 :Int64;
 }
 
 struct CreateCardRequest {
@@ -88,12 +108,13 @@ struct UpdateCardRequest {
 
 struct CardRequest {
   id      @0 :Int64;
-  version @1 :UInt32;
+  version @1 :Int32;
 }
 
 struct CardResponse {
   status @0 :Status;
   card   @1 :Card;
+  analytics @2 :CardAnalytics;
 
   enum Status {
     current @0;
