@@ -485,7 +485,15 @@ error:                        (NSError *)      error
         self.alreadySetUp = YES;
 
         if (self.blueModel.activeUserCard == nil) {
-            self.window.rootViewController = [[BlueIntroController alloc] init];
+            self.didShowIntro = YES;
+
+            BlueIntroController *vc = [[BlueIntroController alloc] init];
+
+            if ([[params objectForKey: @"+clicked_branch_link"] boolValue]) {
+                vc.delayShowingIntro = YES;
+            }
+
+            self.window.rootViewController = vc;
 
         } else {
             [self showMain];
@@ -503,11 +511,13 @@ error:                        (NSError *)      error
         NSString *location = params[@"location"];
         nc.location = (!location || (NSNull *)location == [NSNull null]) ? nil : location;
 
-        [nc configure];
-
         [self.blueAnalytics viewCardViaCardLink: nc.cardId];
 
-        [self.window.rootViewController presentViewController: nc animated: YES completion: nil];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^(void) {
+            [nc configure];
+
+            [self.window.rootViewController presentViewController: nc animated: YES completion: nil];
+        });
     }
 }
 

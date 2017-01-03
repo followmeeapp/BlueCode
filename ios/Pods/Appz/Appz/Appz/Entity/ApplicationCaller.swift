@@ -36,7 +36,7 @@ public extension ApplicationCaller {
         let baseURL = URL(string: scheme)
         let paths = action.paths
         
-        if let baseURL = baseURL , canOpenURL(baseURL),
+        if let baseURL = baseURL, canOpenURL(baseURL),
             let url = paths.app.appendToURL(scheme)
         {
             return openURL(url)

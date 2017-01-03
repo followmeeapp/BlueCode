@@ -44,7 +44,7 @@ public struct Path {
         
         var pathComponents = self.pathComponents
         
-        if let firstPath = pathComponents.first , urlComponents?.host == nil {
+        if let firstPath = pathComponents.first, urlComponents?.host == nil {
             urlComponents?.host = firstPath
             pathComponents = Array(pathComponents.dropFirst())
         }

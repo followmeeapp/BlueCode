@@ -81,52 +81,30 @@ typedef NS_ENUM(NSInteger, MainStatus) {
 
 - (void) configureMenu
 {
-    REMenuItem *privacyItem = [[REMenuItem alloc] initWithTitle:    @"Privacy Policy"
-                                                  subtitle:         nil
-                                                  image:            nil
-                                                  highlightedImage: nil
-                                                  action:
-    ^(REMenuItem *item) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
-        UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"PrivacyPolicy"];
-        [self.navigationController pushViewController: vc animated: YES];
-    }];
-
-    REMenuItem *termsItem = [[REMenuItem alloc] initWithTitle:    @"Terms & Conditions"
-                                                subtitle:         nil
-                                                image:            nil
-                                                highlightedImage: nil
-                                                action:
+    REMenuItem *policiesItem = [[REMenuItem alloc] initWithTitle:    @"Policies"
+                                                   subtitle:         nil
+                                                   image:            nil
+                                                   highlightedImage: nil
+                                                   action:
     ^(REMenuItem *item) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
         UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"TermsAndConditions"];
         [self.navigationController pushViewController: vc animated: YES];
     }];
 
-    REMenuItem *copyrightItem = [[REMenuItem alloc] initWithTitle:    @"Copyright Policy"
-                                                    subtitle:         nil
-                                                    image:            nil
-                                                    highlightedImage: nil
-                                                    action:
+    REMenuItem *feedbackItem = [[REMenuItem alloc] initWithTitle:    @"Feedback"
+                                                   image:            nil
+                                                   highlightedImage: nil
+                                                   action:
     ^(REMenuItem *item) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
-        UIViewController *vc = [sb instantiateViewControllerWithIdentifier: @"CopyrightPolicy"];
-        [self.navigationController pushViewController: vc animated: YES];
-    }];
-
-    REMenuItem *supportItem = [[REMenuItem alloc] initWithTitle:    @"Support"
-                                                  image:            nil
-                                                  highlightedImage: nil
-                                                  action:
-    ^(REMenuItem *item) {
-        NSString *emailTitle = @"Blue Support";
-        NSString *messageBody = @"How can we help you?";
+        NSString *emailTitle = @"Blue Feedback";
+        NSString *messageBody = @"";
 
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
         if (!mc) return;
 
         mc.mailComposeDelegate = self;
-        [mc setToRecipients: @[@"support@blue.social"]];
+        [mc setToRecipients: @[@"feedback@blue.social"]];
         [mc setSubject: emailTitle];
         [mc setMessageBody: messageBody isHTML: NO];
 
@@ -152,14 +130,12 @@ typedef NS_ENUM(NSInteger, MainStatus) {
         [APP_DELEGATE.blueBackup logout: nil];
     }];
 
-    privacyItem.tag = 0;
-    termsItem.tag = 1;
-    supportItem.tag = 2;
+    policiesItem.tag = 1;
+    feedbackItem.tag = 2;
     backupItem.tag = 3;
-    copyrightItem.tag = 4;
-    logoutItem.tag = 5;
+    logoutItem.tag = 4;
 
-    self.menu = [[REMenu alloc] initWithItems: @[privacyItem, termsItem, copyrightItem, supportItem, backupItem, logoutItem]];
+    self.menu = [[REMenu alloc] initWithItems: @[policiesItem, feedbackItem, backupItem, logoutItem]];
 
     // Blurred background in iOS 7
     self.menu.liveBlur = YES;
@@ -452,6 +428,8 @@ error:                 (NSError *)                     error
 
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(beginRefreshingTableView:) name: @"RefreshCards" object: nil];
 
+//    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(moveCardToFront:) name: @"MoveCardToFront" object: nil];
+
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didCreateUser:) name: @"DidCreateUser" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didCreateCard:) name: @"DidCreateCard" object: nil];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(didUpdateCardsFromBackup:) name: @"BlueDidUpdateCardsFromBackup" object: nil];
@@ -564,7 +542,7 @@ error:                 (NSError *)                     error
             instagram.guid = [[NSUUID UUID] UUIDString];
             instagram.cardId = 0;
             instagram.type = InstagramType;
-            instagram.username = @"BLUE_SocialApp";
+            instagram.username = @"Blue_Social";
             ceoCard.hasInstagram = YES;
             [ceoCard.networks addObject: instagram];
 
@@ -651,6 +629,58 @@ error:                 (NSError *)                     error
 
     [self.tableView reloadData];
 }
+
+// TODO(Erich): Test this!
+//- (void) moveCardToFront: (NSNotification *) note
+//{
+//    NSNumber *cardId = note.userInfo[@"cardId"];
+//
+//    RLMRealm *realm = [RLMRealm defaultRealm];
+//    [realm beginWriteTransaction];
+//
+//    DeviceObject *activeDevice = [APP_DELEGATE.blueModel activeDevice];
+//    NSArray *visibleCards = activeDevice.visibleCards;
+//
+//    // Find the index of the card we want to move.
+//    NSInteger idx = [visibleCards indexOfObject: cardId];
+//
+//    if (idx == 0) {
+//        [realm commitWriteTransaction];
+//        return;
+//    }
+//
+//    // Update the section array to match.
+//    // TODO(Erich): Make this happen.
+//    NSMutableArray *mary = [[[visibleCards reverseObjectEnumerator] allObjects] mutableCopy];
+//    [mary removeObject: cardId];
+//    [mary addObject: cardId];
+//
+//    [activeDevice updateVisibleCards: mary hiddenCards: @[]];
+//
+//    [realm addOrUpdateObject: activeDevice];
+//    [realm commitWriteTransaction];
+//
+//    // Update our internal properties.
+//    self.activeDevice = activeDevice;
+//    self.visibleCardCount = visibleCards.count; // Unchanged
+//
+//    // Update the table view.
+//    UITableView *tv = self.tableView;
+//    [tv beginUpdates];
+//
+//    [tv insertRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0   inSection: 1]] withRowAnimation: UITableViewRowAnimationAutomatic];
+//    [tv deleteRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: idx inSection: 1]] withRowAnimation: UITableViewRowAnimationAutomatic];
+//
+//    [tv endUpdates];
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+//        [tv beginUpdates];
+//
+//        [tv reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 1 inSection: 1]] withRowAnimation: UITableViewRowAnimationNone];
+//
+//        [tv endUpdates];
+//    });
+//}
 
 - (void) beginRefreshingTableView: (NSNotification *) note;
 {

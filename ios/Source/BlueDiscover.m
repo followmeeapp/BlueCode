@@ -409,7 +409,8 @@ RSSI:                  (NSNumber *)         RSSI
             device.lastSeen = [NSDate dateWithTimeIntervalSinceNow: 0];
 
             [realm addOrUpdateObject: device];
-            [realm commitWriteTransaction];
+
+//            BOOL shouldNotify = NO;
 
             // Do we need to gather the rest of the card's BLE properties?
             CardObject *card = [CardObject objectForPrimaryKey: dict[@"c"]];
@@ -420,11 +421,31 @@ RSSI:                  (NSNumber *)         RSSI
                 }
 
             } else {
-                // Our saved CardObject is up-to-date, so we can notify BlueApp immediately.
-                // (It might choose to add the card to recents if it's not there already.)
                 session.finished = YES;
-                [self updateList];
+
+                // If the last time we saw the card was over 90 minutes, then update its timestamp
+                // and notify the main controller that it should be moved to the top.
+//                NSDate *now = [NSDate dateWithTimeIntervalSinceNow: 0];
+//                if (([now timeIntervalSince1970] - [card.timestamp timeIntervalSince1970]) > (60.0 * 90.0)) {
+//                    shouldNotify = YES;
+//                    card.timestamp = now;
+//                    [realm addOrUpdateObject: card];
+//
+//                } else {
+                    [self updateList];
+//                }
             }
+
+            [realm commitWriteTransaction];
+
+//            if (shouldNotify) {
+//                NSNumber *cardId = @(card.id);
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1), dispatch_get_main_queue(), ^{
+//                    [[NSNotificationCenter defaultCenter] postNotificationName: @"MoveCardToFront"
+//                                                          object:               nil
+//                                                          userInfo:             @{ @"cardId": cardId }];
+//                });
+//            }
         }
     }
 }

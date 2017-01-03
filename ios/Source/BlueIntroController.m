@@ -31,6 +31,11 @@
 
     self.introStatus = FirstScreen;
 
+    if (!self.delayShowingIntro) [self showIntro];
+}
+
+- (void) showIntro
+{
     UIPageViewController *vc = [[UIPageViewController alloc] initWithTransitionStyle: UIPageViewControllerTransitionStyleScroll
                                                              navigationOrientation:   UIPageViewControllerNavigationOrientationHorizontal
                                                              options:                 nil                                                ];

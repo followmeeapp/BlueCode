@@ -17,11 +17,15 @@ typedef NS_ENUM(NSInteger, IntroStatus) {
 
 @interface BlueIntroController : UIViewController <UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
+@property (nonatomic, assign) BOOL delayShowingIntro;
+
 @property (nonatomic, assign) BOOL isUserInitiatedTour;
 
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
 - (void) createCard;
 - (void) skipIntro;
+
+- (void) showIntro;
 
 @end

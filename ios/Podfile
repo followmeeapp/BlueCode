@@ -16,7 +16,7 @@ target 'Blue' do
   pod 'Reveal-iOS-SDK', :configurations => ['Debug']
   pod 'SVProgressHUD'
   pod 'TOCropViewController'
-  pod 'Appz'
+  pod 'Appz', :git => 'https://github.com/SwiftKitz/Appz.git'
   pod 'NSHash', '~> 1.1.0'
   pod 'CCMPopup'
   pod 'REMenu', '~> 1.10'

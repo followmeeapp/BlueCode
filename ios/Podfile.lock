@@ -3,23 +3,23 @@ PODS:
   - AttributedMarkdown (0.9.2)
   - BZipCompression (1.0.2)
   - CCMPopup (1.1.0)
-  - Firebase/AdMob (3.8.0):
+  - Firebase/AdMob (3.10.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.13.0)
-  - Firebase/Core (3.8.0):
-    - FirebaseAnalytics (= 3.5.1)
-    - FirebaseCore (= 3.4.4)
-  - FirebaseAnalytics (3.5.1):
+    - Google-Mobile-Ads-SDK (= 7.15.0)
+  - Firebase/Core (3.10.0):
+    - FirebaseAnalytics (= 3.6.0)
+    - FirebaseCore (= 3.4.5)
+  - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.4.4):
+  - FirebaseCore (3.4.5):
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.8)
-  - Google-Mobile-Ads-SDK (7.13.0)
+  - Google-Mobile-Ads-SDK (7.15.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -28,19 +28,19 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - IQKeyboardManager (4.0.7)
   - NSHash (1.1.0)
-  - Realm (2.0.2):
-    - Realm/Headers (= 2.0.2)
-  - Realm/Headers (2.0.2)
+  - Realm (2.1.1):
+    - Realm/Headers (= 2.1.1)
+  - Realm/Headers (2.1.1)
   - REMenu (1.10)
   - Reveal-iOS-SDK (1.6.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SVProgressHUD (2.0.3)
-  - TOCropViewController (2.0.10)
+  - SVProgressHUD (2.1.2)
+  - TOCropViewController (2.0.11)
 
 DEPENDENCIES:
-  - Appz
+  - Appz (from `https://github.com/SwiftKitz/Appz.git`)
   - AttributedMarkdown (from `https://github.com/dreamwieber/AttributedMarkdown.git`)
   - BZipCompression (~> 1.0.0)
   - CCMPopup
@@ -56,10 +56,15 @@ DEPENDENCIES:
   - TOCropViewController
 
 EXTERNAL SOURCES:
+  Appz:
+    :git: https://github.com/SwiftKitz/Appz.git
   AttributedMarkdown:
     :git: https://github.com/dreamwieber/AttributedMarkdown.git
 
 CHECKOUT OPTIONS:
+  Appz:
+    :commit: 295e4e5ae2b6ea16b521fa06e18f9feb598648c9
+    :git: https://github.com/SwiftKitz/Appz.git
   AttributedMarkdown:
     :commit: 4aef3c80e0ffe6c7011c20c7f703ea56af774861
     :git: https://github.com/dreamwieber/AttributedMarkdown.git
@@ -69,23 +74,23 @@ SPEC CHECKSUMS:
   AttributedMarkdown: ac5060667280be8cc8ee33a46c73e4ec6b17ca1a
   BZipCompression: e0f96508e60eb93b5f5d4c7de1eb3dd0ac4f9ae9
   CCMPopup: e41fad5b8a0823c9cddea8eab6d431670c9dabe5
-  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
-  FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
-  FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
+  Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
+  FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
+  FirebaseCore: 1e383fdfe37b6b5d6ff88e84204bdee30276af0f
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  Google-Mobile-Ads-SDK: b0cac2909229e8f13fb30e03537cdefbd7be28fa
+  Google-Mobile-Ads-SDK: 75d41dfcf06f7666ab211573d212768b0f766c5d
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   IQKeyboardManager: 69002bb4fea60596b710e57d426abc00e5063630
   NSHash: 61d598c6d48957c5557f1eef0aeafd6ef5ec5fb7
-  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
   REMenu: 30dad195930adf6c5eeb8041e3257aa60bf9fa49
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  TOCropViewController: 62c251749c728e985b556604874fd79d9de0ed4d
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  TOCropViewController: fe91aaab9e95d72ac38654d1174c8c8339585ee5
 
-PODFILE CHECKSUM: 6530cbf9cdc1eb73849aefcbbbf45757e9e1c909
+PODFILE CHECKSUM: 93ca6f5e453265b4d84fbf7cfc979c40ae3e1ff7
 
 COCOAPODS: 1.0.1

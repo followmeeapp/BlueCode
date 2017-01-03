@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource: @"terms-of-service" withExtension: @"rtf"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource: @"terms-of-use" withExtension: @"rtf"];
     NSAttributedString *text = [[NSAttributedString alloc] initWithURL:        url
                                                            options:            @{ NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType }
                                                            documentAttributes: nil

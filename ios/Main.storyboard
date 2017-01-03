@@ -106,9 +106,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="HMM-kp-EEC" kind="push" id="eX3-x4-a2n"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardCell" rowHeight="121" id="Ifd-8E-Lti" customClass="BlueCardCell">
                                 <rect key="frame" x="0.0" y="314" width="375" height="121"/>
@@ -262,7 +259,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cancel" id="XzA-1U-uQZ"/>
                     <connections>
-                        <segue destination="UsN-rT-qSA" kind="push" identifier="foo" id="qFq-yp-fEh"/>
                         <segue destination="0Xh-YD-leQ" kind="push" identifier="bar" id="cs3-la-2yy"/>
                     </connections>
                 </tableViewController>
@@ -765,7 +761,7 @@
             </objects>
             <point key="canvasLocation" x="467" y="1494"/>
         </scene>
-        <!--Terms & Conditions-->
+        <!--Policies-->
         <scene sceneID="bDX-Dm-tSu">
             <objects>
                 <viewController storyboardIdentifier="TermsAndConditions" id="0Xh-YD-leQ" customClass="BlueTOSController" sceneMemberID="viewController">
@@ -793,7 +789,7 @@
                             <constraint firstItem="OVF-x0-aJS" firstAttribute="top" secondItem="9lG-4c-vKp" secondAttribute="topMargin" id="zmx-Fg-XQO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Terms &amp; Conditions" id="RPB-t2-SiN">
+                    <navigationItem key="navigationItem" title="Policies" id="RPB-t2-SiN">
                         <barButtonItem key="rightBarButtonItem" title="More" id="70y-vz-9lq">
                             <connections>
                                 <segue destination="5ZY-Rd-Xa8" kind="push" id="ROA-Lk-Ndn"/>
@@ -807,43 +803,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqo-ZM-EI3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-643" y="-81"/>
-        </scene>
-        <!--Privacy Policy-->
-        <scene sceneID="HCd-S0-HH6">
-            <objects>
-                <viewController storyboardIdentifier="PrivacyPolicy" id="UsN-rT-qSA" customClass="BluePrivacyController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NxI-Cf-ChR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Kpx-Sa-pnd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cMz-6T-bfm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Privacy Policy" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5np-gY-9Nr">
-                                <rect key="frame" x="12" y="0.0" width="351" height="667"/>
-                                <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="5np-gY-9Nr" firstAttribute="top" secondItem="cMz-6T-bfm" secondAttribute="topMargin" id="CXZ-Kq-HjI"/>
-                            <constraint firstItem="Kpx-Sa-pnd" firstAttribute="top" secondItem="5np-gY-9Nr" secondAttribute="bottom" id="fhx-7N-39R"/>
-                            <constraint firstItem="5np-gY-9Nr" firstAttribute="leading" secondItem="cMz-6T-bfm" secondAttribute="leadingMargin" constant="-4" id="pfX-nk-M4Q"/>
-                            <constraint firstItem="5np-gY-9Nr" firstAttribute="trailing" secondItem="cMz-6T-bfm" secondAttribute="trailingMargin" constant="4" id="rvB-ei-F9C"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Privacy Policy" id="oi7-eA-X4P"/>
-                    <connections>
-                        <outlet property="textView" destination="5np-gY-9Nr" id="5WG-fK-iPi"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hoG-cd-4lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-406" y="710"/>
         </scene>
         <!--Software Licenses-->
         <scene sceneID="nuV-as-xvC">
@@ -881,43 +840,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veq-E4-ZNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-187" y="-82"/>
-        </scene>
-        <!--Copyright Policy-->
-        <scene sceneID="r3n-cq-uSg">
-            <objects>
-                <viewController storyboardIdentifier="CopyrightPolicy" id="HMM-kp-EEC" customClass="BlueCopyrightController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pgX-LP-LVy"/>
-                        <viewControllerLayoutGuide type="bottom" id="5tW-aq-q8O"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Ft-GX-bRJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Privacy Policy" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bdu-Jf-Roj">
-                                <rect key="frame" x="12" y="0.0" width="351" height="667"/>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="bdu-Jf-Roj" firstAttribute="top" secondItem="6Ft-GX-bRJ" secondAttribute="topMargin" id="5Tw-8T-vDG"/>
-                            <constraint firstItem="bdu-Jf-Roj" firstAttribute="leading" secondItem="6Ft-GX-bRJ" secondAttribute="leadingMargin" constant="-4" id="I5V-Mc-Y65"/>
-                            <constraint firstItem="5tW-aq-q8O" firstAttribute="top" secondItem="bdu-Jf-Roj" secondAttribute="bottom" id="Ktz-Mi-CXq"/>
-                            <constraint firstItem="bdu-Jf-Roj" firstAttribute="trailing" secondItem="6Ft-GX-bRJ" secondAttribute="trailingMargin" constant="4" id="lPt-Fu-1eX"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Copyright Policy" id="vZM-xR-0sJ"/>
-                    <connections>
-                        <outlet property="textView" destination="bdu-Jf-Roj" id="LLX-gS-kX3"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGt-ok-BiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-407" y="1494"/>
         </scene>
     </scenes>
     <resources>

@@ -139,7 +139,7 @@
         } break;
 
         case YouTubeType: {
-            NSString *urlString = [NSString stringWithFormat: @"https://www.youtube.com/user/%@", username];
+            NSString *urlString = [NSString stringWithFormat: @"https://www.youtube.com/channel/%@", username];
             [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
         } break;
 

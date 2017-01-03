@@ -10,6 +10,8 @@
 
 #import "BlueApp.h"
 
+#import "BlueIntroController.h"
+
 #import "CardObject.h"
 
 @implementation BlueLoadingCardController
@@ -43,7 +45,12 @@
 
 - (IBAction) dismiss: sender
 {
-    [self dismissViewControllerAnimated: YES completion: nil];
+    [self dismissViewControllerAnimated: YES completion: ^{
+        if (APP_DELEGATE.didShowIntro) {
+            APP_DELEGATE.didShowIntro = NO; // reset
+            [((BlueIntroController *)(APP_DELEGATE.window.rootViewController)) showIntro];
+        }
+    }];
 }
 
 @end

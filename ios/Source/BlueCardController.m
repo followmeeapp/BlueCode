@@ -18,6 +18,7 @@
 #import "BlueModel.h"
 #import "BlueClient.h"
 
+#import "BlueIntroController.h"
 #import "BlueNetworkEditController.h"
 
 #import "CardObject.h"
@@ -437,7 +438,12 @@
         [self presentViewController: alert animated: YES completion: nil];
 
     } else {
-        [self dismissViewControllerAnimated: YES completion: nil];
+        [self dismissViewControllerAnimated: YES completion: ^{
+            if (APP_DELEGATE.didShowIntro) {
+                APP_DELEGATE.didShowIntro = NO; // reset
+                [((BlueIntroController *)(APP_DELEGATE.window.rootViewController)) showIntro];
+            }
+        }];
     }
 }
 
@@ -823,7 +829,12 @@ didSelectItemAtIndexPath: (NSIndexPath *)      indexPath
         vc.networkKey = props[@"key"];
         vc.networkName = props[@"name"];
         vc.networkSlug = props[@"slug"];
-        vc.promptText = [NSString stringWithFormat: @"%@ Username", props[@"name"]];
+        if ([props[@"name"] isEqualToString: @"YouTube"]) {
+            vc.promptText = @"YouTube Channel";
+
+        } else {
+            vc.promptText = [NSString stringWithFormat: @"%@ Username", props[@"name"]];
+        }
         vc.backgroundColor = props[@"color"];
         vc.image = [UIImage imageNamed: props[@"largeIcon"]];
 
@@ -1040,6 +1051,7 @@ onlyIfUserHasNetwork: (BOOL)            onlyIfUserHasNetwork
                 }
             }
         }
+
         case SnapchatType: {
             if (!card.hasSnapchat) return NO;
 
@@ -1075,15 +1087,8 @@ onlyIfUserHasNetwork: (BOOL)            onlyIfUserHasNetwork
 
             for (NetworkObject *network in card.networks) {
                 if (network.type == YouTubeType) {
-                    // FIXME(Erich): Handle our own card specially, because it uses a channel?
-                    if (card.id == 0) {
-                        NSString *urlString = [NSString stringWithFormat: @"https://www.youtube.com/channel/%@/videos", network.username];
-                        [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
-
-                    } else {
-                        NSString *urlString = [NSString stringWithFormat: @"https://www.youtube.com/user/%@", network.username];
-                        [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
-                    }
+                    NSString *urlString = [NSString stringWithFormat: @"https://www.youtube.com/channel/%@", network.username];
+                    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: urlString]];
                 }
             }
         } break;
@@ -1847,7 +1852,17 @@ imagePickerControllerDidCancel: (UIImagePickerController *) picker
     CardObject *card = self.card;
     if (!card) return;
 
-    NetworkObject *network = [self.card.networks objectAtIndex: self.tappedIndexPath.row];
+    NetworkObject *network = nil;
+    NetworkType networkType = [[self.sortedNetworks objectAtIndex: self.tappedIndexPath.row] integerValue];
+
+    for (NSInteger idx=0, len=card.networks.count; idx<len; ++idx) {
+        NetworkObject *tmpNetwork = card.networks[idx];
+        if (tmpNetwork.type == networkType) {
+            network = tmpNetwork;
+            break;
+        }
+    }
+
     if (!network) return;
 
     [self createAndLoadInterstitial];

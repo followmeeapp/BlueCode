@@ -26,6 +26,8 @@
 @property (nonatomic, strong) BlueBackup *blueBackup;
 @property (nonatomic, strong) BlueAnalytics *blueAnalytics;
 
+@property (nonatomic, assign) BOOL didShowIntro;
+
 // Used by BlueSyncController. Note: These are file URLs!
 @property (nonatomic, readonly) NSURL *localAvatarURL;
 @property (nonatomic, readonly) NSURL *localOriginalAvatarURL;

@@ -84,8 +84,6 @@
 		775901351DC0213F005F7C2D /* tour4b.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 770D473C1DBFFB1600688982 /* tour4b.mp4 */; };
 		7759013B1DC27C30005F7C2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7759013A1DC27C30005F7C2D /* GoogleService-Info.plist */; };
 		77667F841DCABEC7006D5323 /* BlueAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = 77667F831DCABEC7006D5323 /* BlueAnalytics.m */; };
-		77667F861DCBD5DD006D5323 /* copyright-policy.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 77667F851DCBD5DD006D5323 /* copyright-policy.rtf */; };
-		77667F891DCBD641006D5323 /* BlueCopyrightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77667F881DCBD641006D5323 /* BlueCopyrightController.m */; };
 		77667F8C1DCC455B006D5323 /* BlueWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77667F8B1DCC455B006D5323 /* BlueWebController.m */; };
 		777893891CBB191A00318FA8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777893861CBB191A00318FA8 /* AddressBook.framework */; };
 		7778938A1CBB191A00318FA8 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777893871CBB191A00318FA8 /* DigitsKit.framework */; };
@@ -99,6 +97,7 @@
 		7778939D1CBB41D700318FA8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7778939C1CBB41D700318FA8 /* StoreKit.framework */; };
 		7778939F1CBB4E7900318FA8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7778939E1CBB4E7900318FA8 /* FBSDKCoreKit.framework */; };
 		777893A11CBB519F00318FA8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777893A01CBB519F00318FA8 /* FBSDKLoginKit.framework */; };
+		777CD1D01DDB8B9400F65948 /* terms-of-use.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 777CD1CF1DDB8B9400F65948 /* terms-of-use.rtf */; };
 		77A578511CC1AA4200AEB704 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A578501CC1AA4200AEB704 /* MobileCoreServices.framework */; };
 		77A578531CC1AA4D00AEB704 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A578521CC1AA4D00AEB704 /* CoreLocation.framework */; };
 		77AA8F5B1D14B9190039263C /* arena.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 77AA8F2C1D14B9190039263C /* arena.c++ */; };
@@ -121,10 +120,7 @@
 		77AA8F6D1D14B9190039263C /* units.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 77AA8F571D14B9190039263C /* units.c++ */; };
 		77AA8F751D14B94F0039263C /* char.c++ in Sources */ = {isa = PBXBuildFile; fileRef = 77AA8F721D14B94F0039263C /* char.c++ */; };
 		77B4CDE01C77E1D200EBEE45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B4CDDF1C77E1D200EBEE45 /* Images.xcassets */; };
-		77E001111D7E28EA00AB701C /* BluePrivacyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E001101D7E28EA00AB701C /* BluePrivacyController.m */; };
 		77E001141D7E28F600AB701C /* BlueTOSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E001131D7E28F600AB701C /* BlueTOSController.m */; };
-		77E001171D7E295000AB701C /* privacy-policy.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 77E001151D7E295000AB701C /* privacy-policy.rtf */; };
-		77E001181D7E295000AB701C /* terms-of-service.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 77E001161D7E295000AB701C /* terms-of-service.rtf */; };
 		77E045E51C84B63600296974 /* Branch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E045E41C84B63600296974 /* Branch.framework */; };
 		77E602901DA5650E0075CB15 /* tour_out.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 77E6028A1DA5650E0075CB15 /* tour_out.mp4 */; };
 		77E602911DA5650E0075CB15 /* tour0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 77E6028B1DA5650E0075CB15 /* tour0.mp4 */; };
@@ -300,9 +296,6 @@
 		7759013A1DC27C30005F7C2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		77667F821DCABEC7006D5323 /* BlueAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueAnalytics.h; sourceTree = "<group>"; };
 		77667F831DCABEC7006D5323 /* BlueAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueAnalytics.m; sourceTree = "<group>"; };
-		77667F851DCBD5DD006D5323 /* copyright-policy.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "copyright-policy.rtf"; sourceTree = "<group>"; };
-		77667F871DCBD641006D5323 /* BlueCopyrightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueCopyrightController.h; sourceTree = "<group>"; };
-		77667F881DCBD641006D5323 /* BlueCopyrightController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueCopyrightController.m; sourceTree = "<group>"; };
 		77667F8A1DCC455B006D5323 /* BlueWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueWebController.h; sourceTree = "<group>"; };
 		77667F8B1DCC455B006D5323 /* BlueWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueWebController.m; sourceTree = "<group>"; };
 		777893861CBB191A00318FA8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
@@ -319,6 +312,7 @@
 		7778939E1CBB4E7900318FA8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = FacebookSDKs/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		777893A01CBB519F00318FA8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = FacebookSDKs/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		777C6FFD1C8C0C890046DE7F /* Follow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Follow.entitlements; path = ../Follow/Follow.entitlements; sourceTree = "<group>"; };
+		777CD1CF1DDB8B9400F65948 /* terms-of-use.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "terms-of-use.rtf"; sourceTree = "<group>"; };
 		77A578501CC1AA4200AEB704 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		77A578521CC1AA4D00AEB704 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		77AA8F2C1D14B9190039263C /* arena.c++ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "arena.c++"; path = "../server/capnproto/c++/src/kj/arena.c++"; sourceTree = "<group>"; };
@@ -373,12 +367,8 @@
 		77AA8F761D14CE800039263C /* libRealm.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRealm.a; path = "../../../../Library/Developer/Xcode/DerivedData/Follow-dhhrustdzqaiaffmfnqxjjwlqpch/Build/Products/Release-iphonesimulator/Realm/libRealm.a"; sourceTree = "<group>"; };
 		77B4CD5A1C77D0B400EBEE45 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77B4CDDF1C77E1D200EBEE45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Follow/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		77E0010F1D7E28EA00AB701C /* BluePrivacyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluePrivacyController.h; sourceTree = "<group>"; };
-		77E001101D7E28EA00AB701C /* BluePrivacyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluePrivacyController.m; sourceTree = "<group>"; };
 		77E001121D7E28F600AB701C /* BlueTOSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueTOSController.h; sourceTree = "<group>"; };
 		77E001131D7E28F600AB701C /* BlueTOSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueTOSController.m; sourceTree = "<group>"; };
-		77E001151D7E295000AB701C /* privacy-policy.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "privacy-policy.rtf"; sourceTree = "<group>"; };
-		77E001161D7E295000AB701C /* terms-of-service.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "terms-of-service.rtf"; sourceTree = "<group>"; };
 		77E045E41C84B63600296974 /* Branch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Branch.framework; path = "Branch-iOS-SDK/Branch.framework"; sourceTree = "<group>"; };
 		77E6028A1DA5650E0075CB15 /* tour_out.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tour_out.mp4; sourceTree = "<group>"; };
 		77E6028B1DA5650E0075CB15 /* tour0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tour0.mp4; sourceTree = "<group>"; };
@@ -561,12 +551,8 @@
 				77E687CE1D4C67760058D295 /* BlueAboutController.m */,
 				7737E30B1D77961D0088F8ED /* BlueLicenseController.h */,
 				7737E30C1D77961D0088F8ED /* BlueLicenseController.m */,
-				77E0010F1D7E28EA00AB701C /* BluePrivacyController.h */,
-				77E001101D7E28EA00AB701C /* BluePrivacyController.m */,
 				77E001121D7E28F600AB701C /* BlueTOSController.h */,
 				77E001131D7E28F600AB701C /* BlueTOSController.m */,
-				77667F871DCBD641006D5323 /* BlueCopyrightController.h */,
-				77667F881DCBD641006D5323 /* BlueCopyrightController.m */,
 				77667F8A1DCC455B006D5323 /* BlueWebController.h */,
 				77667F8B1DCC455B006D5323 /* BlueWebController.m */,
 				77E687CA1D4C67660058D295 /* BlueMonitor.h */,
@@ -875,9 +861,7 @@
 				770D473C1DBFFB1600688982 /* tour4b.mp4 */,
 				770D473D1DC005A600688982 /* jose-avatar.jpg */,
 				770D473E1DC005A600688982 /* jose-cover-photo.jpg */,
-				77667F851DCBD5DD006D5323 /* copyright-policy.rtf */,
-				77E001151D7E295000AB701C /* privacy-policy.rtf */,
-				77E001161D7E295000AB701C /* terms-of-service.rtf */,
+				777CD1CF1DDB8B9400F65948 /* terms-of-use.rtf */,
 				7737E3091D7796040088F8ED /* license.txt */,
 			);
 			path = Resources;
@@ -980,7 +964,7 @@
 		CC77265C1A3844C50007AEB2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Xy Group Ltd.";
 				TargetAttributes = {
 					CC7726AE1A3853450007AEB2 = {
@@ -1026,10 +1010,9 @@
 				7737E30A1D7796040088F8ED /* license.txt in Resources */,
 				7778938B1CBB191A00318FA8 /* DigitsKitResources.bundle in Resources */,
 				77E602931DA5650E0075CB15 /* tour2.mp4 in Resources */,
-				77E001171D7E295000AB701C /* privacy-policy.rtf in Resources */,
 				77E602951DA5650E0075CB15 /* tour4.mp4 in Resources */,
+				777CD1D01DDB8B9400F65948 /* terms-of-use.rtf in Resources */,
 				77E602911DA5650E0075CB15 /* tour0.mp4 in Resources */,
-				77667F861DCBD5DD006D5323 /* copyright-policy.rtf in Resources */,
 				7746A99C1CFE2D13008DF867 /* Main.storyboard in Resources */,
 				770D473F1DC005A600688982 /* jose-avatar.jpg in Resources */,
 				770FEDF61C98F508007B8463 /* TwitterKitResources.bundle in Resources */,
@@ -1037,7 +1020,6 @@
 				77B4CDE01C77E1D200EBEE45 /* Images.xcassets in Resources */,
 				77E602901DA5650E0075CB15 /* tour_out.mp4 in Resources */,
 				7759013B1DC27C30005F7C2D /* GoogleService-Info.plist in Resources */,
-				77E001181D7E295000AB701C /* terms-of-service.rtf in Resources */,
 				77E602941DA5650E0075CB15 /* tour3.mp4 in Resources */,
 				770D47401DC005A600688982 /* jose-cover-photo.jpg in Resources */,
 				77E602921DA5650E0075CB15 /* tour1.mp4 in Resources */,
@@ -1132,7 +1114,6 @@
 				77E687D91D4C67CD0058D295 /* BlueApp.m in Sources */,
 				77667F841DCABEC7006D5323 /* BlueAnalytics.m in Sources */,
 				77AA8F641D14B9190039263C /* main.c++ in Sources */,
-				77667F891DCBD641006D5323 /* BlueCopyrightController.m in Sources */,
 				77AA8F661D14B9190039263C /* mutex.c++ in Sources */,
 				77AA8F5B1D14B9190039263C /* arena.c++ in Sources */,
 				770DCAF11DBD522D0037757E /* NNLHashids.m in Sources */,
@@ -1178,7 +1159,6 @@
 				770DCAF01DBD522D0037757E /* hashids.c in Sources */,
 				771252D21D14FBB000A6FA3A /* blob.c++ in Sources */,
 				77E687E51D4C68110058D295 /* BlueDiscover.m in Sources */,
-				77E001111D7E28EA00AB701C /* BluePrivacyController.m in Sources */,
 				77AA8F651D14B9190039263C /* memory.c++ in Sources */,
 				77AA8F751D14B94F0039263C /* char.c++ in Sources */,
 				77AA8F671D14B9190039263C /* refcount.c++ in Sources */,
@@ -1286,7 +1266,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = social.blue.app;
 				PRODUCT_NAME = Blue;
 				PROVISIONING_PROFILE = "";
@@ -1360,7 +1339,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = social.blue.app;
 				PRODUCT_NAME = Blue;
 				PROVISIONING_PROFILE = "";
