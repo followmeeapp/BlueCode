@@ -1,0 +1,20 @@
+new_local_repository(
+  name = "boost",
+  path = "/Users/erik/Suiron/Code/Vendor/boost_1_63_0",
+  build_file = "boost.BUILD",
+)
+
+new_git_repository(
+  name = "lmdb",
+  tag = "LMDB_0.9.18",
+  remote = "https://github.com/LMDB/lmdb.git",
+  build_file = "lmdb.BUILD"
+)
+
+new_git_repository(
+  name = "zlib",
+  tag = "v1.2.8",
+  remote = "https://github.com/madler/zlib",
+  build_file = "zlib.BUILD"
+)
+

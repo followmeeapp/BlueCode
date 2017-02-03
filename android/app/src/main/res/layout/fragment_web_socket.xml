@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.followme.blue.WebSocketFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Websocket send/receive:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName|number"
+        android:text="1"
+        android:ems="10"
+        android:id="@+id/timeStampValue"
+        android:hint="integer value" />
+
+    <Button
+        android:text="Call websocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wsButton" />
+
+
+    <TextView
+        android:text="Results:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/outputLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <TextView
+        android:text="no results yet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/resultView"
+        android:layout_weight="1" />
+
+</LinearLayout>

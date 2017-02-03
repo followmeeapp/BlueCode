@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/menuLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textStyle="normal|bold"
+        android:textAlignment="textStart"
+        android:maxLines="1"
+        tools:inputType="none"
+        android:inputType="none"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:ems="10"
+        android:layout_below="@+id/menuLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/menuDescription"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textAlignment="textStart"
+        android:maxLines="2"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
+
+</RelativeLayout>

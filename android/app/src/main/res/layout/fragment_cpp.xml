@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.followme.blue.CppFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:text="LMDB put/get:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="value"
+        android:ems="10"
+        android:id="@+id/lmdbValue" />
+
+    <Button
+        android:text="Store Background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lmdbBGStoreButton" />
+
+    <Button
+        android:text="Store UI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lmdbStoreButton" />
+
+    <TextView
+        android:text="Card Echo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTimeStamp"
+        android:hint="number"
+        android:text="1" />
+
+    <Button
+        android:text="Echo Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardEchoButton" />
+
+    <TextView
+        android:text="Results:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/outputLabel"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+    <TextView
+        android:text="no results yet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/lmdbResultView"
+        android:layout_weight="1" />
+
+</LinearLayout>
